@@ -1,0 +1,224 @@
+<link rel="stylesheet" type="text/css" href="/public/css/apps/login.css"/>
+<link rel="stylesheet" type="text/css" href="/public/css/i-check.css"/>
+  <style>
+
+   /*@import url(/static/default/css/login/login.css); */
+   .login_loading {
+     position:absolute;
+     float:left;
+     top:0px;
+     left:0px;
+     z-index:99;
+     width:100%;
+     height:100%;
+     background:#000;
+     filter:alpha(Opacity=80);
+     -moz-opacity:0.7;
+     opacity: 0.7;
+   }
+
+   .login_loading p{
+     padding-top:20%;
+     text-align:center;
+     color:#fff;
+   }
+
+   /* 设置窗口 */
+   #telephone_set_for_pc {
+      padding:20px 30px;
+      width:210px;
+   }
+   #telephone_set_for_pc p {
+     text-align:center;
+   }
+   #telephone_set_for_pc p input {
+      border:1px solid #aaa;
+      outline: none;
+      padding-left:5px;
+   }
+   .switch_u>a{line-height: 287px; font-size: 17px;font-weight: 800; position: absolute;color: black;text-decoration: none;right: 115px;}
+   .switch_u:active{
+
+    background:orange;
+   }
+   .switch_u>a:active{
+    color:#fff;
+   }
+   .show_reg_u{display:none;}
+    .top_text{
+        font-size: 38px;
+
+    font-weight: 600;
+    text-align: center;
+    vertical-align: middle;
+   
+    background-image: -webkit-linear-gradient(left,#10c0f9,#00a9f6,#006ced);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-color: white;
+   }
+    #loginHeadImg{display: block;
+                   background-image: url(../public/css/icon2/login/icon.png) ;
+                   background-repeat: no-repeat ;
+                   background-position: center ;
+              height: 51px;
+              width: 364px;
+              background-size: 11%;}
+  </style>
+  <div class="login_loading" style="display:none;"><p>正在提交登录请求...</p></div>
+  
+
+  <div class="login-bd">
+   <!--  <div style="      position: absolute;
+    top: 0;
+    left: 250px;
+    background: url(../public/css/icon2/login/icon.png) no-repeat;
+    height: 58px;
+    width: 110px;
+    color: black;
+    font-weight: 600;
+    font-size: 19px;
+    background-size: 39%;">
+      <span style="    margin: 8px 0 0 53px;
+    display: inline-block;">抖管家</span>
+    </div> -->
+   <!--  <div class="bd-inner">
+      <div class="inner-wrap">
+        <div class="lg-poster"></div>
+      </div>
+    </div> -->
+    
+    <div style="margin-top: 12.17%;width:364px;text-align:center;">
+        <span id="loginHeadImg">
+        </span>
+          <span class="top_text">抖&nbsp;管&nbsp;家&nbsp;总&nbsp;控&nbsp;台</span>
+      <!--     <img style="width:450px" src="../public/css/icon2/login/company_name@2x.png"> -->
+        </div>
+    <div class="lg-zone" >
+
+      <div class="lg-box" style="overflow:hidden;margin-top:10%">
+        
+        <div id="login_u">
+             <div style="    text-align: center;
+    padding: 21px;
+    font-size: 17px;" >登录</div>
+              <div class="lg-password input-item clearfix">
+              <!--<i class="iconfont">&#xe634;</i>-->
+              <input type="text" placeholder="请输入商户编号" autocomplete="off" class="com_code" onkeydown="if(event.keyCode==13){$('.user_name').focus()}">
+            </div>
+            <div class="lg-username input-item clearfix">
+              <!--<i class="iconfont">&#xe60d;</i>-->
+              <input type="text" placeholder="请输入用户名" autocomplete="off" class="user_name" onkeydown="if(event.keyCode==13){$('.user_pwd').focus();}"/>
+            </div>
+
+            <div class="lg-password input-item clearfix">
+              <!--<i class="iconfont">&#xe634;</i>-->
+              <input type="password" placeholder="请输入密码" autocomplete="off" class="user_pwd" onkeydown="if(event.keyCode==13){toLogin();}">
+            </div>
+            
+           
+            <div style="margin-left:35px;width:200px;" class="tips clearfix checkbox icheck-success">
+              <input type="checkbox" name="remb_user" id="remb_user" checked  />
+              <label for="remb_user">记住用户名/商户编号</label> 
+            </div>
+            <div class="enter">
+              <a class="purchaser" onClick="toLogin();">登录</a>
+            </div>
+        </div>
+
+
+      </div>
+    </div>
+
+  </div>
+  <div class="login-ft">
+    <div class="ft-inner">
+     
+    </div>
+  </div>
+  <div id="login_alert" style="display:none;"></div>
+
+<script>
+  var confCss = window.sessionStorage.getItem('conf');
+  if (confCss) {
+    confCss = JSON.parse(confCss);
+    $("#loginHeadImg").css({ 'background-image': 'url(' + confCss.logocus + ')' })
+    $('.top_text').html(confCss.cusname)
+  }
+
+    if(window.localStorage.getItem('user_name') ){
+      let dd = JSON.parse(window.localStorage.getItem('user_name'))
+      $('.user_name').val(dd['u']) ;
+      $('.com_code').val(dd['c']) ;
+    }
+   /* if(window.localStorage.getItem('company_ident')) $('.company_ident').val(window.localStorage.getItem('company_ident')) ;*/
+
+
+
+   // 登录请求
+   function toLogin(){
+     var user_name = $(".user_name").val();
+     var user_pwd  = $(".user_pwd").val();
+     var com_code  = $(".com_code").val();
+    /* var verification = $(".verification").val();
+*/
+     if( user_name.length < 1 ){ plus_alert("请输入用户名!"); return false; }
+     if( user_pwd.length < 1 ){ plus_alert("请输入密码!"); return false; }
+     if( user_pwd.length < 6 ){ plus_alert("密码错误!"); return false; }
+     if( com_code.length < 1 ){ plus_alert("请输入商户编号!"); return false; }
+
+     $(".login_loading").show();
+
+
+     var dats = {
+       "uid" : user_name,
+       "pwd"  : user_pwd,
+       "m_id" : com_code,
+    /*   "verify"    : verification,
+       "comp"      :$('.company_ident').val(),*/
+     };
+
+     get_dats_login(DmConf.api.new.account_login, dats, function(data, err){
+
+       $(".login_loading").hide();
+       if(!err){
+           var dats = data
+         
+             if(dats.data.code==0 ){
+                dats.data.user_name = user_name ;
+                dats.data.company_ident = $('.company_ident').val() ;
+                window.sessionStorage.setItem('token',dats.data.info.token)
+                dats.data.info['cus_code'] = com_code;
+                window.sessionStorage.setItem('userInfo',JSON.stringify(dats.data))
+                if($('input[name=remb_user]').prop('checked')){
+                   window.localStorage.setItem('user_name',JSON.stringify({u:user_name,c:com_code}))
+                 
+                }else{
+                   window.localStorage.setItem('user_name','')
+              
+                }
+              /*     DmConf.data  = dats.data ;
+                  dats.data.info['cus_code'] = com_code
+                  DmConf.userinfo = dats.data.info ;
+                $('.cus_code').html('商户编号:'+dats.data.info.cus_code)
+                  $("#Wellcome_window").remove();
+                  $("#show_index").show();
+                      user_init(dats);
+                      var ret = parent.getByRsync(parent.DmConf.api.new.account_list,{session_id:parent.DmConf.userinfo.id,token:parent.DmConf.userinfo.token,customer_id:parent.DmConf.userinfo.customer_id,page_count:1000,page:1})
+
+                      parent.DmConf.data['user'] = ret.data.info.list; */
+                      Check_Login()
+             } else {
+               parent.plus_alertShow.show('<p>' + dats.data.msg + '</p>')
+            
+               setTimeout(function(){$(".l-btn").focus();}, 100);
+             }
+        }
+       });
+
+   }
+
+ 
+
+
+</script>

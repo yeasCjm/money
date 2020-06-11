@@ -1,0 +1,263 @@
+﻿<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>所有设备</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="/public/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/public/css/bootstrap.css">
+    <link rel="stylesheet" href="/public/css/bootstrap-editable.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-table-min.css">
+    <link rel="stylesheet" href="/public/css/bootstrap-datetimepicker.min.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-select-min.css">
+  <link rel="stylesheet" href="/public/css/fileinput.css">
+  <style type="text/css">
+    #myTab li a{
+      padding:5px 20px;
+   
+    }
+    .width90{
+      width: 130px
+    }
+    .activeLi{
+      font-size:15px;
+      font-weight: 600;
+      padding:3px 20px !important;
+    }
+     .whiteBtn{
+    background: #fff;
+    display: inline-block;
+    padding: 10px 30px;
+    margin:0 10px 0px 0px;
+    cursor: pointer;
+    }
+     #tb .active{
+        color: #fff;
+        background: #2ecc71 !important;
+    }
+     #tb .active a{color:#fff}
+  </style>
+
+</head>
+<body >
+  <div   style= "margin:0;display: none">
+      <span class="cjm_page_header">素材库</span>
+       <div class="template-demo mt-2" >
+          <ul id="myTab" class="nav nav-tabs" role="tablist" style="height: 30px" >
+            <li class="active " ><a href="#bulletin" role="tab" data-toggle="tab">私信库</a></li>
+            <li  ><a href="#discuss" onclick="check_discuss()" role="tab" data-toggle="tab">评论库</a></li>
+         <!--    <li><a href="#rule" role="tab" onclick="buy_history()" data-toggle="tab">标题库</a></li> -->
+            <!-- <li><a href="#forum" role="tab" onclick="phoneList()" data-toggle="tab">昵称称库</a></li> -->
+            <!-- <li><a href="#security" role="tab" onclick="accountList()" data-toggle="tab">头像库</a></li> -->
+           <!--  <li><a href="#welfare" role="tab"  onclick="taskList()" data-toggle="tab">签名库</a></li> -->
+          <!--   <li><a href="#videoList" role="tab" onclick="videoList()" data-toggle="tab">视频库</a></li> -->
+          <!--   <li><a href="#audioList" role="tab" onclick="audioList()" data-toggle="tab">音乐库</a></li> -->
+  <!--           <li><a href="#customer" role="tab" onclick="manageList()" data-toggle="tab">违禁词</a></li> -->
+          <!--   <li><a href="#same_com" role="tab" onclick="same_com()" data-toggle="tab">同行库</a></li> -->
+        </ul>
+
+    </div> 
+  </div>
+
+  <div class="container-fluid" style="margin:0;padding:0" >
+      <div id="tb" class="row">
+        <a href="#bulletin" role="tab" data-toggle="tab"<span  class="whiteBtn active">私信库</span></a>
+        <a href="#discuss" onclick="check_discuss()" role="tab" data-toggle="tab"><span class="whiteBtn  ">评论库</span></a>
+       <!--  <a href="#rule" role="tab" onclick="buy_history()" data-toggle="tab"><span class="whiteBtn  ">标题库</span></a>
+        <a href="#videoList" role="tab" onclick="videoList()" data-toggle="tab"><span class="whiteBtn ">视频库</span></a>
+        <a href="#same_com" role="tab" onclick="same_com()" data-toggle="tab"><span class="whiteBtn  ">同行库</span></a> -->
+
+      </div>
+  </div>
+      <div id="myTabContent" class="tab-content " style="background:#fff;margin-top:20px;">
+   
+        <div class="tab-pane fade in active" id="bulletin"><!-- 文字素材 -->
+
+              <div class=" row"  style="" >
+                  <input type="text"  class=" cjm_height37 tb_margin10" id="content_sel1"  placeholder="内容">
+                
+                  <div class="tb_margin10">
+                      <span style="">分类:</span><select  class="selectpicker selSty " id="sex_text">
+                      <option value="-1">全部</option>
+                      <option value="1">男</option>
+                      <option value="0">女</option>
+                    </select>
+                  </div> 
+                  
+                  <span  onclick="TBrefresh($('#bulletin_1'))"   class="  cjm_search_btn tb_margin10">搜索</span>
+                  
+                <span   onclick="parent.Tel_Import.go(0)" class=" cjm_search_btn tb_margin10" >导入私信</span>
+                <span   onclick="delAll($('#bulletin_1').bootstrapTable('getSelections'),'Del_libtext',1)" class=" cjm_search_btn tb_margin10" >删除</span>
+                <span    class=" cjm_search_btn tb_margin10" ><a style="text-decoration:none;color:#FFF;padding:8px;" onclick="download_mould()" >模板下载</a> </span>
+                                 
+              </div>
+              <div class="conTable">
+                  <table id="bulletin_1"  ></table>  
+                </div> 
+        </div>
+        <div class="tab-pane fade"  id="discuss"><!-- 文字素材 -->
+
+              <div class=" row"  style="" >
+                  <input type="text"  class=" cjm_height37 tb_margin10" id="content_sel1"  placeholder="内容">
+                 
+
+                  <span  onclick="TBrefresh($('#discuss_1'))"   class="  cjm_search_btn tb_margin10">搜索</span>
+              
+                <span   onclick="parent.Tel_Import.go(1)" class=" cjm_search_btn tb_margin10" >导入评论</span>
+                <span onclick="delAll($('#discuss_1').bootstrapTable('getSelections'),'Del_libtext',2)" class=" cjm_search_btn tb_margin10">删除</span>
+                <span     class=" cjm_search_btn tb_margin10" ><a style="text-decoration:none;color:#FFF;padding:8px;" onclick="download_mould()" >模板下载</a> </span>
+                                 
+              </div>
+              <div>
+                  <table id="discuss_1"  ></table>  
+                </div> 
+        </div>
+        <div class="tab-pane fade"  id="rule"><!-- 标题库 -->
+            <div class=" row"  style="">
+                  <input type="text"  class=" cjm_height37 tb_margin10"  id="content_sel2"  placeholder="标题">
+                 
+                  <span  onclick="TBrefresh($('#buyHistory'))" class="  cjm_search_btn tb_margin10">搜索</span>
+              
+                <span   onclick="parent.Tel_Import.go(2)" class=" cjm_search_btn tb_margin10" >导入</span>
+                <span onclick="delAll($('#buyHistory').bootstrapTable('getSelections'),'Del_libtext',3)" class=" cjm_search_btn tb_margin10">删除</span>
+                <span     class=" cjm_search_btn tb_margin10" ><a style="text-decoration:none;color:#FFF;padding:8px;" onclick="download_mould()" >模板下载</a> </span>
+                                 
+              </div>
+            <table id="buyHistory"  ></table>
+        </div>
+        <div class="tab-pane fade" id="forum"><!-- 名称库 -->
+          <div class=" row"  style="">
+                  <input type="text"  class=" cjm_height37 tb_margin10" name="keyword_text"  placeholder="内容/操作人">
+                 
+                  <span  onclick="TBrefresh($('#buyHistory'))"   class="  cjm_search_btn tb_margin10">搜索</span>
+              
+                <span   onclick="parent.Tel_Import.go(2)" class=" cjm_search_btn tb_margin10" >导入</span>
+                <span onclick="delAll($('#phoneList').bootstrapTable('getSelections'))" class=" cjm_search_btn tb_margin10">删除</span>
+                <span     class=" cjm_search_btn tb_margin10" ><a style="text-decoration:none;color:#FFF;padding:8px;" onclick="download_mould()" >模板下载</a> </span>
+                                 
+              </div>
+           <table id="phoneList"  ></table>
+        </div>
+        <div class="tab-pane fade" id="security"><!-- 头像库 -->
+           <div class=" row"  style="">
+                  <input type="text" class=" cjm_height37 tb_margin10" name="keyword_text"  placeholder="内容/操作人">
+                 
+                  <span  onclick="TBrefresh($('#accountList'))"   class="  cjm_search_btn tb_margin10">搜索</span>
+                <span onclick="delAll($('#accountList').bootstrapTable('getSelections'))" class=" cjm_search_btn tb_margin10">删除</span>
+                <span   onclick="parent.uploadFile.show(4,parent.DmConf.api.new.Add_libtext)" class=" cjm_search_btn tb_margin10" >导入头像</span>
+              
+                                 
+              </div>
+          <table id="accountList"  ></table>
+        </div>
+        <div class="tab-pane fade" id="welfare"><!-- 签名库 -->
+            <div class=" row"  style="">
+                  <input type="text"  class=" cjm_height37 tb_margin10" name="keyword_text"  placeholder="内容/操作人">
+                 
+                  <span  onclick="TBrefresh($('#taskList'))"   class="  cjm_search_btn tb_margin10">搜索</span>
+              
+                <span   onclick="parent.Tel_Import.go(2)" class=" cjm_search_btn tb_margin10" >导入</span>
+                <span     class=" cjm_search_btn tb_margin10" ><a style="text-decoration:none;color:#FFF;padding:8px;" onclick="download_mould()" >模板下载</a> </span>
+                                 
+              </div>
+          <table id="taskList"  ></table>
+        </div>
+        <div class="tab-pane fade" id="audioList"><!-- 音乐库 -->
+            <div class=" row"  style="">
+                  <input type="text" class=" cjm_height37 tb_margin10" name="keyword_text"  placeholder="内容/操作人">
+                 
+                  <span  onclick="TBrefresh($('#audioList1'))"   class="  cjm_search_btn tb_margin10">搜索</span>
+              
+                <span   onclick="parent.uploadFile.show(2,parent.DmConf.api.new.Libmusic_Libmusic_list)" class=" cjm_search_btn tb_margin10" >导入音频</span>
+              
+                                 
+              </div>
+                  <table id="audioList1"  ></table>
+          </div>
+           <div class="tab-pane fade" id="videoList"><!--视频库  -->
+              <div class=" row" style="">
+                  <input type="text" class=" cjm_height37 tb_margin10" name="file_name"  placeholder="文件名">
+                 
+                  <span  onclick="TBrefresh($('#videoList1'))"   class="  cjm_search_btn tb_margin10">搜索</span>
+                <span onclick="delAll($('#videoList1').bootstrapTable('getSelections'),'Del_libvideo')" class=" cjm_search_btn tb_margin10">删除</span>
+                <span   onclick="parent.uploadFile.show(1,parent.DmConf.api.new.Add_libvideo)" class=" cjm_search_btn tb_margin10" >导入视频</span>
+                </div>
+                  <table id="videoList1"  ></table>
+          </div>
+          
+           <div class="tab-pane fade" id="same_com"><!-- 同行库 -->
+                  <div class=" row" style="">
+                  <input type="text" class=" cjm_height37 tb_margin10" name="file_name"  placeholder="文件名">
+                   
+                  <span  onclick="TBrefresh($('#same_com1'))"   class="  cjm_search_btn tb_margin10">搜索</span>
+                  <span onclick="delAll($('#same_com1').bootstrapTable('getSelections'),'Libsame_Del_libsame')" class=" cjm_search_btn tb_margin10">删除</span>
+                 <span     class=" cjm_search_btn tb_margin10" ><a onclick="download_mould('/module/xls/同行模板下载.xls')"  style="text-decoration:none;color:#FFF;padding:8px;"  >模板下载</a> </span>
+                  <span   onclick="parent.resourceImport.go('',2)" class=" cjm_search_btn tb_margin10" >导入同行数据</span>
+                </div>
+                  <table id="same_com1"  ></table>
+                 
+
+          </div>
+    </div>
+
+  
+  
+
+
+
+ <script src="/public/js/lib/jquery.min.js"></script>
+<script src="/public/js/lib/bootstrap.min.js"></script> 
+
+
+  <script src="/public/js/off-canvas.js"></script>
+  <script src="/public/js/misc.js"></script>
+
+  
+  <script src="/public/js/lib/bootstrap-table.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-zn.min.js"></script>
+
+  <script src="/public/js/lib/bootstrap-editable.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-editable.js"></script>  
+  <script src="/public/js/lib/bootstrap-datetimepicker.min.js"></script>
+  <script src="/public/js/lib/bootstrap-select.min.js"></script>
+  <script src="/public/js/lib/fileinput.js"></script>
+
+   <script type="text/javascript">
+    
+        window.onload = function(){
+           var path = window.location.href.split("/");
+           var p = path[path.length-2];
+           var f = path[path.length-1].substr(0, path[path.length-1].indexOf('.htm'));
+           var req = document.createElement('script');
+           req.type = 'text/javascript';
+           req.src = '/public/js/require.js';
+           req.setAttribute("data-main","/public/js/apps/"+p+"/"+f+".js?v="+(new Date().valueOf()-3600).toString().substr(0,10));
+           req.setAttribute("async","true");
+           req.setAttribute("defer","");
+           document.getElementsByTagName("head")[0].appendChild(req);
+
+        }
+
+        function web_init(){
+          
+     
+            search_init()
+
+      }
+
+         function phoneRefresh(){
+              $('#phoneList').bootstrapTable('refresh')
+            }
+
+            $("#myTab").on('click','li',function(){
+              $(this).find('a').addClass('activeLi')
+              $(this).siblings().find('a').removeClass('activeLi')
+            })
+            $($("#myTab").find('li')[0]).click()
+            $('.whiteBtn').click(function(){
+              $('.whiteBtn').removeClass('active')
+              $(this).addClass('active')
+            })
+  </script> 
+</body>
+</html>

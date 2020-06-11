@@ -1,0 +1,204 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="/public/css/materialdesignicons.min.css"> 
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-table-min.css">
+  <link rel="stylesheet" href="/public/css/iconfont.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+
+  <link rel="stylesheet" href="/public/css/bootstrap-datetimepicker.min.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-select-min.css">
+    <link href="/public/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="/public/css/i-check.css">
+
+  <style type="text/css">
+    
+    .margin10{
+      margin-top:10px;
+    }
+   .hidden_sp{
+           width: calc(100% - 105px);
+    height: 26px;
+    background: #aeaeae;
+    position: absolute;
+    margin-left: 101px;
+    padding: 14px;
+    opacity: 0.7;
+      display: none
+     }
+    .hidden_file{
+          height: calc(100% - 29px);
+          width: 100%;
+         background: #aeaeae;
+         position: absolute;
+            opacity: 0.7;
+           z-index: 99;
+      
+     }
+     .addContent p{
+          width: calc(100% - 197px);
+          margin:0;
+     }
+      .addContent p .btn_style{display: none}
+      .addContent p input{border-radius: 6px;}
+  </style>
+</head>
+<body>
+  <div class="container-fluid" style="padding:0">
+    <div class="page-header"  style= "margin:0;border-bottom: 0px;">
+      <span class="cjm_page_header">发布动态<span class="cjm_page_header_goal">:发布做作品和动态</span></span>
+      
+    </div>
+
+    <div class="conTable">
+      <div class="step1 tb_head" >
+        <div class="row stepRow">
+            <span class="input-group-btn" style="width:86px;">
+              <button class="btn btn-default step1_account" onclick="parent.mobie_control.show_phone(1,$('#send_video',window.parent.document))" type="button">选择账号</button>
+            </span>
+              <span class="addTaskAccount2"></span><span class="redStar iconfont icon-xing1"></span>
+            <input id="addTaskAccount" type="text" class="form-control" placeholder="抖音分身" style="margin-left:10px;display: none" disabled>
+            <input id="addTaskAccount1" type="text" class="form-control" placeholder="账号" style="display: none">
+          </div>
+      </div>
+    </div>
+    <div class="step2"  style="margin-top:15px">
+        
+   
+    </div>
+    <div class="step3"  style="margin-top:15px">
+      <div >
+            <span class="step1Header"></span>
+          </div>
+     
+      <div class=" padding30 "  >
+         <div class="input-group margin10 addContent">
+          <span class="input-group-addon width90" id="basic-addon1">标题</span>
+          <p class="input-group margin10">
+              <input type="text"  class="form-control" name="content"  aria-describedby="basic-addon1"><span class="redStar iconfont icon-xing1"></span>
+          </p>
+             <button class="btn btn-default step1_account" style="    width: auto;margin:0 5px 0 10px;height: 26px;padding: 0px 7px;" onclick="parent.material.show(3,write_content)" type="button">标题库</button>     
+         
+        </div>
+       
+        <div class="input-group margin10">
+          <div class="checkbox icheck-primary  margin10" style="display: inline-block;">
+            <input type="radio" name="dyORvideo" value="0" checked id="primary333" />
+            <label for="primary333">使用视频库</label>
+          </div>
+          
+            <input type="text"  class="form-control" name="video_fileName" disabled  aria-describedby="basic-addon1">
+            <button class="btn btn-default step1_account" style="    width: auto; margin:0 33px 0 10px; height: 26px;padding: 0px 7px;" onclick="parent.material.show(6,write_video)" type="button">视频库</button>
+          <div class="hidden_sp" ></div>
+        </div>
+        <div class=" margin10" style="position:relative;height:100%;width:100%">
+          <div class="checkbox icheck-primary  margin10" style="display: inline-block;">
+            <input type="radio" name="dyORvideo" value="1" id="primary123" />
+            <label for="primary123">使用本地上传</label>
+        </div>
+        <div class="hidden_file"> </div>
+             <div class="container kv-main">            
+             <form enctype="multipart/form-data">
+                <div class="form-group">
+                   <input type="file" class="form-control file"  name="file" id="videoFile">
+                </div>
+            </form>
+          </div>
+        </div>
+    </div>
+
+          
+       
+    <div style="text-align: center; padding-bottom: 30px;background: #fff;">
+      <button type="button" style=" width: 300px; height: 35px; font-size: 15px;padding: 6px 12px;" class="btn btn-primary" onclick="saveTask()">保&emsp;&emsp;存</button>
+    </div>
+    </div>
+
+
+
+  <!-- ===================================================== -->
+
+  <script src="/public/js/lib/jquery.min.js"></script>
+    <script src="/public/js/lib/fileinput.js" ></script>
+  <script src="/public/js/lib/fileinput_locale_de.js" ></script>
+  <script src="/public/js/lib/bootstrap.min.js"></script> 
+
+
+
+  <script src="/public/js/lib/bootstrap-table.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-zn.min.js"></script>
+
+  <link rel="stylesheet" href="/public/css/bootstrap-datetimepicker.min.css">
+  
+  <script src="/public/js/lib/bootstrap-datetimepicker.min.js"></script>
+  <script src="/public/js/lib/bootstrap-select.min.js"></script>
+  <script src="/public/js/lib/xlsx.core.min.js"></script>
+
+
+
+<script type="text/javascript">
+   window.onload = function(){
+     var path = window.location.href.split("/");
+           var p = path[path.length-2];
+           var f = path[path.length-1].substr(0, path[path.length-1].indexOf('.htm'));
+           var req = document.createElement('script');
+           req.type = 'text/javascript';
+           req.src = '/public/js/require.js';
+           req.setAttribute("data-main","/public/js/apps/"+p+"/"+f+".js?v="+(new Date().valueOf()-3600).toString().substr(0,10));
+           req.setAttribute("async","true");
+           req.setAttribute("defer","");
+           document.getElementsByTagName("head")[0].appendChild(req);
+
+          
+   }
+   function qiniuyunToken(){
+     var ret = parent.getByRsync(parent.DmConf.api.new.GetQiNiuToken,{ token:parent.DmConf.userinfo.token,session_id:parent.DmConf.userinfo.id, });
+           var qiniuyunToken = '';
+           var save_arr = []
+           if(ret.data.code == 0){
+
+             return   ret.data.info.token
+            }
+   
+   }
+    $("#videoFile").fileinput({
+                uploadUrl: 'https://up.qbox.me', // you must set a valid URL here else you will get an error
+                    allowedFileExtensions : ['jpg', 'png','gif'],
+                    overwriteInitial: false,
+                    maxFileSize: 1024000,
+                    maxFilesNum: 1,
+                    allowedFileTypes: ['image', 'video', 'flash'],
+                   /* slugCallback: function(filename) {
+                    
+                        return filename.replace('(', '_').replace(']', '_');
+                    },*/
+                    uploadExtraData:function(){
+                      var qnyToken = qiniuyunToken();
+                      
+                      var data = { token:qnyToken}
+                       return data 
+                      
+                    }
+                  }).off('filepreupload').on('filepreupload', function(a,b,c) { 
+
+                  }).on("fileuploaded", function(event, outData) { 
+              
+                     if(outData.jqXHR.status == 200 && outData.jqXHR.readyState == 4){
+
+                        $('input[name=video_fileName]').attr('file_name',outData.files[0].name)
+                        $('input[name=video_fileName]').attr('play_url', "https://image.gzdameng.com//"+outData.response.key)
+                     
+                        
+                        
+                     }
+                  }); 
+       function web_init(){
+
+           search_init()
+
+
+      }
+</script>
+</body>
+</html>

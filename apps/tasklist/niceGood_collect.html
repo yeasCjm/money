@@ -1,0 +1,126 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="/public/css/materialdesignicons.min.css"> 
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-table-min.css">
+  <link rel="stylesheet" href="/public/css/iconfont.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+
+  <link rel="stylesheet" href="/public/css/bootstrap-datetimepicker.min.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-select-min.css">
+  <link rel="stylesheet" href="/public/css/i-check.css">
+
+  <style type="text/css">
+   
+    .margin10{
+      margin-top:30px;
+    }
+
+  
+    
+  </style>
+
+</head>
+<body>
+  <div class="container-fluid" style="padding:0">
+    <div class="page-header"  style= "margin:0;border-bottom: 0px;">
+      <span class="cjm_page_header">好物榜采集<span class="cjm_page_header_goal">:开始采集好物榜各类型产品</span></span>
+      <div class="template-demo mt-2" style=" margin: 0 !important;">
+        <button type="button" style="display:none"  class="btn" onclick=" parent.start_mission.go()"> <i class="glyphicon glyphicon-align-center"></i>保存任务</button>
+      </div>
+    </div>
+
+    <div class="conTable">
+        <div class="step1 tb_head">
+          <div class="row stepRow">
+            <span class="input-group-btn" style="width:86px;">
+              <button class="btn btn-default step1_account" onclick="parent.treeview.show($('#niceGood_collect',window.parent.document),'','','',1)"
+                type="button">选择账号</button>
+            </span>
+            <span class="addTaskAccount2"></span><span class="redStar iconfont icon-xing1"></span>
+            <input id="addTaskAccount" style="margin-left: 10px; border-radius: 3px;display:none;" type="text" class="form-control"
+              placeholder="账号" disabled>
+            <input id="addTaskAccount1" type="text" class="form-control" placeholder="账号" style="display: none">
+          </div>
+        </div>
+    </div>
+     <div class="step2" style="margin-top:15px;">
+          
+        
+    </div>   
+    <div style="background: #fff;height:calc(100vh - 200px)">
+    <div class="step3"  style="margin-top:15px;width:62%">
+      <div >
+            <span class="step1Header"></span>
+          </div>
+      <div class="listCon padding30" >
+         
+            <div class="input-group margin10">
+              <span class="input-group-addon width90" id="basic-addon1"> 设置任务名 </span>
+              <input type="text" class="form-control" name="task_name" placeholder="设置任务名" aria-describedby="basic-addon1">
+              <span class="redStar iconfont icon-xing1"></span>
+            </div>
+            <div class="input-group margin10 " style="display: none">
+              <span class="input-group-addon width90" id="basic-addon1">好物榜类型 </span>
+              <span style="width:calc(100% - 200px)">
+                <select id="haowu" class="form-control selectpicker"    style="display:block !important; z-index:9999;  border: 1px solid;">
+                 
+                </select>
+              </span>
+            </div>
+          </div>
+         
+      <div style="clear:both"></div>
+      </div>
+      <div style="text-align: center; padding-bottom: 30px;background: #fff;">
+        <button type="button" style=" width: 300px; height: 35px; font-size: 15px;padding: 6px 12px;" class="btn btn-primary"
+          onclick="saveTask()">保&emsp;&emsp;存</button>
+      </div>
+    </div>
+    
+
+    </div>
+
+
+
+  <!-- ===================================================== -->
+
+  <script src="/public/js/lib/jquery.min.js"></script>
+  <script src="/public/js/lib/bootstrap.min.js"></script> 
+
+
+
+  <script src="/public/js/lib/bootstrap-table.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-zn.min.js"></script>
+
+
+  
+  <script src="/public/js/lib/bootstrap-datetimepicker.min.js"></script>
+  <script src="/public/js/lib/bootstrap-select.min.js"></script>
+
+  <script src="/public/js/lib/xlsx.core.min.js"></script>
+
+
+<script type="text/javascript">
+   window.onload = function(){
+     var path = window.location.href.split("/");
+           var p = path[path.length-2];
+           var f = path[path.length-1].substr(0, path[path.length-1].indexOf('.htm'));
+           var req = document.createElement('script');
+           req.type = 'text/javascript';
+           req.src = '/public/js/require.js';
+           req.setAttribute("data-main","/public/js/apps/"+p+"/"+f+".js?v="+(new Date().valueOf()-3600).toString().substr(0,10));
+           req.setAttribute("async","true");
+           req.setAttribute("defer","");
+           document.getElementsByTagName("head")[0].appendChild(req);
+   }
+       function web_init(){
+
+           search_init()
+
+
+      }
+</script>
+</body>
+</html>

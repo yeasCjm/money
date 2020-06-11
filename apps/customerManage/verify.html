@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>审核管理</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+ <link rel="stylesheet" href="/public/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/public/css/bootstrap.css">
+ <link rel="stylesheet" href="/public/css/bootstrap-table-min.css">
+
+  <link rel="stylesheet" href="/public/css/style.css">
+
+  <link rel="stylesheet" href="/public/css/bootstrap-select-min.css">
+  <style type="text/css">
+    .conTable button{
+      margin:5px;
+    }
+  </style>
+
+</head>
+<body>
+  <div class="page-header"  style= "margin:0">
+      <span class="cjm_page_header">审核管理</span>
+      <div class="template-demo mt-2" style=" margin: 0 !important;">
+      
+
+<!--         <button type="button" class="btn btn-outline-dark btn-icon-text" onclick="saveUser.del()"> <i class="mdi mdi-file-check btn-icon-prepend"></i> 删除用户</button> -->
+
+      </div>
+       
+  </div>
+  <div class="container-fluid" style="   padding: 17px 0 0 17px;">
+    <span>客户状态</span> <select id="status"  class= "  selectpicker" >
+    
+        <option value="0">未审核</option>
+        <option value="-2">所有</option>
+        <option value="2">审核不通过</option>
+      </select>
+     <span  id="refresh_btn" class="cjm_search_btn">搜索</span>
+       <!--  <button type="button" class="cjm_search_btn" onclick=" parent.verifyManage.show(0,$('#tableMy').bootstrapTable('getSelections'),function(){$('#tableMy').bootstrapTable('refresh')})">  审核</button> -->
+   </div> 
+  <div class="conTable">
+    <table id="tableMy" class="table" ></table>
+  </div>
+  
+
+
+ <script src="/public/js/lib/jquery.min.js"></script>
+<script src="/public/js/lib/bootstrap.min.js"></script> 
+
+
+  <script src="/public/js/off-canvas.js"></script>
+  <script src="/public/js/misc.js"></script>
+
+  
+  <script src="/public/js/lib/bootstrap-table.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-zn.min.js"></script>
+
+
+  
+  <script src="/public/js/lib/bootstrap-datetimepicker.min.js"></script>
+  <script src="/public/js/lib/bootstrap-select.min.js"></script>
+
+   <script type="text/javascript">
+    
+        window.onload = function(){
+           var path = window.location.href.split("/");
+           var p = path[path.length-2];
+           var f = path[path.length-1].substr(0, path[path.length-1].indexOf('.htm'));
+           var req = document.createElement('script');
+           req.type = 'text/javascript';
+           req.src = '/public/js/require.js';
+           req.setAttribute("data-main","/public/js/apps/"+p+"/"+f+".js?v="+(new Date().valueOf()-3600).toString().substr(0,10));
+           req.setAttribute("async","true");
+           req.setAttribute("defer","");
+           document.getElementsByTagName("head")[0].appendChild(req);
+
+        }
+
+        function web_init(){
+       
+            search_init()
+
+
+      }
+
+
+  </script> 
+</body>
+</html>

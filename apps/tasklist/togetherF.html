@@ -1,0 +1,103 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>首页</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="/public/css/materialdesignicons.min.css"> 
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-table-min.css">
+
+
+  <link rel="stylesheet" href="/public/css/bootstrap-datetimepicker.min.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-select-min.css">
+  <link rel="stylesheet" href="/public/css/daterangepicker.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+  <style type="text/css">
+    .dropdown-toggle{
+          padding: 6px;
+    }
+  </style>
+</head>
+<body>
+
+    <div class="page-header"  style= "margin:0;border-bottom: 0px;">
+      <span class="cjm_page_header">好友管理<span class="cjm_page_header_goal">:显示每个抖音大号的互关好友并发起群聊</span></span>
+    
+    </div>
+      <div class="container-fluid" style="padding:0">
+    <div id="tb" class="row tb_head">
+      <input type="text" id="begin_date" style="width:180px;" class="cjm_height37 tb_margin10" >
+      <input type="text" name="keyword_sma" class="cjm_height37 tb_margin10" placeholder="账号、昵称、业务关键词">
+      <span id="refresh_btn" class="cjm_search_btn tb_margin10">搜索</span>
+      <span onclick="parent.mainPlatform.show_child_iframe('apps/tasklist/collectAdrbook.html', '通讯录详情', 'collectAdrbook' , false, false, )" class="cjm_search_btn tb_margin10">通讯录列表</span>
+      <span onclick=" parent.mainPlatform.show_iframe('apps/tasklist/collectDYnum.html', '导入抖音号列表' ,  'collectDYnum', '', 'togetherF' )" class="cjm_search_btn tb_margin10">导入抖音号列表</span>
+      <!-- <span onclick="shareRoom()"  class="cjm_search_btn tb_margin10">直播间分享</span>  与原型对不上，使用了简化版-->
+    </div>
+    </div>
+    <div class="conTable">
+     
+      <table id="tableMy"  ></table>
+    </div>
+
+
+  
+
+
+
+  <!-- ===================================================== -->
+
+    <script src="/public/js/lib/jquery.min.js"></script>
+  <script src="/public/js/lib/bootstrap.min.js"></script> 
+
+  <script src="/public/js/off-canvas.js"></script>
+  <script src="/public/js/misc.js"></script>
+<!--   <script src="/public/js/dashboard.js"></script>  -->
+  <script src="/public/js/lib/bootstrap-table.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-zn.min.js"></script>
+  <script src="/public/js/lib/bootstrap-datetimepicker.min.js"></script>
+  <script src="/public/js/lib/bootstrap-select.min.js"></script>
+  <script src="/public/js/lib/bootstrap-select.min.js"></script>
+    <script src="/public/js/lib/moment.min.js"></script>
+  <script src="/public/js/lib/daterangepicker.js"></script>
+
+
+
+<script type="text/javascript">
+   window.onload = function(){
+      var path = window.location.href.split("/");
+           var p = path[path.length-2];
+           var f = path[path.length-1].substr(0, path[path.length-1].indexOf('.htm'));
+           var req = document.createElement('script');
+           req.type = 'text/javascript';
+           req.src = '/public/js/require.js';
+           req.setAttribute("data-main","/public/js/apps/"+p+"/"+f+".js?v="+(new Date().valueOf()-3600).toString().substr(0,10));
+           req.setAttribute("async","true");
+           req.setAttribute("defer","");
+           document.getElementsByTagName("head")[0].appendChild(req);
+   }
+           function web_init(){
+            if(window.taskDetailInfo){
+                $("#tb").find('input[name=keyword]').val(window.taskDetailInfo.showIframe_data.keyword);
+            }
+            var options = {
+               "startDate": moment().subtract(6, 'days'),
+               "endDate": moment(),
+             
+               timePicker: false,
+               linkedCalendars: false,
+               autoUpdateInput: true,
+               showCustomRangeLabel: false,
+               opens: 'right',
+               drops: 'down',
+               dateLimit: {
+                 days: 365
+               },
+               alwaysShowCalendars: true,
+             };
+             $('#begin_date').daterangepicker(options, function (start, end, label) { });
+            search_init()
+
+
+      }
+</script>
+</body>
+</html>

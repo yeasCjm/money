@@ -1,0 +1,120 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>首页</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="/public/css/materialdesignicons.min.css"> 
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-table-min.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-editable.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-select-min.css">
+    <link rel="stylesheet" href="/public/css/iconfont.css">
+      <link rel="stylesheet" href="/public/css/daterangepicker.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+  <style type="text/css">
+    .dropdown-toggle{
+          padding: 6px;
+    }
+  </style>
+</head>
+<body>
+
+    <div class="page-header"  style= "margin:0;border-bottom: 0px;">
+      <span style="width: 100px;background: #fff;margin-right: 15px;height: 52px;line-height: 52px;cursor: pointer;text-align: center;"
+        onclick="parent.mainPlatform.destory_iframe('collectDYnum','togetherF')">返回上一页</span> <span class="cjm_page_header">导入抖音号列表<span class="cjm_page_header_goal"></span></span>
+    
+    </div>
+      <div class="container-fluid" style="padding:0">
+    <div id="tb" class="row tb_head">
+      <input type="text" id="begin_date" style="width:180px;" class="cjm_height37 tb_margin10">
+      <select  id="is_message" class="selectpicker tb_margin10">
+   
+        <option value="-1">全部私信状态</option>
+        <option value="1">未私信</option>
+        <option value="2">已私信</option>
+      </select>
+      <select id="is_follow" class="selectpicker tb_margin10">
+
+        <option value="-1">全部关注状态</option>
+          <option value="1">未关注</option>
+        <option value="2">已关注</option>
+      
+       
+      </select>
+      <input type="text" name="keyword_sma" class="cjm_height37 tb_margin10" placeholder="关键词">
+
+      <span  id="refresh_btn" class="cjm_search_btn tb_margin10">搜索</span>
+      <span class="cjm_search_btn tb_margin10" onclick="parent.importDYH.show(TBrefresh)">导入抖音号</span>
+
+      <span class="cjm_search_btn tb_margin10" onclick="parent.everyChangeGroup.show($('#tableMy').bootstrapTable('getSelections'),TBrefresh,parent.DmConf.api.new.TikTokNumber_Update_obj)">修改分组</span>
+      <span class="cjm_search_btn tb_margin10" onclick="parent.dyFollow.show($('#tableMy').bootstrapTable('getSelections'),TBrefresh)">关注</span>
+      <span class="cjm_search_btn tb_margin10" onclick="parent.dyprivately.show($('#tableMy').bootstrapTable('getSelections'),TBrefresh)">私信</span>
+      <span class="cjm_search_btn tb_margin10" onclick="delAll($('#tableMy').bootstrapTable('getSelections'))">删除</span>
+     
+      <span  class="cjm_search_btn tb_margin10" style="width:140px"><a style="text-decoration:none;color:#FFF;padding:8px;" href="/module/xls/导入抖音号下载.xls"
+          target="_blank">抖音号模板下载</a></span>
+    </div>
+    </div>
+    <div class="conTable">
+     
+      <table id="tableMy"  ></table>
+    </div>
+
+
+  
+
+
+
+  <!-- ===================================================== -->
+
+    <script src="/public/js/lib/jquery.min.js"></script>
+  <script src="/public/js/lib/bootstrap.min.js"></script> 
+
+
+  <script src="/public/js/lib/bootstrap-table.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-zn.min.js"></script>
+  <script src="/public/js/lib/bootstrap-editable.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-editable.js"></script>
+  <script src="/public/js/lib/bootstrap-select.min.js"></script>  
+<script src="/public/js/lib/xlsx.core.min.js"></script>
+    <script src="/public/js/lib/moment.min.js"></script>
+    <script src="/public/js/lib/daterangepicker.js"></script>
+<script type="text/javascript">
+   window.onload = function(){
+      var path = window.location.href.split("/");
+           var p = path[path.length-2];
+           var f = path[path.length-1].substr(0, path[path.length-1].indexOf('.htm'));
+           var req = document.createElement('script');
+           req.type = 'text/javascript';
+           req.src = '/public/js/require.js';
+           req.setAttribute("data-main","/public/js/apps/"+p+"/"+f+".js?v="+(new Date().valueOf()-3600).toString().substr(0,10));
+           req.setAttribute("async","true");
+           req.setAttribute("defer","");
+           document.getElementsByTagName("head")[0].appendChild(req);
+   }
+           function web_init(){
+            if(window.taskDetailInfo){
+                $("#tb").find('input[name=keyword]').val(window.taskDetailInfo.showIframe_data.keyword);
+            }
+            var options = {
+               "startDate": moment().subtract(6, 'days'),
+               "endDate": moment(),
+
+               timePicker: false,
+               linkedCalendars: false,
+               autoUpdateInput: true,
+               showCustomRangeLabel: false,
+               opens: 'right',
+               drops: 'down',
+               dateLimit: {
+                 days: 365
+               },
+               alwaysShowCalendars: true,
+             };
+             $('#begin_date').daterangepicker(options, function (start, end, label) { });
+            search_init()
+
+
+      }
+</script>
+</body>
+</html>

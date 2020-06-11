@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>所有设备</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <link rel="stylesheet" href="/public/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/public/css/bootstrap.css">
+ <link rel="stylesheet" href="/public/css/bootstrap-table-min.css">
+
+  <link rel="stylesheet" href="/public/css/style.css">
+
+  <link rel="stylesheet" href="/public/css/bootstrap-datetimepicker.min.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-select-min.css">
+
+</head>
+<body>
+  <div class="page-header"  style= "margin:0">
+      <span class="cjm_page_header">我的资源</span>
+      <div class="template-demo mt-2" style=" margin: 0 !important;">
+        <button type="button" class="btn"  onclick="parent.start_mission.go()"> <i class="glyphicon glyphicon-align-center"></i>开始任务</button>
+        <button type="button" class="btn"  onclick="parent.Tel_Import.go()"> <i class="glyphicon glyphicon-save"></i> 导入资源</button>
+        <button type="button" class="btn"  ><a style="text-decoration:none" href="/module/xls/资源模板下载.xls" target="_blank"><i class="glyphicon glyphicon-floppy-save"></i> 模板下载</a> </button>
+      </div>
+       
+  </div>
+  <div class="container-fluid" style="padding:0;margin-bottom:5px">
+      <div >
+          <div class="row" id="tb" style="margin:10px 0 ">
+         
+           <div class="col-md-4  col-xs-4 col-sm-4 pd0" >
+             <input type="text" name="number" class="form-control bord_rad cjm_height37" placeholder="号码">
+           </div>
+           <div class="col-md-5 col-xs-5 col-sm-5 pd0 ">
+                 <select id ="has_mission" multiple  data-live-search="true" class="selectpicker"></select>
+           </div>
+           <div class="col-md-2 col-xs-2 col-sm-2 pd0 ">
+               <button type="button" id="refresh_btn" class="btn btn-gradient-info  btn-fw">搜索</button>
+           </div>
+           </div>
+            <div class="col-md-12 col-sm-12 pd0" style="display:none">
+              <div class="row" style="margin:5px 0 0 0">
+                <div style="width:150px" >           
+                    <div class="input-group date begin_time"  data-link-field="begin_date" >
+                      <span for="begin_date" style="line-height:2rem" >时间:</span>
+                        <input class="form-control  pd15" size="16" type="text" value="" style="cursor:pointer" readonly>
+                        <span  class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                    </div>
+                    <input type="hidden" id="begin_date" value="" />
+                </div>
+                 <div style="width:150px">                                     
+                    <div class="input-group date end_time"  data-link-field="end_date"  >
+                       <span for="end_date" class="timeMid" >-</span>
+                        <input class="form-control  pd15" size="16" type="text" value=""  style="cursor:pointer"  readonly>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                    </div>
+                    <input type="hidden" id="end_date" value="" />
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <div class="conTable">
+     <table id="tableMy"  ></table>
+    </div>
+
+
+ <script src="/public/js/lib/jquery.min.js"></script>
+<script src="/public/js/lib/bootstrap.min.js"></script> 
+
+
+  <script src="/public/js/off-canvas.js"></script>
+  <script src="/public/js/misc.js"></script>
+
+  
+  <script src="/public/js/lib/bootstrap-table.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-zn.min.js"></script>
+
+
+  
+  <script src="/public/js/lib/bootstrap-datetimepicker.min.js"></script>
+  <script src="/public/js/lib/bootstrap-select.min.js"></script>
+
+  <script src="/public/js/lib/xlsx.core.min.js"></script>
+
+
+
+   <script type="text/javascript">
+    
+        window.onload = function(){
+           var path = window.location.href.split("/");
+           var p = path[path.length-2];
+           var f = path[path.length-1].substr(0, path[path.length-1].indexOf('.htm'));
+           var req = document.createElement('script');
+           req.type = 'text/javascript';
+           req.src = '/public/js/require.js';
+           req.setAttribute("data-main","/public/js/apps/"+p+"/"+f+".js?v="+(new Date().valueOf()-3600).toString().substr(0,10));
+           req.setAttribute("async","true");
+           req.setAttribute("defer","");
+           document.getElementsByTagName("head")[0].appendChild(req);
+
+        }
+
+        function web_init(){
+
+            search_init()
+
+
+      }
+
+
+  </script> 
+</body>
+</html>

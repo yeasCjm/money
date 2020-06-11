@@ -1,0 +1,152 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
+
+  <link rel="stylesheet" href="/public/css/style.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-select-min.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-datetimepicker.min.css">
+
+  <link rel="stylesheet" href="/public/css/i-check.css">
+
+  <style type="text/css">
+    .width90{
+      width:130px;
+    }
+    .margin10{
+      margin-top:10px;
+    }
+   
+
+
+  </style>
+</head>
+<body>
+  <div class="container-fluid" style="padding:0">
+  <div class="page-header"  style= "margin:0;border-bottom: 0px;">
+      <span class="cjm_page_header">推送名片管理<span class="cjm_page_header_goal">:直接推送名片，可提高点赞、播放、播放量、粉丝</span></span>
+      <div class="template-demo mt-2" style=" margin: 0 !important;">
+        <button style="display:none" type="button" class="btn" onclick=" parent.treeview.show()"> <i class="glyphicon glyphicon-align-center"></i>保存任务</button>
+      </div>
+    </div>
+  </div>
+    <div class="conTable">
+      <div class="step1 tb_head" >
+        <div >
+          <div class="row stepRow">
+              <span class="input-group-btn" style="width:86px;">
+                <button class="btn btn-default step1_account" onclick="parent.mobie_control.show_phone(1,$('#card',window.parent.document))" type="button">选择账号</button>
+              </span>
+                <span class="addTaskAccount2"></span><span class="redStar iconfont icon-xing1"></span>
+              <input id="addTaskAccount"  style="margin-left: 10px; border-radius: 3px;display:none;" type="text" class="form-control" placeholder="账号" disabled>
+              <input id="addTaskAccount1" type="text" class="form-control" placeholder="账号" style="display: none">
+            </div>
+        </div>
+      </div>
+    </div>
+    <div class="step2" style="margin-top:15px" >
+       
+       
+    </div>
+    <div class="step3"  style="margin-top:15px">
+      <div >
+            <span class="step1Header"></span>
+          </div>
+      
+      <div class="listCon padding30" style="float:left;width:62%" >
+     
+        <div class="input-group margin10">
+          <span class="input-group-addon width90" id="basic-addon1">推送抖音号</span>
+          <input type="text"  class="form-control" name="dy_uid"  aria-describedby="basic-addon1">
+          <span class="redStar iconfont icon-xing1"></span>
+        </div>
+        <div class="padding30" style="display: flex;">
+          <div class="row" style="margin:0">
+            <div class="radio icheck-primary  margin10" style="margin-right:20px;">
+              <input type="radio" name="time_type" value="0" checked id="nowDo" />
+              <label for="nowDo">立即执行</label>
+            </div>
+            <div class="radio icheck-primary margin10" style=" ">
+              <input type="radio" name="time_type" value="1" id="lateDo" />
+              <label for="lateDo">定时执行</label>
+            </div>
+          </div>
+        
+        
+          <div style="display:none" class="time_task row">
+            <div style="width:250px">
+              <span>执行时间(<span style="color:red">设置超过当前时间 半小时以上</span>)</span>
+              <div class="input-group date time_tick" data-link-field="time_tick">
+                <input class="form-control  pd15" size="16" type="text" value="" style="cursor:pointer" readonly>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+              </div>
+              <input type="hidden" id="time_tick" value="" />
+            </div>
+            <!--  <div class="checkbox icheck-primary margin10 " style=" display: flex;flex-flow: column-reverse;margin:0 15px">
+                        <input type="checkbox" checked id="time_tick" />
+                        <label for="time_tick">重复</label>
+                      </div> -->
+            <div>
+              <span>重复时间</span><br />
+              <select id="time_week" multiple data-live-search="true" value="0" class="  selectpicker" style="display:block !important; width:150px">
+                <option value="1">星期一</option>
+                <option value="2">星期二</option>
+                <option value="3">星期三</option>
+                <option value="4">星期四</option>
+                <option value="5">星期五</option>
+                <option value="6">星期六</option>
+                <option value="7">星期日</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="clear:both"></div>
+    </div>
+    <div style="text-align: center; padding-bottom: 30px;background: #fff;">
+      <button type="button" style=" width: 300px; height: 35px; font-size: 15px;padding: 6px 12px;" class="btn btn-primary" onclick="saveTask()">保&emsp;&emsp;存</button>
+    </div>
+    
+
+
+  <!-- ===================================================== -->
+
+  <script src="/public/js/lib/jquery.min.js"></script>
+  <script src="/public/js/lib/bootstrap.min.js"></script> 
+
+
+
+  <script src="/public/js/lib/bootstrap-table.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-zn.min.js"></script>
+
+  <link rel="stylesheet" href="/public/css/bootstrap-datetimepicker.min.css">
+  
+  <script src="/public/js/lib/bootstrap-datetimepicker.min.js"></script>
+  <script src="/public/js/lib/bootstrap-select.min.js"></script>
+  <script src="/public/js/lib/xlsx.core.min.js"></script>
+
+
+<script type="text/javascript">
+   window.onload = function(){
+     var path = window.location.href.split("/");
+           var p = path[path.length-2];
+           var f = path[path.length-1].substr(0, path[path.length-1].indexOf('.htm'));
+           var req = document.createElement('script');
+           req.type = 'text/javascript';
+           req.src = '/public/js/require.js';
+           req.setAttribute("data-main","/public/js/apps/"+p+"/"+f+".js?v="+(new Date().valueOf()-3600).toString().substr(0,10));
+           req.setAttribute("async","true");
+           req.setAttribute("defer","");
+           document.getElementsByTagName("head")[0].appendChild(req);
+   }
+       function web_init(){
+
+           search_init()
+
+
+      }
+</script>
+</body>
+</html>

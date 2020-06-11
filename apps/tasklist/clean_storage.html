@@ -1,0 +1,170 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="/public/css/materialdesignicons.min.css"> 
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-table-min.css">
+  <link rel="stylesheet" href="/public/css/iconfont.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+
+  <link rel="stylesheet" href="/public/css/bootstrap-datetimepicker.min.css">
+  <link rel="stylesheet" href="/public/css/select3.css">
+  <link rel="stylesheet" href="/public/css/i-check.css">
+
+  <style type="text/css">
+    .width90{
+      width:130px;
+    }
+    .margin10{
+      margin-top:10px;
+    }
+    .padding30{
+      padding-left:30px;
+    }
+    [class*="icheck-"]{
+      width:auto;padding-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid" style="padding:0">
+    <div class="page-header"  style= "margin:0;border-bottom: 0px;">
+      <span class="cjm_page_header">手机操作<span class="cjm_page_header_goal">:为了省电，请在充满电后，拨掉USB线，夜间无任务执行时，请"息屏"省电，执行任务前，请"亮屏"</span></span>
+      <div class="template-demo mt-2" style=" margin: 0 !important;">
+        <button type="button" style="display:none"  class="btn" onclick=" parent.start_mission.go()"> <i class="glyphicon glyphicon-align-center"></i>保存任务</button>
+      </div>
+    </div>
+
+    <div class="conTable">
+    <!--   <div class="step1" style="padding:15px 15px 0 0;" >
+    
+          <div  class="padding30">
+            <div style="margin-top:10px" >
+            <div class="input-group  stepRow row" style="padding:0">
+                <span class="input-group-btn" style="width:86px;">
+                  <button class="btn btn-default step1_account" onclick="parent.mobie_control.show_phone(2,$('#clean_storage',window.parent.document))" type="button">选择手机</button>
+                </span>
+                 <span class="addTaskResource2 addTaskMobile2"></span><span class="redStar iconfont icon-xing1"></span>
+                <input id="addTaskResource"  style="margin-left: 10px; border-radius: 3px;display:none;" type="text" class="form-control" placeholder="账号" disabled>
+                <input id="addTaskResource1" type="text" class="form-control" placeholder="账号" style="display: none">
+              </div>
+            </div>
+            
+    </div>
+  </div> -->
+  <div>
+   
+  </div>
+      <div class="step2" style="margin-top:15px" >
+       
+        <div style="height:400px;padding:30px">
+          <div class="input-group margin10" style="display: flex">
+            <span style="margin-right:10px;">选择手机</span>
+            <div style="width:300px;position:relative">
+              <input type="text" id="phoneList" placeholder="选择手机" style="width:300px;height:32px;" />
+            </div>
+          </div>
+         
+         
+          <div class="input-group margin10" style="display: flex">
+           <!--  <div class="radio icheck-primary  margin10" style="padding-left: 0">
+              <input type="radio" name="type_1" value="1"  id="nowDo1" />
+              <label for="nowDo1">亮屏</label>
+            </div> -->
+            <div class="radio icheck-primary  margin10">
+              <input type="radio" name="type_1" value="2"  id="nowDo2" />
+              <label for="nowDo2">息屏</label>
+            </div>
+            <div class="radio icheck-primary  margin10">
+              <input type="radio" name="type_1" value="3"  id="nowDo3" />
+              <label for="nowDo3">重启</label>
+            </div>
+            <div class="radio icheck-primary  margin10">
+              <input type="radio" name="type_1" value="4" id="nowDo4" />
+              <label for="nowDo4">切换飞行模式</label>
+            </div>
+            <div class="radio icheck-primary  margin10">
+              <input type="radio" name="type_1" value="9" id="nowDo9" />
+              <label for="nowDo9">启用wifi</label>
+            </div>
+            <div class="radio icheck-primary  margin10">
+              <input type="radio" name="type_1" value="10" id="nowDo10" />
+              <label for="nowDo10">禁用wifi</label>
+            </div>
+            <!-- <div class="radio icheck-primary  margin10">
+              <input type="radio" name="type_1" value="5" id="nowDo8" />
+              <label for="nowDo8">关闭飞行模式</label>
+            </div> -->
+            <div class="radio icheck-primary  margin10">
+              <input type="radio" name="type_1" value="6"  id="nowDo5" />
+              <label for="nowDo5">清理内存</label>
+            </div>
+            <div class="radio icheck-primary  margin10">
+              <input type="radio" name="type_1" value="7"  id="nowDo7" />
+              <label for="nowDo7">启用位置信息</label>
+            </div>
+            <div class="radio icheck-primary  margin10">
+              <input type="radio" name="type_1" value="8"  id="nowDo6" />
+              <label for="nowDo6">禁用位置信息</label>
+            </div>
+            <!-- 11 -->
+          </div>
+          <div class="input-group margin10">
+            <div class="radio icheck-primary  margin10" style="padding-left: 0">
+              <input type="radio" name="time_type"  value="0" checked id="nowDo" />
+              <label for="nowDo">立即执行</label>
+            </div>
+          </div>
+        </div>
+    </div>
+   
+      <div style="clear:both"></div>
+    </div>
+    <div style="text-align: center; padding-bottom: 30px;background: #fff;">
+      <button type="button" style=" width: 300px; height: 35px; font-size: 15px;padding: 6px 12px;" class="btn btn-primary" onclick="saveTask()">保&emsp;&emsp;存</button>
+    </div>
+    </div>
+    
+    
+  </div>
+
+
+  <!-- ===================================================== -->
+
+  <script src="/public/js/lib/jquery.min.js"></script>
+  <script src="/public/js/lib/bootstrap.min.js"></script> 
+
+
+
+  <script src="/public/js/lib/bootstrap-table.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-zn.min.js"></script>
+
+  <link rel="stylesheet" href="/public/css/bootstrap-datetimepicker.min.css">
+  
+  <script src="/public/js/lib/bootstrap-datetimepicker.min.js"></script>
+  <script src="/public/js/lib/select3.js"></script>
+  <script src="/public/js/lib/xlsx.core.min.js"></script>
+
+
+<script type="text/javascript">
+   window.onload = function(){
+     var path = window.location.href.split("/");
+           var p = path[path.length-2];
+           var f = path[path.length-1].substr(0, path[path.length-1].indexOf('.htm'));
+           var req = document.createElement('script');
+           req.type = 'text/javascript';
+           req.src = '/public/js/require.js';
+           req.setAttribute("data-main","/public/js/apps/"+p+"/"+f+".js?v="+(new Date().valueOf()-3600).toString().substr(0,10));
+           req.setAttribute("async","true");
+           req.setAttribute("defer","");
+           document.getElementsByTagName("head")[0].appendChild(req);
+   }
+       function web_init(){
+
+           search_init()
+
+
+      }
+</script>
+</body>
+</html>

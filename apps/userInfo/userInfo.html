@@ -1,0 +1,80 @@
+﻿<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>所有设备</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+ <link rel="stylesheet" href="/public/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/public/css/bootstrap.css">
+ <link rel="stylesheet" href="/public/css/bootstrap-table-min.css">
+
+  <link rel="stylesheet" href="/public/css/style.css">
+
+  <link rel="stylesheet" href="/public/css/bootstrap-select-min.css">
+
+
+</head>
+<body>
+  <div class="page-header"  style= "margin:0">
+      <span class="cjm_page_header">用户管理</span>
+     <!--   <div class="template-demo mt-2" style=" margin: 0 !important;">
+       
+       <button type="button" class="btn" onclick="saveUser.del()"> <i class="mdi mdi-file-check btn-icon-prepend"></i> 删除用户</button> 
+
+      </div>-->
+       
+  </div>
+  <div class="container-fluid" style="padding:15px 0 0 20px ;background:#fff;">
+      <button type="button" class="btn" style="background: #507EA6;color: #fff;border: 0;" onclick="parent.saveUser2.go(0,parent.DmConf.api.new.Add_emp,'',TBrefresh)"> <i class=" glyphicon glyphicon-user"></i> 添加员工</button>
+      <button type="button" class="btn" style="background: #507EA6;color: #fff;border: 0;" id="tbrefresh" onclick="TBrefresh()"> <i class="glyphicon glyphicon-refresh"></i>刷新</button>
+   </div> 
+  <div class="conTable" style="padding:18px">
+    <table id="tableMy" class="table" ></table>
+  </div>
+  
+
+
+
+
+ <script src="/public/js/lib/jquery.min.js"></script>
+<script src="/public/js/lib/bootstrap.min.js"></script> 
+
+
+  <script src="/public/js/off-canvas.js"></script>
+  <script src="/public/js/misc.js"></script>
+
+  
+  <script src="/public/js/lib/bootstrap-table.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-zn.min.js"></script>
+
+
+  
+  <script src="/public/js/lib/bootstrap-datetimepicker.min.js"></script>
+  <script src="/public/js/lib/bootstrap-select.min.js"></script>
+
+   <script type="text/javascript">
+    
+        window.onload = function(){
+           var path = window.location.href.split("/");
+           var p = path[path.length-2];
+           var f = path[path.length-1].substr(0, path[path.length-1].indexOf('.htm'));
+           var req = document.createElement('script');
+           req.type = 'text/javascript';
+           req.src = '/public/js/require.js';
+           req.setAttribute("data-main","/public/js/apps/"+p+"/"+f+".js?v="+(new Date().valueOf()-3600).toString().substr(0,10));
+           req.setAttribute("async","true");
+           req.setAttribute("defer","");
+           document.getElementsByTagName("head")[0].appendChild(req);
+
+        }
+
+        function web_init(){
+       
+            search_init()
+
+
+      }
+
+
+  </script> 
+</body>
+</html>

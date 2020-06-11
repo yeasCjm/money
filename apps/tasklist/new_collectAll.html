@@ -1,0 +1,421 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="/public/css/materialdesignicons.min.css"> 
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-table-min.css">
+
+
+  <link rel="stylesheet" href="/public/css/bootstrap-datetimepicker.min.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-select-min.css">
+  <link rel="stylesheet" href="/public/css/i-check.css">
+  <link rel="stylesheet" href="/public/css/iconfont.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+  <style type="text/css">
+   
+    
+    .okName{
+      margin:10px;
+      padding:5px;
+      display: inline-block;
+      
+    }
+    .okName:hover{
+     color: royalblue;
+      cursor: pointer;
+     
+    }
+    .delName{
+      margin-left:5px;display:inline-block;background:url("/public/css/icon2/body/clear.png") no-repeat;width:20px;height:14px;
+    }
+    .addTaskShow{
+      display: inline-block;
+    overflow: auto;
+    max-height: 114px;
+    border: 1px solid #aeaeae;
+    width: calc(100% - 120px);
+    word-break: break-all;
+    background: #fff;
+    padding: 5px;
+    border-radius: 6px;
+    
+    min-height: 26px;
+    margin-right:15px;
+    }
+    .filter_title_children{
+      margin : 0 5px 5px 0 ;
+    }
+  </style>
+
+</head>
+<body>
+  
+  <div class="container-fluid" >
+     <div >
+    <div style="background: #fff;position:relative;">
+      <div class="page-header" style="margin:0;border-bottom: 0px;">
+        <span class="cjm_page_header">采集视频<span class="cjm_page_header_goal"></span></span>
+        <div class="template-demo mt-2" style=" margin: 0 !important;">
+          <button type="button" style="display:none" class="btn" onclick=" parent.start_mission.go()"> <i class="glyphicon glyphicon-align-center"></i>保存任务</button>
+        </div>
+      </div>
+      <div class="conTable">
+        <div class="step1 tb_head">
+          <div class="row stepRow">
+            <span class="input-group-btn" style="width:86px;">
+              <button class="btn btn-default step1_account" onclick="parent.treeview.show($('#new_collectAll',window.parent.document),'','',saveCJ,1)"
+                type="button">选择账号</button>
+            </span>
+            <span class="addTaskAccount21 addTaskShow"></span><span class="redStar iconfont icon-xing1"></span>
+          
+            <input id="addTaskAccount11" type="text" class="form-control" placeholder="账号" style="display: none">
+          </div>
+        </div>
+      </div>
+    
+    <div class="step3"  style="margin-top:15px;padding: 30px;position:relative;">
+        <div style="position:absolute;    width: 29%;right: 52px;background: #e1e1e1; padding: 16px; border: 1px solid #fbfbfb;">
+          <p> 为了更快提高账号质量，请仔细阅读以下的注意事项：</p>
+          <p>1.关键词是指你跟你行业相关的关键词，可以设置多个。</p>
+          <p>2.同城：请输入你相要的城市</p>
+          <p>3.抖音号：请输入博主大号</p>
+          <p>4.如果采集没有数据，请检查所选择的手机是否有设置网络代理。步骤如下：</p>
+          <p> ①设置系统代理</p>
+          <p> 将代理服务器设置为：127.0.0.1,端口:8888</p>
+          <p>使用WIFI可以不登录抖音号</p>
+          <p> ②安装证书</p>
+        
+        </div>
+      <div><span class="step1Header"></span></div>
+     
+      
+     
+      <div class="listCon padding30"  style="width:62%;">
+          <div class="input-group margin10">
+            <span class="input-group-addon width90" id="basic-addon1"> 设置任务名 </span>
+            <input type="text" class="form-control" name="name1" placeholder="设置任务名" aria-describedby="basic-addon1">
+            <span class="redStar iconfont icon-xing1"></span>
+          </div>
+          <div class="keyVideo">
+            <div class="input-group margin10 " style="display:flex;justify-content: flex-start;align-items: center;">
+              <div class="radio icheck-primary  margin10">
+                <input type="radio" name="key_type" value="1" checked  id="key_type" />
+                <label for="key_type">关键词</label>
+              </div>
+              <span class="input-group margin10 " style="width:calc(100% - 101px);margin:0">
+                <input type="text" class="form-control cjm_height37" style="margin:0" name="class_name1" placeholder="多个请用+隔开" aria-describedby="basic-addon1">
+               
+              </span>
+          
+            </div>
+            <div class="input-group margin10 " style="display:flex;justify-content: center;align-items: center;">
+              <div class="radio icheck-primary  margin10">
+                <input type="radio" name="key_type" value="2"  id="key_type1" />
+                <label for="key_type1">同城</label>
+              </div>
+              <span style="width:calc(100% - 101px);">
+                <select id="city" class="form-control selectpicker" data-live-search="true" style="display:block !important; z-index:9999;  border: 1px solid;">
+          
+                </select>
+              </span>
+            </div>
+            <div class="input-group margin10 " style="display:flex;justify-content: center;align-items: center;">
+              <div class="radio icheck-primary  margin10">
+                <input type="radio" name="key_type" value="3"  id="key_type2" />
+                <label for="key_type2">大号</label>
+              </div>
+              <span style="width:calc(100% - 101px);">
+                <input type="text" class="form-control cjm_height37" name="big_dy" placeholder="大号账号" aria-describedby="basic-addon1">
+              </span>
+            </div>
+            <div class="input-group margin10">
+              <span class="input-group-addon width90" id="basic-addon1">评论数量</span>
+              <input type="text" class="concern_input form-control input_showNum" name="concern_0" placeholder=""
+                aria-describedby="basic-addon1">
+              <span class="-deCss">-</span>
+              <input type="text" class="concern_input form-control input_showNum" name="concern_1" placeholder=""
+                aria-describedby="basic-addon2">
+              <span class="left10pxSp">个</span>
+              <span class="redStar iconfont icon-xing1"></span>
+            </div>
+          <!--   <div class="input-group margin10 ">
+              <span class="input-group-addon width90" id="basic-addon1"> 性别 </span>
+              <span style="width:calc(100% - 200px)">
+                <select id="sex_type" class="form-control selectpicker" value="-1" style="display:block !important; z-index:9999;  border: 1px solid;">
+                  <option value="-1">全部</option>
+                  <option value="1">男</option>
+                  <option value="0">女</option>
+                </select>
+              </span>
+            </div> -->
+            <div class="input-group margin10 ">
+              <span class="input-group-addon width90" id="basic-addon1"> 采集时长 </span>
+              <input type="text" class="form-control" name="task_time1" placeholder="采集时长" aria-describedby="basic-addon1">
+              <span class="left10pxSp">分钟</span>
+              <span class="redStar iconfont icon-xing1"></span>
+            </div> 
+            
+          </div>
+          
+          <div class="padding30">
+            <div class="row" style="margin:0">
+              <div class="radio icheck-primary  margin10">
+                <input type="radio" name="time_type1" value="0" checked id="nowDo1" />
+                <label for="nowDo1">立即执行</label>
+              </div>
+              <div class="radio icheck-primary margin10" style=" ">
+                <input type="radio" name="time_type1" value="1" id="lateDo1" />
+                <label for="lateDo1">定时执行</label>
+              </div>
+            </div>
+                
+            <div style="display:none" class="time_task1 row">
+              <div style="width:250px">
+                <span>执行时间(<span style="color:red">设置超过当前时间 半小时以上</span>)</span>
+                <div class="input-group date time_tick1" data-link-field="time_tick1">
+                  <input class="form-control  pd15" size="16" type="text" value="" style="cursor:pointer" readonly>
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                  <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                </div>
+                <input type="hidden" id="time_tick1" value="" />
+              </div>
+            
+              <div>
+                <span>重复时间</span><br />
+                <select id="time_week1" multiple data-live-search="true" value="0" class="  selectpicker" style="display:block !important; width:90px">
+                  <option value="1">星期一</option>
+                  <option value="2">星期二</option>
+                  <option value="3">星期三</option>
+                  <option value="4">星期四</option>
+                  <option value="5">星期五</option>
+                  <option value="6">星期六</option>
+                  <option value="7">星期日</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          </div>
+   
+    </div>
+  </div>
+     <!-- ===================================================================================================================================================================== -->
+      <div style="background: #fff;position:relative;margin-top:20px;">
+        <div class="page-header" style="margin:0;border-bottom: 0px;">
+          <span class="cjm_page_header">根据评论内容进行评论点赞<span class="cjm_page_header_goal"></span></span>
+          <div class="template-demo mt-2" style=" margin: 0 !important;">
+            <button type="button" style="display:none" class="btn" onclick=" parent.start_mission.go()"> <i class="glyphicon glyphicon-align-center"></i>保存任务</button>
+          </div>
+        </div>
+        <div class="conTable">
+          <div class="step1 tb_head">
+            <div class="row stepRow">
+              <span class="input-group-btn" style="width:86px;">
+                <button class="btn btn-default step1_account" onclick="parent.treeview.show($('#new_collectAll',window.parent.document),'','',saveDZ)"
+                  type="button">选择账号</button>
+              </span>
+            <span class="addTaskAccount22 addTaskShow"></span><span class="redStar iconfont icon-xing1"></span>
+              <input id="addTaskAccount2" style="margin-left: 10px; border-radius: 3px;display:none;" type="text" class="form-control"
+                placeholder="账号" disabled>
+              <input id="addTaskAccount12" type="text" class="form-control" placeholder="账号" style="display: none">
+            </div>
+          </div>
+        </div>
+      
+        <div class="step3" style="margin-top:15px;padding: 30px;position:relative">
+          <div style="position:absolute;    width: 29%;right: 52px;background: #e1e1e1;padding: 16px; border: 1px solid #fbfbfb;">
+            <p>为了更快采集信息质量，请阅读以下建议：</p>
+            <p>1.关键词是指你视频下评论内容的关键词</p>
+            <p>2.评论时间是指视频评论的生成时间</p>
+          </div>
+          <div><span class="step1Header"></span></div>
+          
+          <div class="listCon padding30" style="width:62%;">
+            <div class="input-group margin10">
+              <span class="input-group-addon width90" id="basic-addon1"> 关键词 </span>
+              <input type="text" class="form-control" name="keywords" placeholder="关键词多个请用+隔开" aria-describedby="basic-addon1">
+             <span class="redStar iconfont icon-xing1"></span>
+            </div>
+            <div class="keyVideo">
+              <div class="input-group margin15 " style="display:flex; ">
+              
+                <span class="input-group-addon width90" id="basic-addon1" style="width:72px;">评论时间</span>
+              
+                <div class="radio icheck-primary  margin15" style="width:auto">
+                  <input type="radio" name="rightTime" attrValue="2" checked id="rightTime" />
+                  <label for="rightTime"></label>
+                </div>
+                <span class="input-group " style="width:calc(100% - 101px);">
+                  <input type="text" class="form-control" name="timeDay" placeholder="" aria-describedby="basic-addon1">
+                  <span class="left10pxSp">天内</span>
+                </span>
+              
+              </div>
+              <div class="margin15 " style="display:flex;">
+                <span class="input-group-addon width90" id="basic-addon1" style="width:72px;"></span>
+                <div class="radio icheck-primary  margin15" style="width:auto">
+                  <input type="radio" name="rightTime" attrValue="0" id="rightTime2" />
+                  <label for="rightTime2"></label>
+                </div>
+                <span class="input-group " style="width:calc(100% - 101px);">
+                  <input type="text" class="form-control" name="timeHour" placeholder="" aria-describedby="basic-addon1">
+                  <span class="left10pxSp">小时内</span>
+                </span>
+              </div>
+              <div class="margin15 " style="display:flex;">
+                <span class="input-group-addon width90" id="basic-addon1" style="width:72px;"></span>
+                <div class="radio icheck-primary  margin15" style="width:auto">
+                  <input type="radio" name="rightTime" attrValue="1" id="rightTime3" />
+                  <label for="rightTime3"></label>
+                </div>
+                <span class="input-group " style="width:calc(100% - 101px);">
+                  <input type="text" class="form-control" name="timeMin" placeholder="" aria-describedby="basic-addon1">
+                  <span class="left10pxSp">分钟内</span>
+                </span>
+              </div>
+              
+              <div class="margin10 " style='display: flex;'>
+                <div class="checkbox icheck-primary  margin10">
+                  <input type="radio" name="is_like" checked value=1 id="setLike" />
+                  <label for="setLike">点赞</label>
+                </div>
+              <!--  <div class="checkbox icheck-primary  margin10" style="margin-left:20px;width:200px;">
+                  <input type="checkbox" name="is_filter"  id="is_filter" />
+                  <label for="is_filter">过滤已重置粉丝</label>
+                </div>  -->
+              </div>
+            <!--   <div class="input-group margin10 filter_title" style="height:auto">
+                <span class="input-group-addon width90" id="basic-addon1"> 过滤昵称标题 </span>
+                <input type="text" class="form-control" name="filter_tit" placeholder="标题多个请用+隔开" aria-describedby="basic-addon1">
+              </div> -->
+            </div>
+            <div class="input-group margin10 gjlRight">
+              <div class="">
+                <div class="checkbox icheck-primary  margin10">
+                  <input type="radio" name="is_like" value=0 id="setLike1" />
+                  <label for="setLike1">评论内容</label>
+                </div>
+                
+              </div>
+              <div>
+                      <span class="  cjm_search_btn" onclick="addContent()">新增</span>
+                      <span onclick="parent.resourceImport.go(write_content)" class="  cjm_search_btn">导入</span>
+                      <span class=" cjm_search_btn "><a style="text-decoration:none;color:#FFF;padding:8px;"
+                          href="/module/xls/导入模板下载.xls" target="_blank">导入模板下载</a> </span>
+                      <span onclick="parent.material.show(2,write_content)" class=" cjm_search_btn">素材库</span>
+              </div>
+        
+            </div>
+           
+            <div style="margin-top:10px;" class="addContent">
+              <p class="input-group margin10">
+                <input type="text" class="form-control" name="content" placeholder=" " aria-describedby="basic-addon1"><button type="button"
+                  class="btn btn-primary btn_style">删除</button>
+              </p>
+              <span style="color:red;display:none;  font-size: 11px; text-align: center;line-height: 22px;">每个账号在每个评论区最多随机关注5个评论者，超过5个将自动停止。</span>
+            </div> 
+          <div class="input-group margin10">
+            <span class="input-group-addon width90">操作</span>
+            <div class="radio icheck-primary  margin15" style="width:125px">
+              <input type="radio" name="sendmodeladdtask" valueAttr=1 checked id="nowDo-sendmodeladdtask" />
+              <label for="nowDo-sendmodeladdtask">随机发送(1人/条)</label>
+            </div>
+            <!-- <div class="radio icheck-primary margin15" style="width:150px;margin-left:15px;">
+              <input type="radio" name="sendmodeladdtask" valueAttr=2 id="lateDo-sendmodeladdtask" />
+              <label for="lateDo-sendmodeladdtask">顺序发送(1人/全部)</label>
+            </div> -->
+          </div>
+            <div class="padding30">
+              <div class="row" style="margin:0">
+                <div class="radio icheck-primary  margin10">
+                  <input type="radio" name="time_type" value="0" checked id="nowDo" />
+                  <label for="nowDo">立即执行</label>
+                </div>
+                <div class="radio icheck-primary margin10" style=" ">
+                  <input type="radio" name="time_type" value="1" id="lateDo" />
+                  <label for="lateDo">定时执行</label>
+                </div>
+              </div>
+      
+      
+              <div style="display:none" class="time_task row">
+                <div style="width:250px">
+                  <span>执行时间(<span style="color:red">设置超过当前时间 半小时以上</span>)</span>
+                  <div class="input-group date time_tick" data-link-field="time_tick">
+                    <input class="form-control  pd15" size="16" type="text" value="" style="cursor:pointer" readonly>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                  </div>
+                  <input type="hidden" id="time_tick" value="" />
+                </div>
+                <!--  <div class="checkbox icheck-primary margin10 " style=" display: flex;flex-flow: column-reverse;margin:0 15px">
+                                                          <input type="checkbox" checked id="time_tick" />
+                                                          <label for="time_tick">重复</label>
+                                                        </div> -->
+                <div>
+                  <span>重复时间</span><br />
+                  <select id="time_week" multiple data-live-search="true" value="0" class="  selectpicker" style="display:block !important; width:90px">
+                    <option value="1">星期一</option>
+                    <option value="2">星期二</option>
+                    <option value="3">星期三</option>
+                    <option value="4">星期四</option>
+                    <option value="5">星期五</option>
+                    <option value="6">星期六</option>
+                    <option value="7">星期日</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    </div>
+  </div>
+      <div style="clear:both"></div>
+    
+
+   
+    <div style="text-align: center; padding-bottom: 30px;background: #fff;">
+      <button type="button" style=" width: 300px; height: 35px; font-size: 15px;padding: 6px 12px;" class="btn btn-primary"
+        onclick="saveTask()">保&emsp;&emsp;存</button>
+    </div>
+</div>
+
+  <!-- ===================================================== -->
+
+  <script src="/public/js/lib/jquery.min.js"></script>
+  <script src="/public/js/lib/bootstrap.min.js"></script> 
+
+
+
+  <script src="/public/js/lib/bootstrap-table.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-zn.min.js"></script>
+
+
+  
+  <script src="/public/js/lib/bootstrap-datetimepicker.min.js"></script>
+  <script src="/public/js/lib/bootstrap-select.min.js"></script>
+
+  <script src="/public/js/lib/xlsx.core.min.js"></script>
+
+
+<script type="text/javascript">
+   window.onload = function(){
+     var path = window.location.href.split("/");
+           var p = path[path.length-2];
+           var f = path[path.length-1].substr(0, path[path.length-1].indexOf('.htm'));
+           var req = document.createElement('script');
+           req.type = 'text/javascript';
+           req.src = '/public/js/require.js';
+           req.setAttribute("data-main","/public/js/apps/"+p+"/"+f+".js?v="+(new Date().valueOf()-3600).toString().substr(0,10));
+           req.setAttribute("async","true");
+           req.setAttribute("defer","");
+           document.getElementsByTagName("head")[0].appendChild(req);
+   }
+       function web_init(){
+
+           search_init()
+
+
+      }
+</script>
+</body>
+</html>

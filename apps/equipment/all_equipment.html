@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>所有设备</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="/public/css/bootstrap.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-editable.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-table-min.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="/public/css/bootstrap-select-min.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+  <style type="text/css">
+  
+  
+  </style>
+
+  <script src="/public/js/lib/jquery.min.js"></script>
+  <script src="/public/js/lib/bootstrap.min.js"></script>
+  <script src="/public/js/off-canvas.js"></script>
+  <script src="/public/js/lib/bootstrap-table.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-zn.min.js"></script>
+  <script src="/public/js/lib/bootstrap-editable.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-editable.js"></script>  
+   <script src="/public/js/lib/bootstrap-select.min.js"></script>
+  <script src="/public/js/lib/bootstrap-datetimepicker.min.js"></script>
+
+
+  <script src="/public/js/lib/xlsx.core.min.js"></script>
+</head>
+<body>
+  <div class="page-header"  style= "margin:0">
+      <span class="cjm_page_header">手机列表<span class="cjm_page_header_goal">:请务必为每台手机设置唯一的标签，最好是将标签贴在手机前端</span></span>
+      
+       
+  </div>
+  <div class="container-fluid" style="padding:0">
+
+        <div  id="tb"  class="row tb_head" >
+                <div class="tb_margin10 ">
+                    <span class="timepickerHeadSelspan">
+                        <select id="timeSel" >
+                        <option value="0">最后上报时间</option>
+                        <option value="1">首次上报时间</option>
+                    </select>
+                  </span>
+                </div>
+                <div class="tb_margin10 timepickerHead">
+                  <!--  <span style="line-height:28px">上报时间</span> -->
+                  <div style="width:122px;">           
+                      <div class="input-group date begin_time"  data-link-field="begin_date" >
+                         
+                          <input class="form-control pd15" size="16" type="text" value="" style="cursor:pointer" readonly>
+                          <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                          <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                      </div>
+                      <input type="hidden" id="begin_date" value="" />
+                  </div>
+                  <span  style="line-height: 33px;font-size:2rem">-</span>            
+                   <div style="width:122px;" >                                     
+                      <div class="input-group date end_time"  data-link-field="end_date"  >
+                         
+                          <input class="form-control pd15" size="16" type="text" value=""  style="cursor:pointer"  readonly>
+                          <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                          <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+                      </div>
+                      <input type="hidden" id="end_date" value="" />
+                  </div> 
+                </div>
+                 
+                   <span  class="tb_margin10" >
+                      <select id="online_id" class="selectpicker" style="height:30px !important;    z-index: 9999;border: 1px solid;">
+                     <option value='-1'>全部</option>
+                     <option value='0'>故障</option>
+                     <option value='1'>正常</option>
+                    
+                   </select> 
+                   </span>
+               
+               <input type="text" name="user_name" class=" cjm_height37 tb_margin10" placeholder="手机标签">
+               <input type="text" name="imei" class=" cjm_height37 tb_margin10" placeholder="手机串号">
+               
+               <input type="text" name="group_name" class=" cjm_height37 tb_margin10" placeholder="分组号">
+             
+               <span  id="refresh_btn" class="cjm_search_btn tb_margin10">搜索</span>
+             <!--   <span  id="change_btn" onclick="parent.changeStatus.show($('#tableMy').bootstrapTable('getSelections'),TBrefresh)" class="cjm_search_btn tb_margin10">修改状态</span> -->
+               <span  id="change_btn" onclick="parent.changeMan.show($('#tableMy').bootstrapTable('getSelections'),TBrefresh)" class="cjm_search_btn tb_margin10">修改控制人</span>
+               <span  id="reg_btn" onclick="parent.phoneBelong.show($('#tableMy').bootstrapTable('getSelections'),TBrefresh)" class="cjm_search_btn tb_margin10">修改手机分组</span>
+               <span  style="width:130px" onclick="parent.changPhoneType.show($('#tableMy').bootstrapTable('getSelections'),TBrefresh)" class="cjm_search_btn tb_margin10">修改手机任务类型</span> 
+                <span onclick="delAll()" class="cjm_search_btn tb_margin10">删除</span>
+            <!--   <button type="button" id="refresh_btn" class="btn btn-gradient-info  btn-fw">搜索</button> -->
+           
+          <!-- 
+            <button type="button" class="btn" onclick="MobileList.show()"> <i class="glyphicon glyphicon-save "></i> 添加手机</button> -->
+          </div>
+      </div>
+     
+   <div class="conTable">
+     <table id="tableMy" class="table" ></table>
+   </div>
+  
+  
+
+   <script type="text/javascript">
+    
+        window.onload = function(){
+           var path = window.location.href.split("/");
+           var p = path[path.length-2];
+           var f = path[path.length-1].substr(0, path[path.length-1].indexOf('.htm'));
+           var req = document.createElement('script');
+           req.type = 'text/javascript';
+           req.src = '/public/js/require.js';
+           req.setAttribute("data-main","/public/js/apps/"+p+"/"+f+".js?v="+(new Date().valueOf()-3600).toString().substr(0,10));
+           req.setAttribute("async","true");
+           req.setAttribute("defer","");
+           document.getElementsByTagName("head")[0].appendChild(req);
+
+        }
+
+        function web_init(){
+            if(parent.DmConf.userinfo.type != 1)  $('.admin_show').hide() ;
+             if(self.frameElement.getAttribute('id') == 'equipment1'){
+                $("#change_btn").hide()
+                $("#reg_btn").hide()
+             }else{
+                $("#reg_btn").show()
+                $("#change_btn").show()
+             }
+            create_datePicker_new($('.begin_time'),1);
+            create_datePicker_new($('.end_time'),0);
+
+            $("#timeSel").selectpicker('refresh');
+            var sel_valList = [];
+            $.each(parent.DmConf.data.user, function (i, v) {
+
+                sel_valList.push({ text: v.emp_name, id: v.id })
+            })
+            if (window.taskDetailInfo) {
+                var bg = window.taskDetailInfo.showIframe_data.timeSel == 0 ? parent.UnixToDateTime(window.taskDetailInfo.showIframe_data.begin_date) : parent.UnixToDateTime( window.taskDetailInfo.showIframe_data.begin_reg_date) ;
+                var et = window.taskDetailInfo.showIframe_data.timeSel == 0 ?   parent.UnixToDateTime(window.taskDetailInfo.showIframe_data.end_date) :  parent.UnixToDateTime(window.taskDetailInfo.showIframe_data.end_reg_date);
+ 
+                $(".begin_time").datetimepicker('setDate', new Date(bg));
+                $(".end_time").datetimepicker('setDate', new Date(et));
+                $("#tb").find('input[name=mobile_label]').val(window.taskDetailInfo.showIframe_data.mobile_label);
+                $("#tb").find('input[name=imei]').val(window.taskDetailInfo.showIframe_data.imei);
+                $("#tb").find('input[name=group_name]').val(window.taskDetailInfo.showIframe_data.group_name);
+                $("#timeSel").selectpicker('val', window.taskDetailInfo.showIframe_data.timeSel);
+                $("#online_id").selectpicker('val', window.taskDetailInfo.showIframe_data.on_line);
+
+            }
+
+
+            search_init()
+
+
+      }
+
+
+  </script> 
+</body>
+</html>

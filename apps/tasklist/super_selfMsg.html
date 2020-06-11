@@ -1,0 +1,162 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="/public/css/materialdesignicons.min.css"> 
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-table-min.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+
+  <link rel="stylesheet" href="/public/css/bootstrap-datetimepicker.min.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-select-min.css">
+  <link rel="stylesheet" href="/public/css/i-check.css">
+
+  <style type="text/css">
+   
+    .margin10{
+      margin-top:10px;
+    }
+    .padding30{
+      padding-left:30px;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container-fluid" style="padding:0">
+    <div class="page-header"  style= "margin:0;border-bottom: 0px;">
+      <span class="cjm_page_header">截流管理—私信产粉—私信</span>
+      <div class="template-demo mt-2" style=" margin: 0 !important;">
+        
+      </div>
+    </div>
+
+    <div class="conTable">
+      <div class="step1 tb_head" >
+            <div >
+            <span class="step1Header">1.选择任务</span>
+          </div>
+           <div  class="padding30">
+              <div style="margin-top:10px">
+            <div class="row">
+                <span class="input-group-btn" style="width:86px;">
+                  <button class="btn btn-default step1_account" onclick="parent.super_taskList.show($('#selfMsg',window.parent.document),1)" type="button">选择任务</button>
+                </span>
+                 <span class="super_taskList addTaskMobile2"></span>
+               
+                <input id="super_taskList1" type="text" class="form-control" placeholder="账号" style="display: none">
+              </div>
+          <!--     <div style="margin-top:10px">
+                 <span class="input-group-btn" style="width:86px;">
+                  <button class="btn btn-default step1_account" onclick="parent.super_resultList.show($('#selfMsg',window.parent.document))" type="button">查看关注列表</button>
+                </span>
+              </div>
+            </div> -->
+            
+    </div>
+  </div>
+        <div class="step2" style="margin-top:15px">
+          <div >
+            <span class="step1Header">2.私信设备列表</span>
+          </div>
+          <div  class="padding30">
+            <div style="margin-top:10px" class="super_mobile_show">
+                  
+            </div>
+            
+          </div>
+  </div>
+    <div class="step3"  style="margin-top:15px;">
+     <div >
+            <span class="step1Header">3.设置参数</span>
+          </div>
+      <div class="listCon padding30" style="" >
+            <div class="input-group margin10">
+              <span class="input-group-addon width90" id="basic-addon1"> 视频链接 </span>
+               <span  class="form-control addTaskMobile2 super_play_url" style="margin:0" ></span>
+            </div>
+             <div class="input-group margin10">
+              <span class="input-group-addon width90" id="basic-addon1"> 已关注 </span>
+               <span  class="has_look" ></span>
+            </div>
+            <div class="input-group margin10">
+              <span class="input-group-addon width90" id="basic-addon1"> 私信性别 </span>
+              <select  class="selectpicker selSty form-control" id="sex_text" style="    display: block !important;
+    border: 1px solid #999;">
+                      <option value="-1">全部</option>
+                      <option value="1">男</option>
+                      <option value="0">女</option>
+                    </select>
+            </div>
+   
+      </div>
+      <div class="right_contentORmsg padding30" style="float:none;width:100%">
+          <div class="input-group margin10">
+            <button type="button"  class="btn btn-primary cjm_tzbtn" onclick="addMsg()">新增</button>
+            <button type="button" style="width:100px;padding:5px" onclick="parent.resourceImport.go(write_content)" class="btn btn-primary" >导入</button>
+            <button  type="button" style="width:100px;padding:5px"  class="btn btn-primary" ><a style="text-decoration:none;color:#FFF;padding:8px;" href="/module/xls/导入模板下载.xls" target="_blank">导入模板下载</a> </button>
+             <button type="button" style="width:100px;padding:5px" onclick="selStore()" class="btn btn-primary" >素材库</button>
+          </div>
+           <div class="input-group margin10">
+              <span>私信内容</span>
+            </div>
+          <div style="margin-top:10px;" class="addMsg">
+            
+            <p class="input-group margin10">
+              <input type="text" class="form-control" name="addMsg" placeholder=" "     aria-describedby="basic-addon1"><button type="button" onclick="del_msg(this)" class="btn btn-primary btn_style" >删除</button>
+            </p>
+            
+             <span style="color:red;display:none;  font-size: 11px; text-align: center;line-height: 22px;">每个账号在每个私信区最多随机关注5个评论者，超过5个将自动停止。</span>
+        
+            </div>
+      </div>
+      <div style="clear:both"></div>
+    </div>
+    <div style="text-align: center; padding-bottom: 30px;background: #fff;">
+      <button type="button" style=" width: 300px; height: 35px; font-size: 15px;padding: 6px 12px;" class="btn btn-primary" onclick="saveTask()">保&emsp;&emsp;存</button>
+    </div>
+    </div>
+    
+    
+  </div>
+
+
+  <!-- ===================================================== -->
+
+  <script src="/public/js/lib/jquery.min.js"></script>
+  <script src="/public/js/lib/bootstrap.min.js"></script> 
+
+
+
+  <script src="/public/js/lib/bootstrap-table.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-zn.min.js"></script>
+
+  <link rel="stylesheet" href="/public/css/bootstrap-datetimepicker.min.css">
+  
+  <script src="/public/js/lib/bootstrap-datetimepicker.min.js"></script>
+  <script src="/public/js/lib/bootstrap-select.min.js"></script>
+
+  <script src="/public/js/lib/xlsx.core.min.js"></script>
+
+
+<script type="text/javascript">
+   window.onload = function(){
+     var path = window.location.href.split("/");
+           var p = path[path.length-2];
+           var f = path[path.length-1].substr(0, path[path.length-1].indexOf('.htm'));
+           var req = document.createElement('script');
+           req.type = 'text/javascript';
+           req.src = '/public/js/require.js';
+           req.setAttribute("data-main","/public/js/apps/"+p+"/"+f+".js?v="+(new Date().valueOf()-3600).toString().substr(0,10));
+           req.setAttribute("async","true");
+           req.setAttribute("defer","");
+           document.getElementsByTagName("head")[0].appendChild(req);
+   }
+       function web_init(){
+
+           search_init()
+
+
+      }
+</script>
+</body>
+</html>

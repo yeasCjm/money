@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>所有设备</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!--  <link rel="stylesheet" href="/public/css/materialdesignicons.min.css"> -->
+  <link rel="stylesheet" href="/public/css/bootstrap.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-editable.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-table-min.css">
+
+  <link rel="stylesheet" href="/public/css/style.css">
+
+
+ 
+
+</head>
+<body>
+  <div class="page-header"  style= "margin:0">
+      <span class="cjm_page_header">资源标签管理</span>
+      <div class="template-demo mt-2" style=" margin: 0 !important;">
+        <button type="button" class="btn"  onclick="parent.create_label.go('资源标签',0,parent.DmConf.api.new.add_resourcetype,'',function(){ $('#tableMy').bootstrapTable('refresh')})"> <i class="glyphicon glyphicon-edit"></i>新建</button>
+        <button type="button" class="btn"  onclick="parent.create_label.delete('资源标签',2,parent.DmConf.api.new.ResourceTypeDelete,$('#tableMy').bootstrapTable('getSelections'),function(){ $('#tableMy').bootstrapTable('refresh')})"> <i class="glyphicon glyphicon-remove-circle"></i> 删除</button>
+      </div>
+       
+  </div>
+  <div class="container-fluid" style="padding:0;margin-bottom:5px">
+      <div >
+          <div class="row" id="tb" style="margin:10px 0">
+         
+           <div class="col-md-4  col-xs-4 col-sm-4 pd0" >
+             <input type="text" name="label_name" class="form-control bord_rad cjm_height37" placeholder="标签名">
+           </div>
+           <div class="col-md-2 col-xs-2 col-sm-2 pd0 ">
+               <button type="button" id="refresh_btn" class="btn btn-gradient-info btn-fw">搜索</button>
+           </div>
+           </div>
+       
+        </div>
+    </div>
+    <div class="conTable">
+      <table id="tableMy"  ></table>
+    </div>
+
+
+
+   <script src="/public/js/lib/jquery.min.js"></script>
+  <script src="/public/js/lib/bootstrap.min.js"></script> 
+
+
+  <script src="/public/js/misc.js"></script>
+ 
+<!--   <script src="/public/js/dashboard.js"></script>  -->
+  
+  <script src="/public/js/lib/bootstrap-table.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-zn.min.js"></script>
+  <script src="/public/js/lib/bootstrap-editable.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-editable.js"></script>
+  <script src="/public/js/lib/xlsx.core.min.js"></script>
+
+
+
+   <script type="text/javascript">
+    
+        window.onload = function(){
+           var path = window.location.href.split("/");
+           var p = path[path.length-2];
+           var f = path[path.length-1].substr(0, path[path.length-1].indexOf('.htm'));
+           var req = document.createElement('script');
+           req.type = 'text/javascript';
+           req.src = '/public/js/require.js';
+           req.setAttribute("data-main","/public/js/apps/"+p+"/"+f+".js?v="+(new Date().valueOf()-3600).toString().substr(0,10));
+           req.setAttribute("async","true");
+           req.setAttribute("defer","");
+           document.getElementsByTagName("head")[0].appendChild(req);
+
+        }
+
+        function web_init(){
+            search_init()
+
+      }
+
+
+  </script> 
+</body>
+</html>

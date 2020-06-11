@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title id="webTitle"></title>
+  <link rel="stylesheet" href="/public/css/bootstrap.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-table-min.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-select-min.css">
+
+
+  <link href="/public/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="/public/css/i-check.css">
+  <link rel="stylesheet" href="/public/css/iconfont.css">
+  <link rel="stylesheet" href="/public/css/select3.css">
+    <link rel="stylesheet" href="/public/css/style.css">
+<style>
+    .btn_span{
+          font-size: 13px;
+          display: inline-block;
+          padding: 4px;
+          border: 1px solid #666666;
+          height: 28px;
+          width: 85px;
+          text-align: center;
+          margin-top: 16px;
+          border-radius: 7px;
+          color:#666666;
+          margin-right:15px;
+          cursor:pointer;
+    }
+        .marqueeH5Li{
+            width: 100%;
+            height:60px;
+            line-height:60px;
+            font-size: 16px;
+            padding: 0 60px;
+            text-align: center;
+            list-style: none ;
+            color:#000;
+            cursor:pointer ;
+    }
+</style>
+<script>
+
+
+</script>
+</head>
+<body>
+   <div id="Wellcome_window"><div class="wellcome_init">初始化...</div></div>
+   <div id="show_index" style="display:none">
+      <div class="container-scroller" style="height:100vh">
+       
+            <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row" style="border:0">
+      
+                    <div class="navbar-menu-wrapper d-flex align-items-stretch" >
+                        <img  id="changeImg" style="height : 32px; margin: 18px 0 0 11px" src="public/css/icon2/login/icon.png" />
+                        <span id="changeCusName"  style="    width: 290px; height: 20px; font-size: 20px;font-family: MicrosoftYaHei;font-weight: 400; color: rgba(47,75,118,1); display: inline-block; padding: 19px 0 13px 10px;"></span>
+                       
+                            <div style="height:60px;position:relative ;width:calc(100% - 500px);overflow:hidden;" id="marqueeH5" >
+                                <span class="iconfont icon-jian" style=" position: absolute;z-index:9;right:0;top:23px;color:red;cursor:pointer"     onclick="hideMarqueeH5()"></span>
+                                <ul style="position:absolute;padding:0 60px;width:100%">
+                            
+                                </ul>
+                            </div>
+                       <!--  <span class="navbar-nav">
+                        </span> -->
+                        <div class="dropdown "  style="position: absolute;right: 27px;text-align: center">
+                            <p id="dropdownMenu1" style="width:110px" data-toggle="dropdown" data-hover="dropdown">
+                            <span class="cus_code" style="    color: black;    line-height: 5em;cursor: pointer;;"></span>
+                            </p>
+                            <ul class="dropdown-menu openMenu" role="menu" aria-labelledby="dropdownMenu1" style="margin:0;padding:0;top:37px; box-sizing: border-box;  text-align: center;line-height: 30px;cursor: pointer;border: 1px solid transparent;border-radius: 5px;">
+                                <li style="height:30px;line-height:30px;border-bottom: 1px solid #e1e1e1;" role="presentation" onclick="parent.change_passwd.show()">
+                                修改密码
+                                </li>
+                                <li style="height:30px;line-height:30px;" role="presentation" onclick="outLogin()">
+                                    退出
+                                </li>
+                        
+                            </ul>
+                        </div>
+                        
+                    
+                        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" style="position: absolute;
+                right: 0;" type="button" data-toggle="offcanvas">
+                            <span class="glyphicon glyphicon-align-justify" style="color:black"></span>
+                        </button>
+                    </div>
+                    <div class="tabContainerParent" style="display:none">
+                        <div id="tabContainer" style=" white-space: nowrap; overflow-x: scroll">
+                        
+                        </div>
+                    </div>
+                </nav>
+       
+   
+    <!-- partial -->
+    <div class="container-fluid container-fluid-outside page-body-wrapper" style="float:left; ">
+      <!-- partial:partials/_sidebar.html -->
+
+     <nav class="sidebar sidebar-offcanvas" id="sidebar" style=" background: #001529;float:left;overflow: auto;height:100vh">
+        <div onclick="parent.change_passwd.goHome()" style="color:#fff;text-align:left;height:50px;padding-left:8px">
+         <img src="/public/css/icon2/body/navHome@2x.png" style="width:25px"><span style="height: 50px;font-size: 15px;font-family: MicrosoftYaHei; font-weight: 400;color: rgba(255,255,255,1);line-height: 50px;display: inline-block;vertical-align: middle;">后台系统</span>
+        </div>
+        <div style="height:1px;background:rgba(36,51,66,1);box-shadow:0px 1px 1px 0px rgba(255,255,255,0.1);border-radius:0px 1px 1px 1px;"></div>
+        <ul class="nav">
+          
+
+        </ul>
+      </nav>
+      <!-- partial -->
+      <div class="main-panel">
+
+        <div id="content-wrapper" class="content-wrapper" style="height:1px;    padding: 16px">
+
+        </div>
+      </div>
+      
+      <footer class="footer" style="display:none">
+        <div class="d-sm-flex justify-content-center justify-content-sm-between">
+          
+        </div>
+      </footer>
+   
+      </div>
+ 
+    </div>
+    
+  </div>
+   </div>
+
+
+      <div class="modal"  id="qrcode_login" tabindex="-1" role="dialog" style="display:none">
+
+        <div class="modal-dialog" role="document">
+            <div class="modal-content" >
+                <div class="modal-header">
+                    <h4 class="modal-title" id="changePsd">设备登录二维码</h4>
+                </div>
+                <div class="modal-body">
+                    <div id="qrCode" style="margin:0 auto;width:37%;"></div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+  <script src="/public/js/lib/jquery.min.js"></script>
+  <script src="/public/js/lib/bootstrap.min.js"></script>
+
+  <script src="/public/js/lib/bootstrap-table.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-zn.min.js"></script> 
+  <script src="/public/js/off-canvas.js"></script>
+<!--   <script src="/public/js/misc.js"></script>
+   -->
+
+<!--   <script src="/public/js/dashboard.js"></script> -->
+  <script type="text/javascript" src="/public/js/lib/xlsx.core.min.js"></script> 
+  <script type="text/javascript" src="/public/js/lib/jquery.qrcode.min.js"></script> 
+  
+  <link rel="stylesheet" href="/public/css/bootstrap-datetimepicker.min.css">
+  
+  <script src="/public/js/lib/bootstrap-datetimepicker.min.js"></script>
+
+  <script src="/public/js/lib/bootstrap-select.min.js"></script>
+
+  <script src="/public/js/model/common.js"></script>
+  <script src="/public/js/lib/bootstrap-tab.js"></script>
+  <script src="/public/js/lib/bootstrap-treeview.js"></script>
+  <script src="/public/js/lib/fileinput.js" ></script>
+  <script src="/public/js/lib/fileinput_locale_de.js" ></script>
+  <script src="/public/js/lib/Tdrag.min.js" ></script>
+  <script src="/public/js/lib/select3.js" ></script>
+
+  <script type="text/javascript">
+      $(document).ready(function () {
+
+            var res;
+            $.ajax({
+                url: window.location.protocol+ "//" + window.location.hostname+':9167?s=Config.Get_ui',
+                data: {},
+                type: "post",
+                dataType: "json",
+                cache: false,
+                async: false,
+                success: function (s) {
+
+                    res = s
+                }
+            });
+            if (res.data.code == 0) {
+                if (res.data.info.content) {
+                    var d = JSON.parse(res.data.info.content)
+                    $("#changeImg").attr('src', d.logocus);
+                    $('#changeCusName').html(d.cusname);
+             
+                    $('#webTitle').html(d.webtitle);
+                    window.sessionStorage.setItem('conf', res.data.info.content)
+
+                    var link = document.createElement('link');
+                    link.type = 'image/x-icon';
+                    link.rel = 'shortcut icon';
+                    link.href = d.logoIco;
+                    document.getElementsByTagName('head')[0].appendChild(link);
+                }
+
+            }
+        });
+    window.onload = function(){
+         var req = document.createElement('script');
+         req.type = 'text/javascript';
+         req.src = 'public/js/require.js';
+         req.setAttribute("data-main","public/js/app.js?v="+(new Date().valueOf()-3600).toString().substr(0,10));
+         req.setAttribute("async","true");
+         document.getElementsByTagName("head")[0].appendChild(req);
+
+        
+        
+        }
+    $(".dropdown").on("mouseover", function () {
+
+        if ($('#dropdownMenu1').parent().is(".open")) {
+            return
+        }
+        $('#dropdownMenu1').dropdown("toggle")
+    }).on("mouseleave", function () {
+
+        $('#dropdownMenu1').dropdown("toggle")
+    });
+         function outLogin(){
+            window.sessionStorage.setItem('token','')
+            window.location.reload()
+         }
+        
+  </script> 
+</body>
+
+</html>

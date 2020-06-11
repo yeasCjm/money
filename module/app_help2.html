@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <title></title>
+   <style>
+      body{
+         background: #f5F5F5
+      }
+      *{margin:0;padding:0}
+      p{padding:15px 15px 5px 15px}
+
+           .bgC{background: #fff;padding:9px 9px 39px 9px;}
+      li{padding:3px 15px;}
+      .fir{border-bottom: 1px solid lightgray;font-size: 15px;padding-bottom:10px}
+      .spantext{ margin-right:6px;   display: inline-block;width: 20px; height: 20px;     background-size: 80%;vertical-align: middle;background-repeat: no-repeat;}
+      .headTxt span{display:inline-block;width:50%;height:50px;line-height:50px;text-align: center;border-bottom:1px solid lightgray;}
+   </style>
+   
+</head>
+<body>
+   <header>
+      <div class="headTxt" style="position: relative;margin-bottom:15px;background: #fff">
+         <span style="color:#fff;background:#8BC34A;">常见问题</span><span onclick="justTest.hello(window.tele)">客服电话</span>
+         <p style="height:50px;left: 50%;padding: 0; top: 0; background: lightgray;width:1px;position: absolute;"></p>
+      </div>
+   </header>
+   <section>
+      <div class="bgC">
+               <div class="fir">
+                  <p><span class="spantext" style="background-image:url(../public/css/icon2/login/ifr_help.png);"></span>你可能遇到的问题：</p>
+               </div>
+               <div>
+                  <p><span class="spantext" style="background-image:url(../public/css/icon2/login/sec_help.png);"></span>无法连接到服务器</p>
+                  <ul>
+                     <li><span class="spantext"></span>返回控制台，点击开启服务，开启APP运行权限。</li>
+                  </ul>
+               
+                  <p><span class="spantext" style="background-image:url(../public/css/icon2/login/sec_help.png);"></span>出现闪退的现象：</p>
+                  <ul>
+                     <li><span class="spantext"></span>请安装ROOT工具创建正常运行环境</li>
+                     <li><span class="spantext"></span>安装方法如下：</li>
+                     <li><span class="spantext"></span>①请联系平台公司进行指导安装</li>
+                     <li><span class="spantext"></span>②可到手机维修店进行安装</li>
+                     <li><span class="spantext"></span>③可通过淘宝商家进行指导安装</li>
+                  </ul>
+               </div>
+      </div>
+      <div class="bgC" style="margin-top:10px;">
+         <div>
+            <p><span class="spantext" style="background-image:url(../public/css/icon2/login/ifr_help.png);"></span>抖音版本</p>
+            <ul>
+               <li><span class="spantext"></span>抖音版本支持6.6.0和8.5.0</li>
+               <li><span class="spantext"></span>个别功能只有特定版本设置</li>
+               <li><span class="spantext"></span>采集功能只支持使用抖音6.6.0版本</li>
+               <li><span class="spantext"></span>推名片、创建群组只支持使用抖音8.5.0版本</li>
+            </ul>
+      
+         </div>
+      </div>
+      <div  class="bgC" style="margin-top:10px;">
+         <div>
+            <p><span class="spantext" style="background-image:url(../public/css/icon2/login/ifr_help.png);"></span>无法执行信息采集任务</p>
+            <ul>
+               <li><span class="spantext"></span>第一步：</li>
+               <li><span class="spantext"></span>设置系统代理</li>
+               <li><span class="spantext"></span>将代理服务器设置为：127.0.0.1</li>
+               <li><span class="spantext"></span>端口8888</li>
+            </ul>
+            <ul style="margin-top:10px;">
+               <li><span class="spantext"></span>第二步：</li>
+               <li><span class="spantext"></span> 安装证书 </li>
+               <li><span class="spantext"></span>根据提示一步步操作，安装完成会提示(install certificate seccess)</li>
+               <li><span class="spantext"></span>注意：安装证书提示端口异常，请先把APP关闭或重启手机，重新点进安装证书，提示set porxy host seccess代表证书设置完成</li>
+               <li><span class="spantext"></span>问题1：下达采集任务，APP提示“代理设置错误.”</li>
+               <li><span class="spantext"></span>解决：.检查APP是否设置代理和安装证书</li>
+               <li><span class="spantext"></span>问题2：采集数据没有上传</li>
+               <li><span class="spantext"></span>解决：检查采集的关键词评论区是否有匹配的内容</li>
+          
+            </ul>
+         </div>
+      </div>
+      
+      <div class="bgC" style="margin-top:10px;">
+         <div>
+            <p><span class="spantext" style="background-image:url(../public/css/icon2/login/ifr_help.png);"></span>如果手机只用于采集功能，可以不登录抖音账号，个别设备会出现要求登录账号</p>
+            <p style="margin-top:10px;"><span class="spantext" style="background-image:url(../public/css/icon2/login/ifr_help.png);"></span>下达任务，提示版本不对，请检查安装的抖音版本是否对，如果不对，在APP，我的菜单下载对应的版本</p>
+            
+         </div>
+      </div>
+
+      <div class="bgC" style="margin-top:10px;">
+         <div>
+            <p><span class="spantext" style="background-image:url(../public/css/icon2/login/ifr_help.png);"></span>使用流量卡没有网手机端设置—移动网络—找到APN—新建APN—名称写CMIOT，APN地址输入CMIOT（每个型号的菜单路径可能有差别，开到网上百度或自行查找）
+            注意:：设置好还是没有联网，请咨询卡商查找情况</p>
+         </div>
+      </div>
+   </section>
+   <script>
+      window.onload = function(){
+         window.tele = '020-37347079';/* 传进APP的电话 */
+      }
+   </script>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>首页</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="/public/css/materialdesignicons.min.css"> 
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-table-min.css">
+
+
+  <link rel="stylesheet" href="/public/css/bootstrap-datetimepicker.min.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-select-min.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+  <style type="text/css">
+    .dropdown-toggle{
+          padding: 6px;
+    }
+    .choicBtn{
+    display: inline-block;
+    background:#fff;
+    width:110px;
+    height:40px;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0);
+    margin:10px 10px 0 0 ;
+    cursor: pointer;
+    }
+    .active{
+      color:#fff;background:#2ecc71
+    }
+        .rightSpanBtn{width: 80px;
+    display: inline-block;
+    height: 52px;
+    line-height: 53px;
+    background: #fff;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0);
+    cursor: pointer;
+  }
+  </style>
+</head>
+<body>
+ 
+    <div class="page-header"  style= "margin:0;border-bottom: 0px;">
+      <span class="cjm_page_header">直播间采集结果<span class="cjm_page_header_goal">:显示采集到的用户评论信息</span></span>
+      <div class="template-demo mt-2" style=" margin: 0 !important;display:none">
+        <button type="button" class="btn" onclick=" TBrefresh()"> <i class="glyphicon glyphicon-refresh"></i>刷新</button>
+        <button type="button" class="btn" onclick=" parent.start_mission.go()"> <i class="glyphicon glyphicon-align-center"></i>开始任务</button>
+      </div>
+    </div>
+    <div class="container-fluid" style="padding:0">
+    <div class="row rowHead" style="margin-bottom:15px;display: none;justify-content: flex-start;">
+     
+    </div>
+        <div style="position: relative;">
+   <div id="tb" class="row tb_head"  style="    width: calc(100% - 100px);">
+      <div style="width:122px;">
+        <div class="input-group date begin_time" data-link-field="begin_date">
+      
+          <input class="form-control pd15" size="16" type="text" value="" style="cursor:pointer" readonly>
+          <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+          <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+        </div>
+        <input type="hidden" id="begin_date" value="" />
+      </div>
+      <div style="width:122px;">
+        <div class="input-group date end_time" data-link-field="end_date">
+          <span for="end_date" class="timeMid">-</span>
+          <input class="form-control pd15" size="16" type="text" value="" style="cursor:pointer" readonly>
+          <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+          <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+        </div>
+        <input type="hidden" id="end_date" value="" />
+      </div>
+
+      <span id="refresh_btn" class="cjm_search_btn">搜索</span>
+    </div>
+
+      <div style="display: flex;position:absolute;right:0;top:0">
+        <span class="rightSpanBtn" onclick="gotoFir(0)">关注</span>
+    </div>
+    </div>
+  </div>
+    </div>
+    <div class="conTable">
+     
+      <table id="tableMy"  ></table>
+    </div>
+
+
+
+
+
+
+  <!-- ===================================================== -->
+
+    <script src="/public/js/lib/jquery.min.js"></script>
+  <script src="/public/js/lib/bootstrap.min.js"></script> 
+
+  <script src="/public/js/off-canvas.js"></script>
+  <script src="/public/js/misc.js"></script>
+<!--   <script src="/public/js/dashboard.js"></script>  -->
+  <script src="/public/js/lib/bootstrap-table.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-zn.min.js"></script>
+  <script src="/public/js/lib/bootstrap-datetimepicker.min.js"></script>
+  <script src="/public/js/lib/bootstrap-select.min.js"></script>  
+
+
+<script type="text/javascript">
+   window.onload = function(){
+      var path = window.location.href.split("/");
+           var p = path[path.length-2];
+           var f = path[path.length-1].substr(0, path[path.length-1].indexOf('.htm'));
+           var req = document.createElement('script');
+           req.type = 'text/javascript';
+           req.src = '/public/js/require.js';
+           req.setAttribute("data-main","/public/js/apps/"+p+"/"+f+".js?v="+(new Date().valueOf()-3600).toString().substr(0,10));
+           req.setAttribute("async","true");
+           req.setAttribute("defer","");
+           document.getElementsByTagName("head")[0].appendChild(req);
+   }
+           function web_init(){
+              create_datePicker_new($('.begin_time'), 0);
+             create_datePicker_new($('.end_time'), 1);
+           /*  $.each(parent.DmConf.haowubang,function(i,v){
+              $('.rowHead').append(' <span class="choicBtn">'+v+'</span>')
+            })
+            $($('.rowHead').find('span')[0]).addClass('active');
+
+            $('.rowHead').on('click','span',function(){
+            
+              $(this).addClass('active').siblings().removeClass('active');
+              search_init($(this).html())
+            }) */
+            search_init()
+
+
+      }
+</script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>所有用户</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+ <link rel="stylesheet" href="/public/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/public/css/bootstrap.css">
+ <link rel="stylesheet" href="/public/css/bootstrap-table-min.css">
+
+  <link rel="stylesheet" href="/public/css/style.css">
+  <link rel="stylesheet" href="/public/css/i-check.css">
+
+  <link rel="stylesheet" href="/public/css/bootstrap-select-min.css">
+  <style type="text/css">
+    .conTable button{
+      margin:5px;
+    }
+    .headLine{
+      margin: 10px 10px  0 0 ;display: inline-block;    vertical-align: text-bottom;
+
+    }
+  </style>
+
+</head>
+<body>
+  <div class="page-header"  style= "margin:0">
+      <span class="cjm_page_header">用户管理</span>
+      <div class="template-demo mt-2" style=" margin: 0 !important;">
+       
+<!--         <button type="button" class="cjm_search_btn" onclick="saveUser.del()"> <i class="mdi mdi-file-check btn-icon-prepend"></i> 删除用户</button> -->
+
+      </div>
+       
+  </div>
+  <div class="container-fluid"  style="padding:20px">
+        <div  style="height:auto">
+            <span class="headLine"><input type="text" name="if" class=" bg-transparent   cjm_height37" placeholder="客户ID"></span>
+             <span class="headLine"><input type="text" name="company_user_name" class=" bg-transparent   cjm_height37" placeholder="客户名称"></span>
+            <span class="headLine"><input type="text" name="telphone" class=" bg-transparent   cjm_height37" placeholder="个人电话"></span>
+            <span class="headLine"><input type="text" name="company_phone" class=" bg-transparent   cjm_height37" placeholder="公司电话"></span>
+            <span class="headLine"><input type="text" name="company_name" class=" bg-transparent   cjm_height37" placeholder="公司名称"></span> 
+      
+            <span class="headLine" style="margin:5px 0 5px 5px;">状态:<select id="statuss"  class= "status selectpicker">
+              <option value="-1">所有</option>
+              <option value="0">审核中</option>
+              <option value="1">正常</option>
+              <option value="3">停用</option>
+              <option value="-3">已过期</option>
+             
+           
+            </select>
+            </span>
+            <span class="headLine" style="margin:5px 0 5px 5px; ">客户类型:<select  id="agent_type" class= "agent_type selectpicker">
+              <option value="-1">所有</option>
+              <option value="1">1级代理</option>
+              <option value="2">2级代理</option>
+              <option value="3">普通用户</option>
+           
+            </select>
+            </span>
+           
+             <span class="radio headLine icheck-primary  margin10" >
+                <input type="checkbox"   id="show_super_msg" />
+                <label for="show_super_msg">开通私信产粉</label>
+              </span>
+      
+        
+
+              <span  id="refresh_btn" class="cjm_search_btn headLine">搜索</span>
+         
+             <button type="button" class="cjm_search_btn headLine" style="width:130px" onclick="parent.saveUser1.go(0,parent.DmConf.api.new.add_customer,function(){$('#tableMy').bootstrapTable('refresh')})">添加公司用户</button>
+       <!--  <button type="button" class="cjm_search_btn headLine" onclick="parent.mainPlatform.show_child_iframe('apps/customerManage/verify.html','审核管理','verify',false,false,)">审核</button>
+        <button type="button" class="cjm_search_btn headLine" onclick="parent.verifyManage.show(4,$('#tableMy').bootstrapTable('getSelections'),function(){$('#tableMy').bootstrapTable('refresh')})">状态管理</button> -->
+         <button type="button" class="cjm_search_btn headLine" onclick="delAll(function(){$('#tableMy').bootstrapTable('refresh')})">删除</button>
+
+   </div> 
+  <div class="conTable">
+    <table id="tableMy" class="table" ></table>
+  </div>
+  
+  
+
+ <script src="/public/js/lib/jquery.min.js"></script>
+<script src="/public/js/lib/bootstrap.min.js"></script> 
+
+
+  <script src="/public/js/off-canvas.js"></script>
+  <script src="/public/js/misc.js"></script>
+
+  
+  <script src="/public/js/lib/bootstrap-table.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-zn.min.js"></script>
+
+
+  
+  <script src="/public/js/lib/bootstrap-datetimepicker.min.js"></script>
+  <script src="/public/js/lib/bootstrap-select.min.js"></script>
+
+   <script type="text/javascript">
+    
+        window.onload = function(){
+           var path = window.location.href.split("/");
+           var p = path[path.length-2];
+           var f = path[path.length-1].substr(0, path[path.length-1].indexOf('.htm'));
+           var req = document.createElement('script');
+           req.type = 'text/javascript';
+           req.src = '/public/js/require.js';
+           req.setAttribute("data-main","/public/js/apps/"+p+"/"+f+".js?v="+(new Date().valueOf()-3600).toString().substr(0,10));
+           req.setAttribute("async","true");
+           req.setAttribute("defer","");
+           document.getElementsByTagName("head")[0].appendChild(req);
+
+        }
+
+        function web_init(){
+       
+            search_init()
+
+
+      }
+
+
+  </script> 
+</body>
+</html>

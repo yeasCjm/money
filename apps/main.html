@@ -1,0 +1,385 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>首页</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="/public/css/bootstrap.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-table-min.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+
+  <link rel="stylesheet" href="/public/css/iconfont.css">
+
+
+
+  <style type="text/css">
+    .sec1,
+    .sec2,
+    .sec3 {
+      padding: 15px 0;
+      background: #fff;
+      margin-bottom: 12px;
+    }
+
+    .comContent {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 0 32px;
+    }
+
+    .comContent>div {
+      margin: 0 10px 10px 0;
+     
+    }
+
+    .sjCont>div {
+      height: 108px;
+      width: calc(20% - 40px);
+      color: #fff;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      padding: 20px;
+      margin-right: 40px;
+      margin-bottom: 22px;
+      box-shadow: 1px 1px 15px #aeaeae;
+    }
+
+    .sjCont>div>p:first-child {
+      display: flex;
+      justify-content: space-between;
+      margin: 0;
+    }
+
+    .sjCont>div>p:nth-of-type(2) {
+      text-align: right
+    }
+
+    .sjCont>div>p:nth-of-type(2)>span:first-child {
+      font-size: 34px
+    }
+
+    .sjCont>div>p:nth-of-type(2)>span:last-child {
+      font-size: 14px
+    }
+
+    .secComTitle>span {
+      font-size: 14px;
+      padding: 3px 0 3px 8px;
+      line-height: 17px;
+      margin-left: 10px;
+      margin: 12px 0 5px 15px;
+      display: inline-block;
+      border-left: 3px solid #00A2FF;
+    }
+
+    .secComTitle {
+      border-bottom: 1px solid #e1e1e1;
+      height: 40px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .secPhone>div {
+      border-radius: 6px;
+      box-shadow: 0px 0px 27px #e1e1e1;
+    }
+
+    .secPhoneFirstPart .thridCon>p>span:first-child {
+      width: 20px;
+      vertical-align: sub;
+      margin-right: 12px;
+      height: 20px;
+      border: 1px solid transparent;
+      display: inline-block;
+      border-radius: 50%;
+    }
+
+    .secPhoneFirstPart .thridCon>p {
+      padding: 0 10px;
+      margin: 12px;
+    }
+
+    .secPhoneFirstPart .thridCon>p>span {
+      font-size: 14px
+    }
+
+    .tooltipCom, .tooltipCom1 {
+      font-size: 14px;
+      border: 1px solid #0076FF;
+      border-radius: 6px;
+      height: 24px;
+      display: flex; margin-bottom:0;
+      margin:11px 28px 0 0 ;
+    }
+
+    .tooltipCom>span, .tooltipCom1>span {
+      display: inline-block;
+      width: 55px;
+      text-align: center;
+      border-right: 1px solid #0076ff;
+      cursor: pointer;
+      color: #0076FF;
+      font-size: 14px;
+      line-height: 24px;
+    }
+
+    .tooltipCom>span:last-child, .tooltipCom1>span:last-child {
+      border: 0;
+    }
+
+    .tooltipComActive,.tooltipComActive1 {
+      color: #fff !important;
+      background: #0076FF
+    }
+    
+
+    .bootstrap-table .table:not(.table-condensed),
+    .bootstrap-table .table:not(.table-condensed)>tbody>tr>td,
+    .bootstrap-table .table:not(.table-condensed)>tbody>tr>th,
+    .bootstrap-table .table:not(.table-condensed)>tfoot>tr>td,
+    .bootstrap-table .table:not(.table-condensed)>tfoot>tr>th,
+    .bootstrap-table .table:not(.table-condensed)>thead>tr>td {
+      border: 0
+    }
+
+    .fixed-table-footer,
+    .fixed-table-header {
+      background: #fff;
+      border-bottom: 1px solid #aeaeae !important;
+    }
+
+    .fixed-table-pagination .page-list {
+      display: none !important;
+    }
+    .headTitle{display: flex;justify-content: space-between;align-items: center;}
+    .headTitle>span {
+      margin: 10px 20px;
+    }
+
+    .fixed-table-container tbody td .th-inner,
+    .fixed-table-container thead th .th-inner {
+      background: #fff
+    }
+     .secpinglun,.secdianzan{width:48%}
+    .secpinglun>div,.secdianzan>div{width:100%;}
+  
+    .secPhoneFirstPart{display: flex;flex-wrap: nowrap;width:100%;justify-content: space-between;background:#eff1f3}
+    .secPhoneFirstPart>div{border-radius: 6px;
+    box-shadow: 0px 0px 27px #e1e1e1;}
+    .secTotalFens{min-width:600px;width:calc(100% - 250px);}
+    .secTotalPhone{width:240px;height:404px;margin-right:10px;background:#fff}
+    .table > caption + thead > tr:first-child > th, .table > colgroup + thead > tr:first-child > th, .table > thead:first-child > tr:first-child > th, .table > caption + thead > tr:first-child > td, .table > colgroup + thead > tr:first-child > td, .table > thead:first-child > tr:first-child > td{border-left:0}
+    .fixed-table-container{border:0}
+    @media screen and (max-width:1366px){
+      .secpinglun,.secdianzan{width:100%}
+       .sjCont>div{width:200px;}
+    }
+    @media screen and (max-width:1280px){
+       .sjCont>div{margin-right:5px;}
+    }
+     @media screen and (max-width:1100px){
+       .secPhoneFirstPart{flex-wrap: wrap;justify-content: center}
+       .secTotalFens{width:100%}
+       .secTotalPhone{width:100%;margin-bottom:10px;margin-right: 0px;}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="sec1">
+      <div class="headTitle">
+        <span>数据概览</span>
+          <p class="tooltipCom1 " dataType=0>
+            <span dataId=0 class="tooltipComActive1">历史</span>
+            <span dataId=1>今天</span>
+          </30>
+      </div>
+      <div class="sjCont comContent sec1comContent">
+        <div style="background:#51B5E9">
+          <p><span>总手机</span><span class="iconfont icon-shouji"></span></p>
+          <p><span>0</span><span>台</span></p>
+        </div>
+        <div style="background:#FEBE5C">
+          <p><span><span class="changeSpanshow">历史</span>抖音数</span><span class="iconfont icon-kuaishou1"></span></p>
+          <p><span>0</span><span>个</span></p>
+        </div>
+        <div style="background:#EF6E6E">
+          <p><span><span class="changeSpanshow">历史</span>粉丝数</span><span class="iconfont icon-xinaixin"></span></p>
+          <p><span>0</span><span>个</span></p>
+        </div>
+        <div style="background:#36CCAE">
+          <p><span><span class="changeSpanshow">历史</span>采集视频数</span><span class="iconfont icon-shipin"></span></p>
+          <p><span>0</span><span>个</span></p>
+        </div>
+        <div style="background:#C778FD">
+          <p><span><span class="changeSpanshow">历史</span>采集评论数</span><span class="iconfont icon-pinglun"></span></p>
+          <p><span>0</span><span>条</span></p>
+        </div>
+      </div>
+      <div class="comContent">
+        <div class="secPhoneFirstPart">
+          <div class="secTotalPhone">
+            <div class="secComTitle">
+              <span>手机数</span>
+            </div>
+            <div>
+              <div id="main" style="width: 100%;height:240px;"></div>
+            </div>
+            <div class="thridCon">
+              <p>
+                <span style="background:#27DBDD"></span><span>在线手机数:</span><span>0</span>
+              </p>
+              <p>
+                <span style="background:#EA5872"></span><span>离线线手机数:</span><span>0</span>
+              </p>
+              <p>
+                <span style="background:#E5CF0D"></span><span>故障手机数:</span><span>0</span>
+              </p>
+            </div>
+          </div>
+          <div class="secTotalFens">
+            <div style="height:404px;width:100%;background:#fff">
+              <div class="secComTitle">
+                <span><span class="changeSpanshow">历史</span>粉丝数</span>
+        
+              </div>
+              <div>
+                <div id="main2" style="width: 100%;height:339px;"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+            
+    </div>
+    <div class="sec2">
+      <div class="headTitle">
+        <span>操作数据</span>
+        <p class="tooltipCom ">
+          <span dataId=0>今天</span>
+          <span dataId=7 class="tooltipComActive">7天</span>
+          <span dataId=15>15天</span>
+          <span dataId=30>30天</span>
+        </p>
+      </div>
+      <div class="comContent secPhone">
+ 
+        <div class="secpinglun">
+          <div style="height:293px;">
+            <div class="secComTitle" style="border:0">
+              <span><span class="changeSpanshow1">7天</span>粉丝趋势</span>
+             <!--  <p class="tooltipCom " dataType=3>
+                <span dataId=7 class="tooltipComActive">7天</span>
+                <span dataId=15>15天</span>
+                <span dataId=30>30天</span>
+              </p> -->
+            </div>
+            <div>
+              <div id="main3" style="width: 100%;height:247px;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="secpinglun">
+          <div style="height:293px;">
+            <div class="secComTitle" style="border:0">
+              <span><span class="changeSpanshow1">7天</span>评论趋势</span>
+             <!--  <p class="tooltipCom " dataType=4>
+                <span dataId=7 class="tooltipComActive">7天</span>
+                <span dataId=15>15天</span>
+                <span dataId=30>30天</span>
+              </p> -->
+            </div>
+            <div>
+              <div id="main4" style="width: 100%;height:247px;"></div>
+            </div>
+          </div>
+        </div>
+        <div class="secdianzan">
+          <div style="height:293px;">
+            <div class="secComTitle" style="border:0">
+              <span><span class="changeSpanshow1">7天</span>点赞趋势</span>
+              <!-- <p class="tooltipCom " dataType=5>
+                <span dataId=7 class="tooltipComActive">7天</span>
+                <span dataId=15>15天</span>
+                <span dataId=30>30天</span>
+              </p> -->
+            </div>
+            <div>
+              <div id="main5" style="width: 100%;height:247px;"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="secdianzan">
+          <div style="height:293px;">
+            <div class="secComTitle" style="border:0">
+              <span><span class="changeSpanshow1">7天</span>私信/转发趋势</span>
+             <!--  <p class="tooltipCom " dataType=6>
+                <span dataId=7 class="tooltipComActive">7天</span>
+                <span dataId=15>15天</span>
+                <span dataId=30>30天</span>
+              </p> -->
+            </div>
+            <div>
+              <div id="main6" style="width: 100%;height:247px;"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+    <div class="sec3" style="display: none">
+      <div class="headTitle">
+        <span>播放数据<span style="color:#bbb">（默认按视频播放量排序）</span></span>
+      </div>
+      <div style="margin-top:50px;padding:10px">
+        <table id="tableMy"></table>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ===================================================== -->
+
+  <script src="/public/js/lib/jquery.min.js"></script>
+  <script src="/public/js/lib/bootstrap.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-zn.min.js"></script>
+  <script src="/public/js/lib/tb.js"></script>
+
+
+
+
+  <script type="text/javascript">
+    window.onload = function () {
+      var path = window.location.href.split("/");
+      var p = path[path.length - 2];
+      var f = path[path.length - 1].substr(0, path[path.length - 1].indexOf('.htm'));
+      var req = document.createElement('script');
+      req.type = 'text/javascript';
+      req.src = '/public/js/require.js';
+      req.setAttribute("data-main", "/public/js/apps/" + f + ".js?v=" + (new Date().valueOf() - 3600).toString().substr(0, 10));
+      req.setAttribute("async", "true");
+      req.setAttribute("defer", "");
+      document.getElementsByTagName("head")[0].appendChild(req);
+    }
+    function web_init() {
+
+      search_init()
+
+
+    }
+  </script>
+</body>
+
+</html>

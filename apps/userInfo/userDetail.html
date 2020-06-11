@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>所有设备</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="/public/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/public/css/bootstrap.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-table-min.css">
+    <link rel="stylesheet" href="/public/css/bootstrap-datetimepicker.min.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-select-min.css">
+  <style type="text/css">
+    #myTab li a{
+      padding:0 20px;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+  </style>
+
+</head>
+<body>
+  <div   style= "margin:0">
+      <span class="cjm_page_header">用户详情</span>
+       <div class="template-demo mt-2" >
+          <ul id="myTab" class="nav nav-tabs" role="tablist" style="    justify-content: flex-end;">
+            <li class="active"><a href="#bulletin" role="tab" data-toggle="tab">用户基本信息</a></li>
+            <li><a href="#rule" role="tab" onclick="buy_history()" data-toggle="tab">购买历史</a></li>
+            <li><a href="#forum" role="tab" onclick="phoneList()" data-toggle="tab">手机列表</a></li>
+            <li><a href="#security" role="tab" onclick="accountList()" data-toggle="tab">抖音列表</a></li>
+            <li><a href="#welfare" role="tab"  onclick="taskList()" data-toggle="tab">运营管理</a></li>
+            <li class="manageList_customer"><a href="#customer" role="tab" onclick="manageList()" data-toggle="tab">客户管理</a></li>
+        </ul>
+
+    </div> 
+  </div>
+  
+  <div class="container-fluid" style="padding:0">
+      <div id="myTabContent" class="tab-content tab_padding20" style="height:600px">
+        <div class="tab-pane fade in active" id="bulletin">
+          <div class="input-group margin10">
+            <span class="input-group-addon width90" id="basic-addon1">客户ID</span>
+            <input type="text"  class="form-control" name="id"  disabled="true" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group margin10">
+            <span class="input-group-addon width90" id="basic-addon1">客户名称</span>
+            <input type="text"  class="form-control" name="name"  aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group margin10">
+            <span class="input-group-addon width90" id="basic-addon1">身份</span>
+            <select  id="detail_type" class= "form-control  selectpicker"  style="display:block !important; z-index:9999;  width:100%;border: 1px solid;">
+                              <option value="1">代理商</option>
+                              <option value="0">普通用户</option>
+                             
+                           
+                            </select>
+           <!--  <input type="text"  class="form-control" name="type_name" " aria-describedby="basic-addon1"> -->
+          </div>
+          <div class="input-group margin10">
+            <span class="input-group-addon width90" id="basic-addon1">客户公司名</span>
+            <input type="text"  class="form-control" name="company_name"  aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group margin10">
+            <span class="input-group-addon width90" id="basic-addon1">客户个人电话</span>
+            <input type="text"  class="form-control" name="telephone"  aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group margin10">
+            <span class="input-group-addon width90" id="basic-addon1">客户公司电话</span>
+            <input type="text"  class="form-control" name="company_phone"  aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group margin10">
+            <span class="input-group-addon width90" id="basic-addon1">账号</span>
+            <input type="text"  class="form-control" name="target_fan_count"  aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group margin10">
+            <span class="input-group-addon width90" id="basic-addon1">状态</span>
+            <!--   <select  id="detail_status_name" class= "form-control selectpicker"  style="display:block !important; z-index:9999;  border: 1px solid;">
+                              <option value="0">无效</option>
+                              <option value="1">有效</option>
+                              
+                            </select> -->
+           <input type="text"  class="form-control" name="status_name" disabled="true" aria-describedby="basic-addon1"> 
+          </div>
+          <div class="input-group margin10">
+            <span class="input-group-addon width90" id="basic-addon1">归属人</span>
+            <input type="text"  class="form-control" name="parent_name" disabled="true" aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group margin10">
+            <span class="input-group-addon width90" id="basic-addon1">公司地址</span>
+            <input type="text"  class="form-control" name="target_fan_count"  aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group margin10">
+            <span class="input-group-addon width90" id="basic-addon1">备注</span>
+            <input type="text"  class="form-control" name="notes"  aria-describedby="basic-addon1">
+          </div>
+          <div  class="input-group margin10">
+             <button type="button"  class="btn btn-primary" onclick="saveChangeUser()"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span>保存修改</button>
+          </div>
+        </div>
+        <div class="tab-pane fade"  id="rule">
+            <div class="row">
+              <button type="button" onclick="parent.OrderInfo.show()" class="btn btn-primary">下单</button>
+              <button type="button" onclick="refresh123($('#buyHistory'))" style="margin:0  5px" class="btn btn-primary">刷新</button>
+            </div>
+            <table id="buyHistory"  ></table>
+        </div>
+        <div class="tab-pane fade" id="forum">
+          <div class="row">
+              <button type="button"  class="btn btn-primary" onclick="parent.transfer_mobile.show( $('#phoneList').bootstrapTable('getSelections'),phoneRefresh)">  手机流转</button>
+          </div>
+           <table id="phoneList"  ></table>
+        </div>
+        <div class="tab-pane fade" id="security">
+          <table id="accountList"  ></table>
+        </div>
+        <div class="tab-pane fade" id="welfare">
+          <table id="taskList"  ></table>
+        </div>
+        <div class="tab-pane fade" id="customer">
+
+                  <table id="customerList"  ></table>
+          </div>
+    </div>
+  </div> 
+  
+  
+
+
+
+ <script src="/public/js/lib/jquery.min.js"></script>
+<script src="/public/js/lib/bootstrap.min.js"></script> 
+
+
+  <script src="/public/js/off-canvas.js"></script>
+  <script src="/public/js/misc.js"></script>
+
+  
+  <script src="/public/js/lib/bootstrap-table.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-zn.min.js"></script>
+
+
+  
+  <script src="/public/js/lib/bootstrap-datetimepicker.min.js"></script>
+  <script src="/public/js/lib/bootstrap-select.min.js"></script>
+
+   <script type="text/javascript">
+    
+        window.onload = function(){
+           var path = window.location.href.split("/");
+           var p = path[path.length-2];
+           var f = path[path.length-1].substr(0, path[path.length-1].indexOf('.htm'));
+           var req = document.createElement('script');
+           req.type = 'text/javascript';
+           req.src = '/public/js/require.js';
+           req.setAttribute("data-main","/public/js/apps/"+p+"/"+f+".js?v="+(new Date().valueOf()-3600).toString().substr(0,10));
+           req.setAttribute("async","true");
+           req.setAttribute("defer","");
+           document.getElementsByTagName("head")[0].appendChild(req);
+
+        }
+
+        function web_init(){
+          
+         // $('.cjm_page_header').text(window.userDetailInfo.name+'的详情')
+
+            search_init()
+
+      }
+
+         function phoneRefresh(){
+              $('#phoneList').bootstrapTable('refresh')
+            }
+  </script> 
+</body>
+</html>

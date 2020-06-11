@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="stylesheet" href="/public/css/bootstrap.css">
+
+
+  <link rel="stylesheet" href="/public/css/bootstrap-select-min.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-datetimepicker.min.css">
+  <link rel="stylesheet" href="/public/css/i-check.css">
+  <link rel="stylesheet" href="/public/css/iconfont.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+  <style type="text/css">
+    .width90 {
+      width: 130px;
+    }
+
+    .margin10 {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container-fluid" style="padding:0">
+    <div class="page-header" style="margin:0;border-bottom: 0px;">
+      <span class="cjm_page_header">养号管理<span class="cjm_page_header_goal">:批量操作抖音号评论、关注、私信、点赞，提高工作效率</span></span>
+
+      <div class="template-demo mt-2" style=" margin: 0 !important;">
+        <button style="display:none" type="button" class="btn" onclick=" parent.treeview.show()"> <i class="glyphicon glyphicon-align-center"></i>保存任务</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="conTable">
+    <div class="step1 ">
+
+      <div class="tb_head">
+        <div style="display:none">
+          <div class="input-group">
+            <span class="input-group-btn" style="width:86px;">
+              <button class="btn btn-default step1_account" onclick="parent.mobie_control.show_phone(0,$('#setTask',window.parent.document))"
+                type="button">选择设备</button>
+            </span>
+            <span class="addTaskMobile2"></span>
+            <input id="addTaskMobile" style="margin-left: 10px; border-radius: 3px;display:none;" type="text" class="form-control"
+              placeholder="设备" disabled>
+            <input id="addTaskMobile1" type="text" class="form-control" placeholder="账号" style="display: none">
+          </div>
+        </div>
+        <div>
+          <div class="row stepRow">
+            <span class="input-group-btn" style="width:86px;">
+              <button class="btn btn-default step1_account" onclick="parent.treeview.show($('#setTask',window.parent.document),0,0)"
+                type="button">选择账号</button>
+            </span>
+            <span class="addTaskAccount2"></span><span class="redStar iconfont icon-xing1"></span>
+            <input id="addTaskAccount" style="margin-left: 10px; border-radius: 3px;display:none;" type="text" class="form-control"
+              placeholder="账号" disabled>
+            <input id="addTaskAccount1" type="text" class="form-control" placeholder="账号" style="display: none">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="step2" style="margin-top:15px">
+
+  </div>
+  <div class="step3" style="margin-top:15px;position:relative;">
+    <div style="position:absolute;    width: 29%;right: 52px;background: #e1e1e1; padding: 16px; border: 1px solid #fbfbfb;">
+    <p> 为了更快提高账号质量，请仔细阅读以下的注意事项：</p>
+    <p style="font-weight: 600">1.垂直养号关键词，请到应用账号--分身管理中设置业务关键词</p>
+    <p>2.每天建议养号次数为1-2次</p>
+    <p>3.养号时长建议：20-30分钟起，总时长不超过2小时</p>
+    <p> 4.停留时长建议10-15秒以上</p>
+    <p>5.概率建议不超过3%，回播率建议不超过1%，每视频打开评论概率建议为1%，评论翻屏次数建议不超过2。</p>
+    <p> 6.如是新注册的账号，前5天的概率建议都为0</p>
+    <p> 7.账号已经运营一段时间（约15-30天），建议关注个数为15-30</p>
+    <p> 8.账号的动态质量佳，有一定的粉丝群，建议关注个数为40-146（关注数越大，风险越高）</p>
+    <p> 9.每天可发送私信数量60-70条，需分批次进行发送</p>
+    <p> 10.在大量关注后平台会对账号进行清关处理，并会限制关注（4天内不能加关注，只能间歇性多次（所剩关注数除以10，就是私信次数）群发私信，且每次只能群发10个）</p>
+    <p> 11.建议养号5-7天，每天把时间错开，并每天要发一个视频</p>
+    </div>
+    <div>
+      <span class="step1Header"></span>
+    </div>
+
+    <div class="listCon padding30" style="float:left;width:62%">
+      <div class="input-group margin10">
+
+        <span class="input-group-addon width90" id="basic-addon1">垂直养号关键词</span>
+        <input type="text" class="form-control" placeholder="输入业务关键词,多个以+隔开" id="yw_keyword" aria-describedby="basic-addon1"
+          style="margin-right:30px">
+
+        <div class="checkbox icheck-primary  margin10" style="width:170px">
+          <input type="checkbox" name="keywordUse" id="keywordUse" />
+          <label for="keywordUse">使用已设置的业务关键词</label>
+        </div>
+        <!--  <span style="width:calc(100% - 200px)">
+                  <select id="keyword" class="form-control selectpicker" data-live-search="true" multiple>
+                    
+                  </select>
+                </span> -->
+      </div>
+      <div class="input-group margin10 dyORvideo_0">
+        <span class="input-group-addon width90" id="basic-addon1">养号时长</span>
+        <input type="text" class="form-control" value="20" placeholder="只能输入数字" onkeyup="value=this.value.replace(/[^0-9]/g,'')"
+          name="task_time_0" aria-describedby="basic-addon1"><span class="-deCss">-</span>
+        <input type="text" class="form-control" value="30" name="task_time_1" placeholder="只能输入数字" onkeyup="value=this.value.replace(/[^0-9]/g,'')"
+          aria-describedby="basic-addon1"><span class="left10pxSp">分</span>
+        <span class="redStar iconfont icon-xing1"></span>
+      </div>
+
+      <div class="input-group margin10">
+        <span class="input-group-addon width90" id="basic-addon1">停留时长</span>
+        <input type="text" class="form-control" value="10" name="play_time_0" placeholder="只能输入数字" onkeyup="value=this.value.replace(/[^0-9]/g,'')"
+          aria-describedby="basic-addon1"><span class="-deCss">-</span>
+        <input type="text" class="form-control" value="15" name="play_time_1" placeholder="只能输入数字" onkeyup="value=this.value.replace(/[^0-9]/g,'')"
+          aria-describedby="basic-addon1"><span class="left10pxSp">秒</span>
+        <span class="redStar iconfont icon-xing1"></span>
+      </div>
+      <div class="input-group margin10" title="关注视频作者概率不得超过5%，超过会有封号风险！">
+        <span class="input-group-addon width90" id="basic-addon1">关注作者概率</span>
+        <input type="text" class="form-control" onkeyup="/*/*value=this.value>5 ? '' : this.value.replace(/[^0-5]/g,'')*/"
+          value="1" name="target_fan_count" aria-describedby="basic-addon1"><span class="left10pxSp">%</span>
+        <span class="redStar iconfont icon-xing1"></span>
+      </div>
+      <div class="input-group margin10" title="每视频关注概率不得超过5%，超过会有封号风险！">
+        <span class="input-group-addon width90" id="basic-addon1">关注评论作者概率</span>
+        <input type="text" class="form-control"  onkeyup="/*value= this.value>5 ? '' :  this.value.replace(/[^0-5]/g,'')*/"
+          value="1" name="target_comment_fan_count" aria-describedby="basic-addon1"><span class="left10pxSp">%</span>
+        <span class="redStar iconfont icon-xing1"></span>
+      </div>
+      <div class="input-group margin10" title="每视频关注概率不得超过5%，超过会有封号风险！">
+        <span class="input-group-addon width90" id="basic-addon1">每视频回播率</span>
+        <input type="text" class="form-control"  onkeyup="/*value= this.value>5 ? '' :  this.value.replace(/[^0-5]/g,'')*/"
+          value="1" name="video_replay_pbb" aria-describedby="basic-addon1"><span class="left10pxSp">%</span>
+        <span class="redStar iconfont icon-xing1"></span>
+      </div>
+      <div title="随机点赞视频概率不得超过5%，超过会有封号风险！" class="input-group margin10">
+        <span class="input-group-addon width90" id="basic-addon1">随机点赞视频概率</span>
+        <input type="text" class="form-control"  onkeyup="/*value= this.value>5 ? '' :  this.value.replace(/[^0-5]/g,'')*/"
+          value="1" name="like_pbb" aria-describedby="basic-addon1"><span class="left10pxSp">%</span>
+        <span class="redStar iconfont icon-xing1"></span>
+      </div>
+      <div title="随机点赞视频概率不得超过5%，超过会有封号风险！" class="input-group margin10">
+        <span class="input-group-addon width90" id="basic-addon1">每视频打开评论率</span>
+        <input type="text" class="form-control"  onkeyup="/*value= this.value>5 ? '' :  this.value.replace(/[^0-5]/g,'')*/"
+          value="1" name="video_opencomment_pbb" aria-describedby="basic-addon1"><span class="left10pxSp">%</span>
+        <span class="redStar iconfont icon-xing1"></span>
+      </div>
+      <div class="input-group margin10">
+        <span class="input-group-addon width90" id="basic-addon1">每视频翻屏次数</span>
+        <input type="text" class="form-control" name="video_page_count_0" placehold="" 输入数字" value='0' onkeyup="/*value=this.value.replace(/[^0-9]/g,'')*/"
+          aria-describedby="basic-addon1"><span class="-deCss">-</span>
+        <input type="text" class="form-control" name="video_page_count_1" placehold ="输入数字" value='2' onkeyup="/*value=this.value.replace(/[^0-9]/g,'')*/"
+          aria-describedby="basic-addon1"><span class="left10pxSp">次</span>
+        <span class="redStar iconfont icon-xing1"></span>
+      </div>
+      <!--  <div class="input-group margin10" style="display: none;">
+          <span class="input-group-addon width90" id="basic-addon1">每视频评论数</span>
+          <input type="text"  class="form-control" name="target_comment_count"  aria-describedby="basic-addon1"><span class="left10pxSp">个</span>
+        </div> -->
+      <div class="input-group margin10" title="评论区私信概率不得超过5%，超过会有封号风险！">
+        <span class="input-group-addon width90" id="basic-addon1">评论区私信概率</span>
+        <input type="text" class="form-control"  onkeyup="/*value= this.value>5 ? '' :  this.value.replace(/[^0-5]/g,'')*/"
+          value="0" name="target_message_count" aria-describedby="basic-addon1"><span class="left10pxSp">%</span>
+        <span class="redStar iconfont icon-xing1"></span>
+      </div>
+      <div class="input-group margin10" title="评论区随机点赞概率不得超过5%，超过会有封号风险！">
+        <span class="input-group-addon width90" id="basic-addon1">评论区随机点赞概率</span>
+        <input type="text" class="form-control"  onkeyup="/*value= this.value>5 ? '' :  this.value.replace(/[^0-5]/g,'')*/"
+          value="1" name="target_like_count" aria-describedby="basic-addon1"><span class="left10pxSp">%</span>
+        <span class="redStar iconfont icon-xing1"></span>
+      </div>
+
+
+      <div class="input-group margin10" style="height:86px">
+        <span class="input-group-addon width90" id="basic-addon1">备注</span>
+        <textarea type="text" class="form-control" name="notes" style="height:74px" aria-describedby="basic-addon1"></textarea>
+      </div>
+        <div class="input-group margin10">
+          <span class="input-group-addon width90">操作</span>
+          <div class="radio icheck-primary  margin15" style="width:125px">
+            <input type="radio" name="sendmodeladdtask" valueAttr=1 checked id="nowDo-sendmodeladdtask" />
+            <label for="nowDo-sendmodeladdtask">随机发送(1人/条)</label>
+          </div>
+         <!--  <div class="radio icheck-primary margin15" style="width:150px;margin-left:15px;">
+            <input type="radio" name="sendmodeladdtask" valueAttr=2 id="lateDo-sendmodeladdtask" />
+            <label for="lateDo-sendmodeladdtask">顺序发送(1人/全部)</label>
+          </div> -->
+        </div>
+      <div class="padding30">
+        <div class="row" style="margin:0">
+          <div class="radio icheck-primary  margin10">
+            <input type="radio" name="time_type" value="0" checked id="nowDo" />
+            <label for="nowDo">立即执行</label>
+          </div>
+          <div class="radio icheck-primary margin10">
+            <input type="radio" name="time_type" value="1" id="lateDo" />
+            <label for="lateDo">定时执行</label>
+          </div>
+        </div>
+
+        <div style="display:none" class="time_task row">
+          <div style="width:250px">
+            <span>执行时间(<span style="color:red">设置超过当前时间 半小时以上</span>)</span>
+            <div class="input-group date time_tick" data-link-field="time_tick">
+              <input class="form-control  pd15" size="16" type="text" value="" style="cursor:pointer" readonly>
+              <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+              <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+            </div>
+            <input type="hidden" id="time_tick" value="" />
+          </div>
+          <!--  <div class="checkbox icheck-primary margin10 " style=" display: flex;flex-flow: column-reverse;margin:0 15px">
+                                  <input type="checkbox" checked id="time_tick" />
+                                  <label for="time_tick">重复</label>
+                                </div> -->
+          <div>
+            <span>重复时间</span><br />
+            <select id="time_week" multiple data-live-search="true" value="0" class="  selectpicker" style="display:block !important; width:150px">
+              <option value="1">星期一</option>
+              <option value="2">星期二</option>
+              <option value="3">星期三</option>
+              <option value="4">星期四</option>
+              <option value="5">星期五</option>
+              <option value="6">星期六</option>
+              <option value="7">星期日</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <!--  <div class="input-group margin10">
+                    <button type="button"  class="btn btn-primary cjm_tzbtn" onclick="addContent()">新增</button>
+                    <button type="button"   onclick="parent.resourceImport.go(write_content)" class="btn btn-primary cjm_tzbtn" >导入</button>
+                    <button  type="button"   class="btn btn-primary" ><a style="text-decoration:none;color:#FFF;padding:8px;" href="/module/xls/导入模板下载.xls" target="_blank">导入模板下载</a> </button>
+                    <button type="button"  onclick="parent.material.show(2,write_content)" class="btn btn-primary" >素材库</button>
+                  </div>
+                   <div class="input-group margin10">
+                      <span>评论内容</span>
+                    </div>
+                  <div style="margin-top:10px;" class="addContent">
+                    <p class="input-group margin10">
+                      <input type="text" class="form-control" name="content" placeholder=" "     aria-describedby="basic-addon1"><button type="button" class="btn btn-primary btn_style" >删除</button>
+                    </p>
+                     <span style="color:red;display:none;  font-size: 11px; text-align: center;line-height: 22px;">每个账号在每个评论区最多随机关注5个评论者，超过5个将自动停止。</span>
+                  </div> -->
+      <div class="input-group margin10 gjlRight">
+        <span>私信内容</span>
+        <div>
+          <span class="  cjm_search_btn" onclick="addMsg()">新增</span>
+          <span onclick="parent.resourceImport.go(write_msg)" class="  cjm_search_btn">导入</span>
+          <span class=" cjm_search_btn"><a style="text-decoration:none;color:#FFF;padding:8px;" href="/module/xls/导入模板下载.xls"
+              target="_blank">导入模板下载</a> </span>
+          <span onclick="parent.material.show(1,write_msg)" class=" cjm_search_btn">素材库</span>
+        </div>
+
+      </div>
+
+      <div class="addMsg" style="margin-top:10px;">
+
+        <p class="input-group margin10">
+          <input type="text" class="form-control" name="addMsg" placeholder=" " aria-describedby="basic-addon1"><button
+            onclick="del_msg(this)" type="button" class="btn btn-primary btn_style">删除</button>
+          <!--    <button  type="button" class="btn btn-primary emojiBtn btn_style" >表情</button> -->
+        </p>
+
+      </div>
+    </div>
+
+    <div style="clear:both"></div>
+  </div>
+  <div style="text-align: center; padding-bottom: 30px;background: #fff;">
+    <button type="button" style=" width: 300px; height: 35px; font-size: 15px;padding: 6px 12px;" class="btn btn-primary"
+      onclick="saveTask()">保&emsp;&emsp;存</button>
+  </div>
+  </div>
+
+
+  </div>
+
+
+  <!-- ===================================================== -->
+
+  <script src="/public/js/lib/jquery.min.js"></script>
+  <script src="/public/js/lib/bootstrap.min.js"></script>
+
+
+
+  <script src="/public/js/lib/bootstrap-table.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-zn.min.js"></script>
+
+  <link rel="stylesheet" href="/public/css/bootstrap-datetimepicker.min.css">
+
+  <script src="/public/js/lib/bootstrap-datetimepicker.min.js"></script>
+  <script src="/public/js/lib/bootstrap-select.min.js"></script>
+  <script src="/public/js/lib/xlsx.core.min.js"></script>
+
+
+  <script type="text/javascript">
+    window.onload = function () {
+      var path = window.location.href.split("/");
+      var p = path[path.length - 2];
+      var f = path[path.length - 1].substr(0, path[path.length - 1].indexOf('.htm'));
+      var req = document.createElement('script');
+      req.type = 'text/javascript';
+      req.src = '/public/js/require.js';
+      req.setAttribute("data-main", "/public/js/apps/" + p + "/" + f + ".js?v=" + (new Date().valueOf() - 3600).toString().substr(0, 10));
+      req.setAttribute("async", "true");
+      req.setAttribute("defer", "");
+      document.getElementsByTagName("head")[0].appendChild(req);
+    }
+    function web_init() {
+
+      search_init()
+      $("#keywordUse").change(function () {
+        if ($(this).prop('checked') == true) {
+   
+          $("#yw_keyword").prop('disabled', true)
+        } else {
+        
+          $("#yw_keyword").prop('disabled', false)
+        }
+      })
+
+    }
+  </script>
+</body>
+
+</html>

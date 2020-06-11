@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>所有设备</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+ <link rel="stylesheet" href="/public/css/materialdesignicons.min.css">
+  <link rel="stylesheet" href="/public/css/bootstrap.css">
+ <link rel="stylesheet" href="/public/css/bootstrap-table-min.css">
+
+  <link rel="stylesheet" href="/public/css/style.css">
+
+  <link rel="stylesheet" href="/public/css/bootstrap-select-min.css">
+
+  <style type="text/css">
+    .btn_active{
+      color:blue;
+
+    }
+    .btn_span{
+      display:inline-block;
+      padding:5px 6px;
+      font-weight: 600;
+      font-size: 18px;
+      cursor:pointer;
+    }
+    .conTable p span:nth-of-type(2n+1){
+      display: inline-block;
+      width:60px;
+    }
+  </style>
+
+</head>
+<body>
+  <div class="page-header"  style= "margin:0">
+      <span class="cjm_page_header">公司账户</span>
+      <div class="template-demo mt-2" style=" margin: 0 !important;">
+       
+      </div>
+       
+  </div>
+  <div class="container-fluid" style="padding:0">
+      
+   </div> 
+  <div class="conTable" style="padding:30px;">
+      <p>
+        <span>个人电话:</span><span class="per_tel"></span>
+      </p>
+      <p>
+         <span>公司号码:</span><span class="company_num"></span>
+      </p>
+       <p>
+         <span>商户编号:</span><span class="company_code"></span>
+      </p>
+      <p>
+         <span>公司名称:</span><span class="company_name"></span>
+      </p>
+      <p>
+         <span>手机总数:</span><span class="phone_count"></span>
+      </p>
+        <p>
+         <span>开始时间:</span><span class="start_date"></span>
+      </p>
+        <p>
+         <span>结束时间:</span><span class="end_date"></span>
+      </p>
+       <p>
+         <span>下载链接:</span><span class="down_url"></span>
+      </p>
+       <p>
+         <span style="vertical-align: top">二&nbsp;维&nbsp;码:</span><span  id="qrCode" class="url_qrcode"></span>
+      </p>
+     
+      <p id="chage_span" style="display: none">
+        <span class="btn_span btn_active">服务账单</span><!-- <span class="btn_span">验证码费用明细</span> -->
+      </p>
+      <table id="tableMy" class="table" style="display: none" ></table>
+      <table id="tableMy1" class="table" style="display: none"></table>
+  </div>
+  
+
+
+
+
+ <script src="/public/js/lib/jquery.min.js"></script>
+<script src="/public/js/lib/bootstrap.min.js"></script> 
+
+
+  <script src="/public/js/off-canvas.js"></script>
+  <script src="/public/js/misc.js"></script>
+
+  
+  <script src="/public/js/lib/bootstrap-table.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-zn.min.js"></script>
+
+
+  
+  <script src="/public/js/lib/bootstrap-datetimepicker.min.js"></script>
+  <script src="/public/js/lib/bootstrap-select.min.js"></script>
+  <script src="/public/js/lib/jquery.qrcode.min.js"></script>
+
+   <script type="text/javascript">
+    
+        window.onload = function(){
+           var path = window.location.href.split("/");
+           var p = path[path.length-2];
+           var f = path[path.length-1].substr(0, path[path.length-1].indexOf('.htm'));
+           var req = document.createElement('script');
+           req.type = 'text/javascript';
+           req.src = '/public/js/require.js';
+           req.setAttribute("data-main","/public/js/apps/"+p+"/"+f+".js?v="+(new Date().valueOf()-3600).toString().substr(0,10));
+           req.setAttribute("async","true");
+           req.setAttribute("defer","");
+           document.getElementsByTagName("head")[0].appendChild(req);
+
+        }
+
+        function web_init(){
+       
+            search_init()
+
+
+      }
+
+
+  </script> 
+</body>
+</html>

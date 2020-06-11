@@ -1,0 +1,182 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>首页</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="/public/css/materialdesignicons.min.css"> 
+    <link rel="stylesheet" href="/public/css/bootstrap.css">
+  <link rel="stylesheet" href="/public/css/bootstrap-table-min.css">
+
+      <link rel="stylesheet" href="/public/css/daterangepicker.css">
+
+  <link rel="stylesheet" href="/public/css/bootstrap-select-min.css">
+  <link rel="stylesheet" href="/public/css/style.css">
+  <style type="text/css">
+    .dropdown-toggle{
+          padding: 6px;
+    }
+    .showw .whiteBtn,.changeTable .whiteBtn{
+    background: #fff;
+    display: inline-block;
+       padding: 2px 8px;
+    border-radius: 0px;
+    border: 1px solid #000;
+    cursor: pointer;
+    margin: 0 5px;
+    font-size:13px;
+    }
+    .changeTable .active{
+          color: #fff;
+            background: #5677fc !important;
+             border: 1px solid #5677fc;
+    }
+  </style>
+</head>
+<body>
+ 
+    <div class="page-header"  style= "margin:0;border-bottom: 0px;">
+      <span style="width: 100px;background: #fff;margin-right: 15px;height: 52px;line-height: 52px;cursor: pointer;text-align: center;" onclick="publicFunc.goHis('apps/tasklist/togetherF.html',window.taskDetailInfo)">返回上一页</span> <span class="cjm_page_header"></span>
+    
+    </div>
+    <div class="container-fluid" style="padding:0">
+    
+      <div id="tb" class="row tb_head">
+      
+        <span class="tb_margin10 showwH b9">
+          <select id="is_message" class="selectpicker" style="height:30px !important;    z-index: 9999;border: 1px solid;">
+            <option value='0'>是否私信</option>
+            <option value='1'>未私信</option>
+            <option value='2'>已私信</option>
+    
+          </select>
+        </span>
+      <span class="tb_margin10 showwH b3">
+        <select id="is_join_group" class="selectpicker" style="height:30px !important;    z-index: 9999;border: 1px solid;">
+          <option value='0'>是否加群</option>
+          <option value='1'>未加群</option>
+          <option value='2'>已加群</option>
+      
+        </select>
+      </span>
+      <span class="tb_margin10 showwH b8">
+        <select id="follow_each_other" class="selectpicker" style="height:30px !important;    z-index: 9999;border: 1px solid;">
+          <option value='0'>是否互关</option>
+          <option value='1'>未互关</option>
+          <option value='2'>已互关</option>
+      
+        </select>
+      </span>
+      <span class="tb_margin10 showwH b9">
+        <select id="sex" class="selectpicker" style="height:30px !important;    z-index: 9999;border: 1px solid;">
+          <option value='2'>性别</option>
+          <option value='1'>男</option>
+          <option value='0'>女</option>
+      
+        </select>
+      </span>
+        <span class="b5 showwH tb_margin10">
+          <input type="text" id="begin_date" style="width:180px;" class=" cjm_height37 tb_margin10">
+        </span> 
+        <span class="showwH tb_margin10 b9">
+            <input type="text" name="user_name" class=" cjm_height37 tb_margin10" placeholder="抖音号">
+        </span>
+        <span class="tb_margin10 showwH b10">
+          <select id="status" class="selectpicker" style="height:30px !important;    z-index: 9999;border: 1px solid;">
+            <option value='0'>关注状态</option>
+            <option value='1'>未关注</option>
+            <option value='2'>已关注</option>
+        
+          </select>
+        </span>
+       
+    
+        <span id="refresh_btn" class="cjm_search_btn tb_margin10">搜索</span>
+        <div class="changeTable">
+          <span app_type="1" class="whiteBtn  active">互关详情</span>
+          <span app_type="2" class="whiteBtn">关注详情</span>
+          <span app_type="3" class="whiteBtn">粉丝详情</span>
+          <span app_type="4" class="whiteBtn">通讯录好友</span>
+        </div>
+      </div>
+    </div>
+    <div style="padding:0;background:#fff">
+    <div style="display:flex;justify-content: flex-end;    align-items: center;height: 34px;margin-right: 15px;">
+    
+      <div class="showw">
+       <!--  <span class="whiteBtn" id="refresh_btn">刷新</span> -->
+        <span class="whiteBtn b11" onclick="parent.shareRoomTwo.show($('#tableMy').bootstrapTable('getSelections'),TBrefresh,window.taskDetailInfo)">直播间分享</span>
+        <span class="whiteBtn b1" onclick="sendCa(3)">转发视频</span>
+        <span class="whiteBtn b2" onclick="sendCa(1)">推名片</span>
+        <span class="whiteBtn b3" onclick="sendCa(2)">创建群组</span>
+        <span class="whiteBtn b4"  onclick="sendCa(5)">私信</span>
+        <span class="whiteBtn b5"  onclick="sendCa(4)">关注私信</span>
+
+        <span class="whiteBtn b6" onclick="delCus($('#tableMy').bootstrapTable('getSelections'))">取关</span>
+       
+      </div>
+     
+  
+     
+    </div>
+  </div>
+    <div class="conTable">
+      <table id="tableMy"  ></table>
+    </div>
+
+
+  
+
+
+  <!-- ===================================================== -->
+
+    <script src="/public/js/lib/jquery.min.js"></script>
+  <script src="/public/js/lib/bootstrap.min.js"></script> 
+
+  <script src="/public/js/off-canvas.js"></script>
+  <script src="/public/js/misc.js"></script>
+<!--   <script src="/public/js/dashboard.js"></script>  -->
+  <script src="/public/js/lib/bootstrap-table.min.js"></script>
+  <script src="/public/js/lib/bootstrap-table-zn.min.js"></script>
+    <script src="/public/js/lib/moment.min.js"></script>
+    <script src="/public/js/lib/daterangepicker.js"></script>
+  <script src="/public/js/lib/bootstrap-select.min.js"></script>  
+
+
+<script type="text/javascript">
+   window.onload = function(){
+      var path = window.location.href.split("/");
+           var p = path[path.length-2];
+           var f = path[path.length-1].substr(0, path[path.length-1].indexOf('.htm'));
+           var req = document.createElement('script');
+           req.type = 'text/javascript';
+           req.src = '/public/js/require.js';
+           req.setAttribute("data-main","/public/js/apps/"+p+"/"+f+".js?v="+(new Date().valueOf()-3600).toString().substr(0,10));
+           req.setAttribute("async","true");
+           req.setAttribute("defer","");
+           document.getElementsByTagName("head")[0].appendChild(req);
+   }
+           function web_init(){
+            
+           
+             $('.cjm_page_header').html(window.taskDetailInfo.nick_name+'的好友详情') 
+               var options = {
+               "startDate": moment().subtract(6, 'days'),
+               "endDate": moment(),
+
+               timePicker: false,
+               linkedCalendars: false,
+               autoUpdateInput: true,
+               showCustomRangeLabel: false,
+               opens: 'right',
+               drops: 'down',
+               dateLimit: {
+                 days: 365
+               },
+               alwaysShowCalendars: true,
+             };
+             $('#begin_date').daterangepicker(options, function (start, end, label) { });
+              $(".changeTable").find('span:first-child').click()
+            //search_init(1)
+      }
+</script>
+</body>
+</html>
