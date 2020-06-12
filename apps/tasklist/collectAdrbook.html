@@ -18,24 +18,24 @@
 <body>
 
     <div class="page-header"  style= "margin:0;border-bottom: 0px;">
-      <span class="cjm_page_header">通讯录列表<span class="cjm_page_header_goal"></span></span>
+      <span class="smd_page_header">通讯录列表<span class="smd_page_header_goal"></span></span>
     
     </div>
       <div class="container-fluid" style="padding:0">
     <div id="tb" class="row tb_head">
-      <input type="text" name="keyword_sma" class="cjm_height37 tb_margin10" placeholder="">
+      <input type="text" name="keyword_sma" class="smd_height37 tb_margin10" placeholder="">
       <select  id="status" class="selectpicker tb_margin10">
         <option value="0">全部</option>
         <option value="1">已添加手机</option>
         <option value="2">未添加手机</option>
       </select>
-      <span  id="refresh_btn" class="cjm_search_btn tb_margin10">搜索</span>
-      <span class="cjm_search_btn tb_margin10" onclick="parent.importTXL.show(TBrefresh)">导入通讯录</span>
-      <span class="cjm_search_btn tb_margin10" onclick="parent.addAdrbook.show($('#tableMy').bootstrapTable('getSelections'),TBrefresh)">添加到手机</span>
-      <span class="cjm_search_btn tb_margin10" onclick="parent.everyChangeGroup.show($('#tableMy').bootstrapTable('getSelections'),TBrefresh,parent.DmConf.api.new.Mail_Update_obj)">修改分组</span>
-      <span class="cjm_search_btn tb_margin10" onclick="delAll($('#tableMy').bootstrapTable('getSelections'))">删除</span>
+      <span  id="refresh_btn" class="smd_search_btn tb_margin10">搜索</span>
+      <span class="smd_search_btn tb_margin10" onclick="parent.importTXL.show(TBrefresh)">导入通讯录</span>
+      <span class="smd_search_btn tb_margin10" onclick="parent.addAdrbook.show($('#tableMy').bootstrapTable('getSelections'),TBrefresh)">添加到手机</span>
+      <span class="smd_search_btn tb_margin10" onclick="parent.everyChangeGroup.show($('#tableMy').bootstrapTable('getSelections'),TBrefresh,parent.DmConf.api.new.Mail_Update_obj)">修改分组</span>
+      <span class="smd_search_btn tb_margin10" onclick="delAll($('#tableMy').bootstrapTable('getSelections'))">删除</span>
      
-      <span  class="cjm_search_btn tb_margin10" style="width:140px"><a style="text-decoration:none;color:#FFF;padding:8px;" href="/module/xls/导入通讯录下载.xls"
+      <span  class="smd_search_btn tb_margin10" style="width:140px"><a style="text-decoration:none;color:#FFF;padding:8px;" href="/module/xls/导入通讯录下载.xls"
           target="_blank">通讯录模板下载</a></span>
     </div>
     </div>

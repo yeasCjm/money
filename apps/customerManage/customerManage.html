@@ -24,21 +24,21 @@
 </head>
 <body>
   <div class="page-header"  style= "margin:0">
-      <span class="cjm_page_header">用户管理</span>
+      <span class="smd_page_header">用户管理</span>
       <div class="template-demo mt-2" style=" margin: 0 !important;">
        
-<!--         <button type="button" class="cjm_search_btn" onclick="saveUser.del()"> <i class="mdi mdi-file-check btn-icon-prepend"></i> 删除用户</button> -->
+<!--         <button type="button" class="smd_search_btn" onclick="saveUser.del()"> <i class="mdi mdi-file-check btn-icon-prepend"></i> 删除用户</button> -->
 
       </div>
        
   </div>
   <div class="container-fluid"  style="padding:20px">
         <div  style="height:auto">
-            <span class="headLine"><input type="text" name="if" class=" bg-transparent   cjm_height37" placeholder="客户ID"></span>
-             <span class="headLine"><input type="text" name="company_user_name" class=" bg-transparent   cjm_height37" placeholder="客户名称"></span>
-            <span class="headLine"><input type="text" name="telphone" class=" bg-transparent   cjm_height37" placeholder="个人电话"></span>
-            <span class="headLine"><input type="text" name="company_phone" class=" bg-transparent   cjm_height37" placeholder="公司电话"></span>
-            <span class="headLine"><input type="text" name="company_name" class=" bg-transparent   cjm_height37" placeholder="公司名称"></span> 
+            <span class="headLine"><input type="text" name="if" class=" bg-transparent   smd_height37" placeholder="客户ID"></span>
+             <span class="headLine"><input type="text" name="company_user_name" class=" bg-transparent   smd_height37" placeholder="客户名称"></span>
+            <span class="headLine"><input type="text" name="telphone" class=" bg-transparent   smd_height37" placeholder="个人电话"></span>
+            <span class="headLine"><input type="text" name="company_phone" class=" bg-transparent   smd_height37" placeholder="公司电话"></span>
+            <span class="headLine"><input type="text" name="company_name" class=" bg-transparent   smd_height37" placeholder="公司名称"></span> 
       
             <span class="headLine" style="margin:5px 0 5px 5px;">状态:<select id="statuss"  class= "status selectpicker">
               <option value="-1">所有</option>
@@ -66,12 +66,12 @@
       
         
 
-              <span  id="refresh_btn" class="cjm_search_btn headLine">搜索</span>
+              <span  id="refresh_btn" class="smd_search_btn headLine">搜索</span>
          
-             <button type="button" class="cjm_search_btn headLine" style="width:130px" onclick="parent.saveUser1.go(0,parent.DmConf.api.new.add_customer,function(){$('#tableMy').bootstrapTable('refresh')})">添加公司用户</button>
-       <!--  <button type="button" class="cjm_search_btn headLine" onclick="parent.mainPlatform.show_child_iframe('apps/customerManage/verify.html','审核管理','verify',false,false,)">审核</button>
-        <button type="button" class="cjm_search_btn headLine" onclick="parent.verifyManage.show(4,$('#tableMy').bootstrapTable('getSelections'),function(){$('#tableMy').bootstrapTable('refresh')})">状态管理</button> -->
-         <button type="button" class="cjm_search_btn headLine" onclick="delAll(function(){$('#tableMy').bootstrapTable('refresh')})">删除</button>
+             <button type="button" class="smd_search_btn headLine" style="width:130px" onclick="parent.saveUser1.go(0,parent.DmConf.api.new.add_customer,function(){$('#tableMy').bootstrapTable('refresh')})">添加公司用户</button>
+       <!--  <button type="button" class="smd_search_btn headLine" onclick="parent.mainPlatform.show_child_iframe('apps/customerManage/verify.html','审核管理','verify',false,false,)">审核</button>
+        <button type="button" class="smd_search_btn headLine" onclick="parent.verifyManage.show(4,$('#tableMy').bootstrapTable('getSelections'),function(){$('#tableMy').bootstrapTable('refresh')})">状态管理</button> -->
+         <button type="button" class="smd_search_btn headLine" onclick="delAll(function(){$('#tableMy').bootstrapTable('refresh')})">删除</button>
 
    </div> 
   <div class="conTable">

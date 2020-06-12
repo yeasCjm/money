@@ -24,7 +24,7 @@ function search_init(){
 
  $(".end_time").datetimepicker("setDate", new Date());
   $("#timeSel").selectpicker('refresh');*/
-$('.cjm_page_header').html(window.taskDetailInfo.name+'的私信任务历史')
+$('.smd_page_header').html(window.taskDetailInfo.name+'的私信任务历史')
       var tableColumns = [
 
         {width:150,field: 'name', title: '任务名称',align : 'center',valign : 'middle',},

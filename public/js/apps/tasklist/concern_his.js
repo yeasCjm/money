@@ -28,7 +28,7 @@ function goback(){
 }
 function search_init(){
 
-      $('.cjm_page_header').html(window.taskDetailInfo.name+'的关注任务历史')
+      $('.smd_page_header').html(window.taskDetailInfo.name+'的关注任务历史')
 
       var tableColumns = [
 

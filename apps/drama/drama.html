@@ -41,7 +41,7 @@
 </head>
 <body >
   <div   style= "margin:0;display: none">
-      <span class="cjm_page_header">素材库</span>
+      <span class="smd_page_header">素材库</span>
        <div class="template-demo mt-2" >
           <ul id="myTab" class="nav nav-tabs" role="tablist" style="height: 30px" >
             <li class="active " ><a href="#bulletin" role="tab" data-toggle="tab">私信库</a></li>
@@ -74,7 +74,7 @@
         <div class="tab-pane fade in active" id="bulletin"><!-- 文字素材 -->
 
               <div class=" row"  style="" >
-                  <input type="text"  class=" cjm_height37 tb_margin10" id="content_sel1"  placeholder="内容">
+                  <input type="text"  class=" smd_height37 tb_margin10" id="content_sel1"  placeholder="内容">
                 
                   <div class="tb_margin10">
                       <span style="">分类:</span><select  class="selectpicker selSty " id="sex_text">
@@ -84,11 +84,11 @@
                     </select>
                   </div> 
                   
-                  <span  onclick="TBrefresh($('#bulletin_1'))"   class="  cjm_search_btn tb_margin10">搜索</span>
+                  <span  onclick="TBrefresh($('#bulletin_1'))"   class="  smd_search_btn tb_margin10">搜索</span>
                   
-                <span   onclick="parent.Tel_Import.go(0)" class=" cjm_search_btn tb_margin10" >导入私信</span>
-                <span   onclick="delAll($('#bulletin_1').bootstrapTable('getSelections'),'Del_libtext',1)" class=" cjm_search_btn tb_margin10" >删除</span>
-                <span    class=" cjm_search_btn tb_margin10" ><a style="text-decoration:none;color:#FFF;padding:8px;" onclick="download_mould()" >模板下载</a> </span>
+                <span   onclick="parent.Tel_Import.go(0)" class=" smd_search_btn tb_margin10" >导入私信</span>
+                <span   onclick="delAll($('#bulletin_1').bootstrapTable('getSelections'),'Del_libtext',1)" class=" smd_search_btn tb_margin10" >删除</span>
+                <span    class=" smd_search_btn tb_margin10" ><a style="text-decoration:none;color:#FFF;padding:8px;" onclick="download_mould()" >模板下载</a> </span>
                                  
               </div>
               <div class="conTable">
@@ -98,14 +98,14 @@
         <div class="tab-pane fade"  id="discuss"><!-- 文字素材 -->
 
               <div class=" row"  style="" >
-                  <input type="text"  class=" cjm_height37 tb_margin10" id="content_sel1"  placeholder="内容">
+                  <input type="text"  class=" smd_height37 tb_margin10" id="content_sel1"  placeholder="内容">
                  
 
-                  <span  onclick="TBrefresh($('#discuss_1'))"   class="  cjm_search_btn tb_margin10">搜索</span>
+                  <span  onclick="TBrefresh($('#discuss_1'))"   class="  smd_search_btn tb_margin10">搜索</span>
               
-                <span   onclick="parent.Tel_Import.go(1)" class=" cjm_search_btn tb_margin10" >导入评论</span>
-                <span onclick="delAll($('#discuss_1').bootstrapTable('getSelections'),'Del_libtext',2)" class=" cjm_search_btn tb_margin10">删除</span>
-                <span     class=" cjm_search_btn tb_margin10" ><a style="text-decoration:none;color:#FFF;padding:8px;" onclick="download_mould()" >模板下载</a> </span>
+                <span   onclick="parent.Tel_Import.go(1)" class=" smd_search_btn tb_margin10" >导入评论</span>
+                <span onclick="delAll($('#discuss_1').bootstrapTable('getSelections'),'Del_libtext',2)" class=" smd_search_btn tb_margin10">删除</span>
+                <span     class=" smd_search_btn tb_margin10" ><a style="text-decoration:none;color:#FFF;padding:8px;" onclick="download_mould()" >模板下载</a> </span>
                                  
               </div>
               <div>
@@ -114,37 +114,37 @@
         </div>
         <div class="tab-pane fade"  id="rule"><!-- 标题库 -->
             <div class=" row"  style="">
-                  <input type="text"  class=" cjm_height37 tb_margin10"  id="content_sel2"  placeholder="标题">
+                  <input type="text"  class=" smd_height37 tb_margin10"  id="content_sel2"  placeholder="标题">
                  
-                  <span  onclick="TBrefresh($('#buyHistory'))" class="  cjm_search_btn tb_margin10">搜索</span>
+                  <span  onclick="TBrefresh($('#buyHistory'))" class="  smd_search_btn tb_margin10">搜索</span>
               
-                <span   onclick="parent.Tel_Import.go(2)" class=" cjm_search_btn tb_margin10" >导入</span>
-                <span onclick="delAll($('#buyHistory').bootstrapTable('getSelections'),'Del_libtext',3)" class=" cjm_search_btn tb_margin10">删除</span>
-                <span     class=" cjm_search_btn tb_margin10" ><a style="text-decoration:none;color:#FFF;padding:8px;" onclick="download_mould()" >模板下载</a> </span>
+                <span   onclick="parent.Tel_Import.go(2)" class=" smd_search_btn tb_margin10" >导入</span>
+                <span onclick="delAll($('#buyHistory').bootstrapTable('getSelections'),'Del_libtext',3)" class=" smd_search_btn tb_margin10">删除</span>
+                <span     class=" smd_search_btn tb_margin10" ><a style="text-decoration:none;color:#FFF;padding:8px;" onclick="download_mould()" >模板下载</a> </span>
                                  
               </div>
             <table id="buyHistory"  ></table>
         </div>
         <div class="tab-pane fade" id="forum"><!-- 名称库 -->
           <div class=" row"  style="">
-                  <input type="text"  class=" cjm_height37 tb_margin10" name="keyword_text"  placeholder="内容/操作人">
+                  <input type="text"  class=" smd_height37 tb_margin10" name="keyword_text"  placeholder="内容/操作人">
                  
-                  <span  onclick="TBrefresh($('#buyHistory'))"   class="  cjm_search_btn tb_margin10">搜索</span>
+                  <span  onclick="TBrefresh($('#buyHistory'))"   class="  smd_search_btn tb_margin10">搜索</span>
               
-                <span   onclick="parent.Tel_Import.go(2)" class=" cjm_search_btn tb_margin10" >导入</span>
-                <span onclick="delAll($('#phoneList').bootstrapTable('getSelections'))" class=" cjm_search_btn tb_margin10">删除</span>
-                <span     class=" cjm_search_btn tb_margin10" ><a style="text-decoration:none;color:#FFF;padding:8px;" onclick="download_mould()" >模板下载</a> </span>
+                <span   onclick="parent.Tel_Import.go(2)" class=" smd_search_btn tb_margin10" >导入</span>
+                <span onclick="delAll($('#phoneList').bootstrapTable('getSelections'))" class=" smd_search_btn tb_margin10">删除</span>
+                <span     class=" smd_search_btn tb_margin10" ><a style="text-decoration:none;color:#FFF;padding:8px;" onclick="download_mould()" >模板下载</a> </span>
                                  
               </div>
            <table id="phoneList"  ></table>
         </div>
         <div class="tab-pane fade" id="security"><!-- 头像库 -->
            <div class=" row"  style="">
-                  <input type="text" class=" cjm_height37 tb_margin10" name="keyword_text"  placeholder="内容/操作人">
+                  <input type="text" class=" smd_height37 tb_margin10" name="keyword_text"  placeholder="内容/操作人">
                  
-                  <span  onclick="TBrefresh($('#accountList'))"   class="  cjm_search_btn tb_margin10">搜索</span>
-                <span onclick="delAll($('#accountList').bootstrapTable('getSelections'))" class=" cjm_search_btn tb_margin10">删除</span>
-                <span   onclick="parent.uploadFile.show(4,parent.DmConf.api.new.Add_libtext)" class=" cjm_search_btn tb_margin10" >导入头像</span>
+                  <span  onclick="TBrefresh($('#accountList'))"   class="  smd_search_btn tb_margin10">搜索</span>
+                <span onclick="delAll($('#accountList').bootstrapTable('getSelections'))" class=" smd_search_btn tb_margin10">删除</span>
+                <span   onclick="parent.uploadFile.show(4,parent.DmConf.api.new.Add_libtext)" class=" smd_search_btn tb_margin10" >导入头像</span>
               
                                  
               </div>
@@ -152,23 +152,23 @@
         </div>
         <div class="tab-pane fade" id="welfare"><!-- 签名库 -->
             <div class=" row"  style="">
-                  <input type="text"  class=" cjm_height37 tb_margin10" name="keyword_text"  placeholder="内容/操作人">
+                  <input type="text"  class=" smd_height37 tb_margin10" name="keyword_text"  placeholder="内容/操作人">
                  
-                  <span  onclick="TBrefresh($('#taskList'))"   class="  cjm_search_btn tb_margin10">搜索</span>
+                  <span  onclick="TBrefresh($('#taskList'))"   class="  smd_search_btn tb_margin10">搜索</span>
               
-                <span   onclick="parent.Tel_Import.go(2)" class=" cjm_search_btn tb_margin10" >导入</span>
-                <span     class=" cjm_search_btn tb_margin10" ><a style="text-decoration:none;color:#FFF;padding:8px;" onclick="download_mould()" >模板下载</a> </span>
+                <span   onclick="parent.Tel_Import.go(2)" class=" smd_search_btn tb_margin10" >导入</span>
+                <span     class=" smd_search_btn tb_margin10" ><a style="text-decoration:none;color:#FFF;padding:8px;" onclick="download_mould()" >模板下载</a> </span>
                                  
               </div>
           <table id="taskList"  ></table>
         </div>
         <div class="tab-pane fade" id="audioList"><!-- 音乐库 -->
             <div class=" row"  style="">
-                  <input type="text" class=" cjm_height37 tb_margin10" name="keyword_text"  placeholder="内容/操作人">
+                  <input type="text" class=" smd_height37 tb_margin10" name="keyword_text"  placeholder="内容/操作人">
                  
-                  <span  onclick="TBrefresh($('#audioList1'))"   class="  cjm_search_btn tb_margin10">搜索</span>
+                  <span  onclick="TBrefresh($('#audioList1'))"   class="  smd_search_btn tb_margin10">搜索</span>
               
-                <span   onclick="parent.uploadFile.show(2,parent.DmConf.api.new.Libmusic_Libmusic_list)" class=" cjm_search_btn tb_margin10" >导入音频</span>
+                <span   onclick="parent.uploadFile.show(2,parent.DmConf.api.new.Libmusic_Libmusic_list)" class=" smd_search_btn tb_margin10" >导入音频</span>
               
                                  
               </div>
@@ -176,23 +176,23 @@
           </div>
            <div class="tab-pane fade" id="videoList"><!--视频库  -->
               <div class=" row" style="">
-                  <input type="text" class=" cjm_height37 tb_margin10" name="file_name"  placeholder="文件名">
+                  <input type="text" class=" smd_height37 tb_margin10" name="file_name"  placeholder="文件名">
                  
-                  <span  onclick="TBrefresh($('#videoList1'))"   class="  cjm_search_btn tb_margin10">搜索</span>
-                <span onclick="delAll($('#videoList1').bootstrapTable('getSelections'),'Del_libvideo')" class=" cjm_search_btn tb_margin10">删除</span>
-                <span   onclick="parent.uploadFile.show(1,parent.DmConf.api.new.Add_libvideo)" class=" cjm_search_btn tb_margin10" >导入视频</span>
+                  <span  onclick="TBrefresh($('#videoList1'))"   class="  smd_search_btn tb_margin10">搜索</span>
+                <span onclick="delAll($('#videoList1').bootstrapTable('getSelections'),'Del_libvideo')" class=" smd_search_btn tb_margin10">删除</span>
+                <span   onclick="parent.uploadFile.show(1,parent.DmConf.api.new.Add_libvideo)" class=" smd_search_btn tb_margin10" >导入视频</span>
                 </div>
                   <table id="videoList1"  ></table>
           </div>
           
            <div class="tab-pane fade" id="same_com"><!-- 同行库 -->
                   <div class=" row" style="">
-                  <input type="text" class=" cjm_height37 tb_margin10" name="file_name"  placeholder="文件名">
+                  <input type="text" class=" smd_height37 tb_margin10" name="file_name"  placeholder="文件名">
                    
-                  <span  onclick="TBrefresh($('#same_com1'))"   class="  cjm_search_btn tb_margin10">搜索</span>
-                  <span onclick="delAll($('#same_com1').bootstrapTable('getSelections'),'Libsame_Del_libsame')" class=" cjm_search_btn tb_margin10">删除</span>
-                 <span     class=" cjm_search_btn tb_margin10" ><a onclick="download_mould('/module/xls/同行模板下载.xls')"  style="text-decoration:none;color:#FFF;padding:8px;"  >模板下载</a> </span>
-                  <span   onclick="parent.resourceImport.go('',2)" class=" cjm_search_btn tb_margin10" >导入同行数据</span>
+                  <span  onclick="TBrefresh($('#same_com1'))"   class="  smd_search_btn tb_margin10">搜索</span>
+                  <span onclick="delAll($('#same_com1').bootstrapTable('getSelections'),'Libsame_Del_libsame')" class=" smd_search_btn tb_margin10">删除</span>
+                 <span     class=" smd_search_btn tb_margin10" ><a onclick="download_mould('/module/xls/同行模板下载.xls')"  style="text-decoration:none;color:#FFF;padding:8px;"  >模板下载</a> </span>
+                  <span   onclick="parent.resourceImport.go('',2)" class=" smd_search_btn tb_margin10" >导入同行数据</span>
                 </div>
                   <table id="same_com1"  ></table>
                  

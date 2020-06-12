@@ -19,7 +19,7 @@
 <body>
   
     <div class="page-header"  style= "margin:0;border-bottom: 0px;">
-      <span class="cjm_page_header">互关拉群聊</span>
+      <span class="smd_page_header">互关拉群聊</span>
     
     </div><div class="container-fluid" style="padding:0">
     <div id="tb" class="row tb_head">
@@ -43,9 +43,9 @@
         <input type="hidden" id="end_date" value="" />
       </div>
       </div>
-      <input type="text" name="group_name" class="cjm_height37 tb_margin10" placeholder="群聊名称">
-      <span id="refresh_btn" class="cjm_search_btn tb_margin10">搜索</span>
-            <span class="cjm_search_btn tb_margin10" onclick="publicFunc.goHis('apps/tasklist/togetherF.html',window.taskDetailInfo)">返回上一页</span>
+      <input type="text" name="group_name" class="smd_height37 tb_margin10" placeholder="群聊名称">
+      <span id="refresh_btn" class="smd_search_btn tb_margin10">搜索</span>
+            <span class="smd_search_btn tb_margin10" onclick="publicFunc.goHis('apps/tasklist/togetherF.html',window.taskDetailInfo)">返回上一页</span>
     </div></div>
     <div class="conTable">
      
@@ -87,7 +87,7 @@
    }
            function web_init(){
              console.warn(window.taskDetailInfo)
-             $('.cjm_page_header').html(window.taskDetailInfo.nick_name + '的群聊详情')
+             $('.smd_page_header').html(window.taskDetailInfo.nick_name + '的群聊详情')
              create_datePicker_new($('.begin_time'),0)
              create_datePicker_new($('.end_time'),1)
             search_init()

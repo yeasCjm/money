@@ -13,7 +13,7 @@
 </head>
 <body>
   <div class="page-header"  style= "margin:0">
-      <span class="cjm_page_header">应用账号标签管理</span>
+      <span class="smd_page_header">应用账号标签管理</span>
       <div class="template-demo mt-2" style=" margin: 0 !important;">
         <button type="button" class="btn"  onclick="parent.create_label.go('应用账号标签',0,parent.DmConf.api.new.add_resourcetype,'',function(){ $('#tableMy').bootstrapTable('refresh')})"> <i class="glyphicon glyphicon-edit"></i>新建</button>
         <button style="display:none"  type="button" class="btn"  onclick="parent.create_label.delete('应用账号标签',2,parent.DmConf.api.mobile.MobileTypeDelete,$('#tableMy').bootstrapTable('getSelections'),function(){ $('#tableMy').bootstrapTable('refresh')})"> <i class="glyphicon glyphicon-remove-circle"></i> 删除</button>
@@ -25,7 +25,7 @@
           <div class="row" id="tb" style="margin:10px 0 ">
          
            <div class="col-md-4  col-xs-4 col-sm-4 pd0" >
-             <input type="text" name="label_name" class="form-control bord_rad cjm_height37" placeholder="标签名">
+             <input type="text" name="label_name" class="form-control bord_rad smd_height37" placeholder="标签名">
            </div>
            <div class="col-md-2 col-xs-2 col-sm-2 pd0 ">
                <button type="button" id="refresh_btn" class="btn btn-gradient-info  btn-fw">搜索</button>

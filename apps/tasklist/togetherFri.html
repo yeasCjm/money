@@ -34,7 +34,7 @@
 <body>
  
     <div class="page-header"  style= "margin:0;border-bottom: 0px;">
-      <span style="width: 100px;background: #fff;margin-right: 15px;height: 52px;line-height: 52px;cursor: pointer;text-align: center;" onclick="publicFunc.goHis('apps/tasklist/togetherF.html',window.taskDetailInfo)">返回上一页</span> <span class="cjm_page_header"></span>
+      <span style="width: 100px;background: #fff;margin-right: 15px;height: 52px;line-height: 52px;cursor: pointer;text-align: center;" onclick="publicFunc.goHis('apps/tasklist/togetherF.html',window.taskDetailInfo)">返回上一页</span> <span class="smd_page_header"></span>
     
     </div>
     <div class="container-fluid" style="padding:0">
@@ -74,10 +74,10 @@
         </select>
       </span>
         <span class="b5 showwH tb_margin10">
-          <input type="text" id="begin_date" style="width:180px;" class=" cjm_height37 tb_margin10">
+          <input type="text" id="begin_date" style="width:180px;" class=" smd_height37 tb_margin10">
         </span> 
         <span class="showwH tb_margin10 b9">
-            <input type="text" name="user_name" class=" cjm_height37 tb_margin10" placeholder="抖音号">
+            <input type="text" name="user_name" class=" smd_height37 tb_margin10" placeholder="抖音号">
         </span>
         <span class="tb_margin10 showwH b10">
           <select id="status" class="selectpicker" style="height:30px !important;    z-index: 9999;border: 1px solid;">
@@ -89,7 +89,7 @@
         </span>
        
     
-        <span id="refresh_btn" class="cjm_search_btn tb_margin10">搜索</span>
+        <span id="refresh_btn" class="smd_search_btn tb_margin10">搜索</span>
         <div class="changeTable">
           <span app_type="1" class="whiteBtn  active">互关详情</span>
           <span app_type="2" class="whiteBtn">关注详情</span>
@@ -157,7 +157,7 @@
            function web_init(){
             
            
-             $('.cjm_page_header').html(window.taskDetailInfo.nick_name+'的好友详情') 
+             $('.smd_page_header').html(window.taskDetailInfo.nick_name+'的好友详情') 
                var options = {
                "startDate": moment().subtract(6, 'days'),
                "endDate": moment(),

@@ -3191,7 +3191,7 @@ var msgCollect = {
     $(t).parent().remove()
   },
   /* addFilterTit() {
-    $('.filter_title').append(' <span class="filter_title_children "><input class="cjm_height37" style="width:120px" type="text"><span onclick="secMsgDiscuss.addFilterTit()"  style="margin-left:5px" class= "iconfont icon-jia" ></span ><span onclick="secMsgDiscuss.removeFilterTit(this)"  style="margin-left:5px" class="iconfont icon-jian "></span></span>')
+    $('.filter_title').append(' <span class="filter_title_children "><input class="smd_height37" style="width:120px" type="text"><span onclick="secMsgDiscuss.addFilterTit()"  style="margin-left:5px" class= "iconfont icon-jia" ></span ><span onclick="secMsgDiscuss.removeFilterTit(this)"  style="margin-left:5px" class="iconfont icon-jian "></span></span>')
   },
   removeFilterTit(y) {
     $(y).parent().remove()

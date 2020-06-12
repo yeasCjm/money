@@ -27,7 +27,7 @@ var btn_events = {
 
 function search_init(){
   
-$('.cjm_page_header').html('手机编号:'+(window.taskDetailInfo.mobile_label ? window.taskDetailInfo.mobile_label : window.taskDetailInfo.imei ) +'的详情')
+$('.smd_page_header').html('手机编号:'+(window.taskDetailInfo.mobile_label ? window.taskDetailInfo.mobile_label : window.taskDetailInfo.imei ) +'的详情')
 
   var tableColumns = [
     { width: 50,field : "checked" , checkbox:true,},

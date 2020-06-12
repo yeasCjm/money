@@ -186,7 +186,7 @@ function search_init(){
   }
 
  function goDYlogin(){
-   window.open(parent.DmConf.server.douyinUrl()+'/open/?customer_id='+parent.DmConf.userinfo.customer_id,'')
+   window.open(parent.DmConf.server.dUrl()+'/open/?customer_id='+parent.DmConf.userinfo.customer_id,'')
  }
 
 

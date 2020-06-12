@@ -15,7 +15,7 @@ var SystemMenu = [{
                 children :[],
             },  */ {
                 grant: 123,
-                title: '手机管理',
+                title: '手机云控',
                 note: 'equipment123213',
                 type : 0 ,/*是否为管理员菜单*/
                 icon: 'phone',
@@ -33,7 +33,7 @@ var SystemMenu = [{
                     {
                         grant:1323,
                         name:"account_list",
-                        title: "应用账号",
+                        title: "抖音账号",
                         type : 0 ,
                         icon:"douyinhao",
                         href : "apps/equipment/account_list.html",
@@ -44,17 +44,12 @@ var SystemMenu = [{
                 grant: 1233132,
                 title: '任务列表',
                 note: '_tasklist',
+                name: 'tasklist',
                 type: 0,/*管理员菜单*/
                 icon: 'renwu',
+                href: "apps/tasklist/tasklist.html",
                 children: [
-                    {
-                        grant: 123,
-                        title: "任务列表",
-                        name: "tasklist",
-                        type: 0,
-                        icon: "renwuliebiao",
-                        href: "apps/tasklist/tasklist.html",
-                    },
+                   
                     // {
                     //     grant: 123,
                     //     title: "手机操作",
@@ -75,14 +70,14 @@ var SystemMenu = [{
                 children: [],
             }, {
                 grant: 1233132,
-                title: '直播间',
+                title: '直播任务',
                 note: '_new_collectliveRoom',
                 type: 0,/*管理员菜单*/
                 icon: 'zhibo',
                 children: [
                     {
                         grant: 123,
-                        title: "直播间关注",
+                        title: "关注",
                         name: "new_collectliveRoom",
                         type: 0,
                         icon: "zhiboguanzhu",
@@ -90,7 +85,7 @@ var SystemMenu = [{
                     },
                     {
                         grant: 123,
-                        title: "直播间活跃",
+                        title: "活跃",
                         name: "liveroomBrisk",
                         type: 0,
                         icon: "qinglihuancun",
@@ -98,25 +93,17 @@ var SystemMenu = [{
                     },
                     {
                         grant: 123,
-                        title: "直播间机器人",
+                        title: "机器人",
                         name: "liveroomBot",
                         type: 0,
                         icon: "jiqiren",
                         href: "apps/tasklist/liveroomBot.html",
                     }
                 ]
-            },/* {
-                grant: 123,
-                title: "直播间关注",
-                name: "new_collectliveRoom",
-                note: 'new_collectliveRoom1',
-                type: 0,
-                icon: "caiji",
-                href: "apps/tasklist/new_collectliveRoom.html",
-            },  */
+            },
               {
                 grant: 123123213131435,
-                title: "采集管理",
+                title: "采集列表",
                 name: "col_info",
                 type: 0,
                 icon: "caiji",
@@ -220,88 +207,8 @@ var SystemMenu = [{
                 icon: 'card',
                 href: "apps/tasklist/sendCard.html",
                 children: [],
-            },{
-                        grant:123,
-                        title: "私信产粉",
-                        name:"supper_discuss",
-                        type : 0 ,
-                        icon:"shengchan",
-                        check_name:"is_super",
-                        note:"supper_discuss",
-                        children:[
-                        {
-                                    grant:123,
-                                    title: "采集历史(开发中)",
-                                    name:"collect_his",
-                                    type : 0 ,
-                                    icon:"collect_his",
-                                    href : "apps/tasklist/collect_his.html",
-                                },
-                             {
-                                    grant:123,
-                                    title: "采集信息",
-                                    name:"collect_msg",
-                                    type : 0 ,
-                                    icon:"caiji",
-                                    href : "apps/tasklist/super_collectMsg.html",
-                                }, {
-                                    grant:123,
-                                    title: "关注",
-                                    name:"concern_msg",
-                                    type : 0 ,
-                                    icon:"guanzhu",
-                                    href : "apps/tasklist/super_concern.html",
-                                }, {
-                                    grant:123,
-                                    title: "私信",
-                                    name:"selfMsg",
-                                    type : 0 ,
-                                    icon:"sixin",
-                                    href : "apps/tasklist/super_selfMsg.html",
-                                },
-                        ]
-                    },
-            {
-                grant: 123315532,
-                title: '截流管理',
-                note: '_tasklist2',
-                type : 0 ,
-                icon: 'jieliu',
-                children: [
-                    {
-                        grant:123,
-                        title: "精准评论",
-                        name:"exact_discuss",
-                        type : 0 ,
-                        icon:"jingzhun",
-                        href : "apps/tasklist/exact_discuss.html",
-                    },
-                     {
-                        grant:123,
-                        title: "造热评",//隐藏
-                        name:"make_discuss",
-                        type : 0 ,
-                        icon:"shujuguanli",
-                        href : "apps/tasklist/make_discuss.html",
-                    },
-                     {
-                        grant:123,
-                        title: "同城评论",
-                        name:"city_discuss",
-                        type : 0 ,
-                        icon:"same_city",
-                        href : "apps/tasklist/city_discuss.html",
-                    },
-                    {
-                        grant:123,
-                        title: "评论区私信",
-                        name:"msg_discuss",
-                        type : 0 ,
-                        note:'msg_discuss',
-                        icon:"super_discuss",
-                        href : "apps/tasklist/msg_discuss.html",
+            },
           
-                    },
                     
                 ]
             },{
@@ -387,7 +294,7 @@ var SystemMenu = [{
                 }, ]
             }, */ {
                 grant: 6589258,
-                title: '蹭热门',
+                title: '热门任务',
                 note: 'support_major1',
                 name: 'support_major',
                 type: 0,
@@ -421,7 +328,7 @@ var SystemMenu = [{
                         href : "apps/video/send_video.html",
                        
                 }, ]
-            },*/
+            },
             {
                 grant: 1233333345,
                 title: "发布管理",
@@ -440,7 +347,7 @@ var SystemMenu = [{
                     },
                 ] 
             },
-           /*  {
+             {
                 grant: 6589258,
                 title: '发布作品',
                 note: 'send_video1',
@@ -467,7 +374,7 @@ var SystemMenu = [{
                 children: [
                     {
                         grant:123,
-                        title: "公司账户",
+                        title: "公司",
                         name:"company",
                         type : 0 ,
                         icon:"wenjianjia",
@@ -556,19 +463,15 @@ var mainPlatform = {
     init: function(){
          this._createTopMenu()
          this.bindEvent()
-         //this._createSiderMenu(SystemMenu[0],)
+        
     },
     bindEvent: function(){
         var self = this;
-        // 顶部大菜单单击事件
-        $(document).on('click', '.top_menu', function() {
-              //隐藏首页
-               
 
+        $(document).on('click', '.top_menu', function() {
          $('.pf-nav-item').removeClass('current');
         $(this).addClass('current');
 
-        // 渲染对应侧边菜单
         var m = $(this).data('sort');
         self._createSiderMenu(SystemMenu[m], m);
         $('.top_menu_a').removeClass('top_menu_a_active')
@@ -586,17 +489,13 @@ var mainPlatform = {
                           '<span class="iconfont icon-'+SystemMenu[i].icon+'"></span>'+
                           '<span class="pf-nav-title">'+ SystemMenu[i].title +'</span>'+
                       '</a></li>';
-            // 渲染当前
             if (SystemMenu[i].isCurrent){
                 currentIndex = i;
                 this._createSiderMenu(SystemMenu[i], i);
             }
         }
-        $('.navbar-nav').html(menuStr + $('.navbar-nav').html())
-     
+        $('.navbar-nav').html(menuStr + $('.navbar-nav').html())     
         $($('.navbar-nav').children('li')[0]).find('a').addClass('top_menu_a_active');
-       
-        //this.show_child_iframe('apps/main.html','首&nbsp;&nbsp;页','mainIndex',true)
 
     },
 
@@ -609,10 +508,6 @@ var mainPlatform = {
             if(parent.DmConf.userinfo.type == total_menu[i].type ||  total_menu[i].type == 0){
                 if(total_menu[i].href){
                
-                  /*  if(parent.DmConf.userinfo.type == 1 && total_menu[i].note == "statistics"){
-                        continue 
-                   } */
-
                         var mean_hrefL = total_menu[i].href +'?t='+ new Date().valueOf();
                   
                         menuStr += '<li class="nav-item" onclick="mainPlatform.show_child_iframe(\''+mean_hrefL+'\',\''+total_menu[i].title+'\',\''+total_menu[i].name+'\',false,this)">\
@@ -636,12 +531,6 @@ var mainPlatform = {
                         for(var a=0;a<total_menu[i].children.length;a++){
                             if(parent.DmConf.userinfo.type == total_menu[i].children[a].type ||  total_menu[i].children[a].type == 0 ){
 
-                            
-                               /* if(total_menu[i].children[a].check_name   && parent.DmConf.userinfo[total_menu[i].children[a].check_name] == 0){
-
-                                    continue;
-
-                                } */
                                 if(total_menu[i].children[a].children && total_menu[i].children[a].children.length>0){
                                    
                                     menuStr +=   '<li class="nav-item nav-click" showChild="'+total_menu[i].children[a].note+'"  style="cursor:pointer" ><a class="siderNav_a "><span style="background:url(\'/public/css/icon2/body/'+total_menu[i].children[a].icon+'.png\') ;margin-right:5px;background-size: 100%;display:inline-block;height: 17px;width:23px;vertical-align:text-top;"></span>'+total_menu[i].children[a].title+'</a>'
@@ -686,7 +575,6 @@ var mainPlatform = {
             $('.nav-click').find('ul li').addClass('nav_children');
             var cl = $(this).attr('showChild');
             $('.nav_children_'+cl).removeClass('nav_children');
-            //$('.nav_children_supper_discuss').removeClass('nav_children')
 
         })
     },

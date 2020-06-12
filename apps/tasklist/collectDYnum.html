@@ -20,12 +20,12 @@
 
     <div class="page-header"  style= "margin:0;border-bottom: 0px;">
       <span style="width: 100px;background: #fff;margin-right: 15px;height: 52px;line-height: 52px;cursor: pointer;text-align: center;"
-        onclick="parent.mainPlatform.destory_iframe('collectDYnum','togetherF')">返回上一页</span> <span class="cjm_page_header">导入抖音号列表<span class="cjm_page_header_goal"></span></span>
+        onclick="parent.mainPlatform.destory_iframe('collectDYnum','togetherF')">返回上一页</span> <span class="smd_page_header">导入抖音号列表<span class="smd_page_header_goal"></span></span>
     
     </div>
       <div class="container-fluid" style="padding:0">
     <div id="tb" class="row tb_head">
-      <input type="text" id="begin_date" style="width:180px;" class="cjm_height37 tb_margin10">
+      <input type="text" id="begin_date" style="width:180px;" class="smd_height37 tb_margin10">
       <select  id="is_message" class="selectpicker tb_margin10">
    
         <option value="-1">全部私信状态</option>
@@ -40,17 +40,17 @@
       
        
       </select>
-      <input type="text" name="keyword_sma" class="cjm_height37 tb_margin10" placeholder="关键词">
+      <input type="text" name="keyword_sma" class="smd_height37 tb_margin10" placeholder="关键词">
 
-      <span  id="refresh_btn" class="cjm_search_btn tb_margin10">搜索</span>
-      <span class="cjm_search_btn tb_margin10" onclick="parent.importDYH.show(TBrefresh)">导入抖音号</span>
+      <span  id="refresh_btn" class="smd_search_btn tb_margin10">搜索</span>
+      <span class="smd_search_btn tb_margin10" onclick="parent.importDYH.show(TBrefresh)">导入抖音号</span>
 
-      <span class="cjm_search_btn tb_margin10" onclick="parent.everyChangeGroup.show($('#tableMy').bootstrapTable('getSelections'),TBrefresh,parent.DmConf.api.new.TikTokNumber_Update_obj)">修改分组</span>
-      <span class="cjm_search_btn tb_margin10" onclick="parent.dyFollow.show($('#tableMy').bootstrapTable('getSelections'),TBrefresh)">关注</span>
-      <span class="cjm_search_btn tb_margin10" onclick="parent.dyprivately.show($('#tableMy').bootstrapTable('getSelections'),TBrefresh)">私信</span>
-      <span class="cjm_search_btn tb_margin10" onclick="delAll($('#tableMy').bootstrapTable('getSelections'))">删除</span>
+      <span class="smd_search_btn tb_margin10" onclick="parent.everyChangeGroup.show($('#tableMy').bootstrapTable('getSelections'),TBrefresh,parent.DmConf.api.new.TikTokNumber_Update_obj)">修改分组</span>
+      <span class="smd_search_btn tb_margin10" onclick="parent.dyFollow.show($('#tableMy').bootstrapTable('getSelections'),TBrefresh)">关注</span>
+      <span class="smd_search_btn tb_margin10" onclick="parent.dyprivately.show($('#tableMy').bootstrapTable('getSelections'),TBrefresh)">私信</span>
+      <span class="smd_search_btn tb_margin10" onclick="delAll($('#tableMy').bootstrapTable('getSelections'))">删除</span>
      
-      <span  class="cjm_search_btn tb_margin10" style="width:140px"><a style="text-decoration:none;color:#FFF;padding:8px;" href="/module/xls/导入抖音号下载.xls"
+      <span  class="smd_search_btn tb_margin10" style="width:140px"><a style="text-decoration:none;color:#FFF;padding:8px;" href="/module/xls/导入抖音号下载.xls"
           target="_blank">抖音号模板下载</a></span>
     </div>
     </div>
