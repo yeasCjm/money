@@ -1970,7 +1970,7 @@ var saveUser1 = {
       }
     }
     if( node.find('input[name=com_code]').val().length > 50 || node.find('input[name=com_code]').val().length < 5 ){
-      return parent.parent.plus_alertShow.show('商户编号必须大于5位且少于50位')
+      return parent.parent.plus_alertShow.show('客户号必须大于5位且少于50位')
     }
     var parent_d = Number(this.user_id) == parseInt(0) ? parent.DmConf.userinfo.customer_id : this.rows1.parent_id
 

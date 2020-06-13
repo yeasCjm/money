@@ -168,7 +168,7 @@
                           <input type="text" class="form-control" name="password" onkeyup="this.value=this.value.replace(/[^0-9a-zA-Z]/ig,'')">
                         </div>
                         <div class="col-lg-6 col-xs-6 col-sm-6 smd_margin_5">
-                          <span>商户编号:</span>
+                          <span>客户号:</span>
                           <input type="text" class="form-control" name="com_code" >
                         </div>
                         <div class="col-lg-6 col-xs-6 col-sm-6 smd_margin_5">
@@ -3234,7 +3234,16 @@
                                 aria-describedby="basic-addon1">
                             <span class="redStar iconfont icon-xing1"></span>
                         </div>
+                        <div class="input-group margin15">
+                            <span class="input-group-addon width90">
+                            </span>
                         
+                            <div class="checkbox icheck-primary margin15" style="width:300px;">
+                                <input type="checkbox" name="tempStatus" valueAttr=0 id="tempStatus" />
+                                <label for="tempStatus">一键设置，使用系统模板</label>
+                            </div>
+                        
+                        </div>
 
                         <div class="input-group margin15" style="position: relative;">
                             <span class="input-group-addon width90"> 定时公告 </span>
@@ -3298,16 +3307,7 @@
                             <input type="text" class="form-control" name="check_time_interval" onkeyup="this.value=this.value.replace(/[^0-9]/ig,'')" placeholder="" aria-describedby="basic-addon1">
                             <span class="left10pxSp">秒/每条</span>
                         </div>
-                        <div class="input-group margin15" style="justify-content: flex-end">
-                            <span class="input-group-addon width90">
-                            </span>
-                            <span style="margin-right:5px">一键设置，使用系统模板</span>
-                            <div class="checkbox checkbox-slider--c" >
-                                <label>
-                                    <input id="tempStatus" type="checkbox"><span></span>
-                                </label>
-                            </div>
-                        </div>
+                       
                         <div class="input-group margin15">
                             <span style="color:gray">*注</span>
                             <div class="input-group" style="display: block">
