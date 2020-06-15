@@ -57,6 +57,18 @@
     -webkit-text-fill-color: transparent;
     background-color: white;
    }
+   body.default .login-bd .lg-zone .lg-box .lg-label h4{border-left:4px solid #0066cd}
+.login-bd .lg-zone .lg-box .input-item{border-radius:3px;width:296px;line-height:40px;height:40px;border-bottom:1px solid #cfcfcf;margin:25px auto;}
+.login-bd .lg-zone .lg-box .input-item i{float:left;display:inline-block;width:40px;height:40px;line-height:40px;text-align:center;color:#5d5c68}
+.login-bd .lg-zone .lg-box .input-item input{text-align:center;border:0;height:36px;width:283px;float:left;padding-left:10px;outline:none;text-decoration:none}
+.login-bd .lg-zone .lg-box .input-item input:focus{outline:none;text-decoration:none}
+.login-bd .lg-zone .lg-box .input-item #user_name::-moz-placeholder{
+  color:#1ab2fd;
+  opacity:1;
+}
+.login-bd .lg-zone .lg-box .enter a{letter-spacing:10px;display:inline-block;text-decoration:none;height:48px;line-height:48px;text-align:center;color:#fff;font-size:20px;width:298px;}
+.login-bd .lg-zone .lg-box .enter a.purchaser{margin-top:43px;cursor:pointer;margin-left:34px;background-color:#00C6FB;margin-right:9px;border-radius:3px;}
+.login-bd .lg-zone .lg-box .enter a.supplier{background-color:#016cd6}  
     #loginHeadImg{display: block;
                    background-image: url(../public/css/icon2/login/icon.png) ;
                    background-repeat: no-repeat ;
@@ -71,17 +83,17 @@
   <div class="login-bd">
 
     
-    <div style="margin-top: 12.17%;width:364px;text-align:center;">
-        <span id="loginHeadImg">
-        </span>
-          <span class="top_text"></span>
-        </div>
+  
     <div class="lg-zone" >
 
-      <div class="lg-box" style="overflow:hidden;margin-top:10%">
+      <div class="lg-box" style="overflow:hidden;">
         
         <div id="login_u">
-             <div style="    text-align: center;padding: 21px;font-size: 17px;" >登录</div>
+              <div style="width:364px;text-align:center;">
+                <span id="loginHeadImg">
+                </span>
+                <span class="top_text"></span>
+              </div>
               <div class="lg-password input-item clearfix">
               <!--<i class="iconfont">&#xe634;</i>-->
               <input type="text" placeholder="请输入客户号" autocomplete="off" class="com_code" onkeydown="if(event.keyCode==13){$('.user_name').focus()}">
